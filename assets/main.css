@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .cards-container {
+    overflow: hidden;
+    padding-bottom: 20px;
+    margin-bottom: -20px;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    user-select: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scroll-grab {
+    cursor: grab;
+  }
+
+  .scroll-grab:active {
+    cursor: grabbing;
+  }
+} 
