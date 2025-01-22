@@ -8,7 +8,7 @@
     <div class="cards-container">
       <ul 
         ref="scrollContainer"
-        class="flex pb-6 space-x-4 overflow-x-auto scrollbar-hide scroll-grab"
+        class="flex space-x-4 overflow-x-auto scrollbar-hide scroll-grab"
         @mousedown="startDragging"
         @mousemove="drag"
         @mouseup="stopDragging"
