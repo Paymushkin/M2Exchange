@@ -1,6 +1,6 @@
 <template>
   <li 
-    class="relative w-[350px] bg-white rounded-[60px] p-6 shadow-[0px_14.143px_53.036px_rgba(80,85,136,0.06)]"
+    class="relative w-[350px] bg-white rounded-[60px] p-6 object-item"
     :class="{ 'favorite-object': isFavorite(card.id) }"
   >
     <img :src="card.image" :alt="card.title" class="w-full h-auto rounded-lg mb-3" />
@@ -55,6 +55,11 @@ const { toggleFavorite, isFavorite } = useFavorites()
 </script>
 
 <style scoped>
+
+.object-item {
+  box-shadow: 0px 6px 15px 0px rgba(80, 85, 136, 0.06);
+}
+
 .icon-heart {
   width: 50px;
   aspect-ratio: 1 / 1;
@@ -69,9 +74,5 @@ const { toggleFavorite, isFavorite } = useFavorites()
 .icon-heart.is-favorite :deep(svg path) {
   fill: #4460F6;
   stroke: white;
-}
-
-.favorite-object {
-  box-shadow: 0px 14px 53px rgba(68, 96, 246, 0.1);
 }
 </style> 
