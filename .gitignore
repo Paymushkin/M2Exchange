@@ -9,7 +9,6 @@ node_modules
 .nuxt
 .nitro
 .cache
-dist
 
 # Logs
 logs
