@@ -2,6 +2,7 @@
 import { defineNuxtConfig } from 'nuxt/config'
 
 export default defineNuxtConfig({
+  
   devtools: { enabled: true },
 
   modules: [
@@ -69,6 +70,11 @@ export default defineNuxtConfig({
     },
     staticFilename: '[publicPath]/[name]-[hash][ext]'
   },
+
+  router: {
+    base: '/M2Exchange/'
+  },
+
 
   compatibilityDate: '2025-01-21'
 })
