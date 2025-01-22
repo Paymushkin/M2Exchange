@@ -1,9 +1,9 @@
 <template>
-  <section class="bg-[#F0F3FE] rounded-[36px] py-16">
+  <section>
     <div class="container mx-auto">
-      <div class="flex justify-between gap-5">
+      <div class="flex justify-between gap-5 bg-[#F0F3FE] rounded-[85px] py-16 px-[70px]">
         <div class="flex flex-col items-start gap-6 min-w-[570px]">
-            <h2 class="text-[60px] leading-[70px] font-bold text-dark mb-5">
+            <h2 class="h2-custom text-[60px] leading-[70px] font-bold text-dark mb-5">
                 Поможем найти лучший вариант
             </h2>
             
@@ -34,7 +34,7 @@
 </template>
 
 <script setup>
-import ExchangeButton from '../ExchangeButton.vue'
+import ExchangeButton from '~/components/buttons/ExchangeButton.vue'
 </script> 
 
 <style scoped>

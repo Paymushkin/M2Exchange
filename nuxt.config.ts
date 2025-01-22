@@ -10,7 +10,8 @@ export default defineNuxtConfig({
   ],
 
   css: [
-    '~/assets/main.css'
+    './assets/css/main.css',
+    './assets/css/global.css'
   ],
 
   app: {
@@ -30,7 +31,34 @@ export default defineNuxtConfig({
   },
 
   image: {
-    dir: 'public/images',
+    dir: 'assets/images',
+    domains: ['localhost'],
+    format: ['webp', 'jpg', 'png', 'svg'],
+    provider: 'ipx',
+    presets: {
+      avatar: {
+        modifiers: {
+          format: 'webp',
+          width: 46,
+          height: 46
+        }
+      },
+      hero: {
+        modifiers: {
+          format: 'webp',
+          width: 800,
+          quality: 90
+        }
+      },
+      object: {
+        modifiers: {
+          format: 'webp',
+          width: 282,
+          height: 200,
+          quality: 85
+        }
+      }
+    },
     screens: {
       xs: 320,
       sm: 640,
@@ -39,6 +67,7 @@ export default defineNuxtConfig({
       xl: 1280,
       xxl: 1536,
     },
+    staticFilename: '[publicPath]/[name]-[hash][ext]'
   },
 
   compatibilityDate: '2025-01-21'

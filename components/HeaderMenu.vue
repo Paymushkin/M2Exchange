@@ -23,14 +23,14 @@
 </template>
 
 <script setup>
-import ProfileIcon from '../icons/ProfileIcon.vue'
-import NotificationIcon from '../icons/NotificationIcon.vue'
-import MessageIcon from '../icons/MessageIcon.vue'
-import MyObjectsIcon from '../icons/MyObjectsIcon.vue'
-import AddObjectIcon from '../icons/AddObjectIcon.vue'
-import FavoritesIcon from '../icons/FavoritesIcon.vue'
-import HelpIcon from '../icons/HelpIcon.vue'
-import ContactIcon from '../icons/ContactIcon.vue'
+import ProfileIcon from './icons/ProfileIcon.vue'
+import NotificationIcon from './icons/NotificationIcon.vue'
+import MessageIcon from './icons/MessageIcon.vue'
+import MyObjectsIcon from './icons/MyObjectsIcon.vue'
+import AddObjectIcon from './icons/AddObjectIcon.vue'
+import FavoritesIcon from './icons/FavoritesIcon.vue'
+import HelpIcon from './icons/HelpIcon.vue'
+import ContactIcon from './icons/ContactIcon.vue'
 
 defineProps({
   isOpen: {

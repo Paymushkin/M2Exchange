@@ -2,10 +2,12 @@
   <HeroSection />
   <RecommendationsSection />
   <ExchangeInfoSection />
+  <ExchangeProcess />
 </template>
 
 <script setup>
-import HeroSection from '../src/components/mainPage/HeroSection.vue'
-import RecommendationsSection from '../src/components/mainPage/RecommendationsSection.vue'
-import ExchangeInfoSection from '../src/components/mainPage/ExchangeInfoSection.vue'
+import HeroSection from '~/components/sections/main/HeroSection.vue'
+import RecommendationsSection from '~/components/sections/main/RecommendationsSection.vue'
+import ExchangeInfoSection from '~/components/sections/main/ExchangeInfoSection.vue'
+import ExchangeProcess from '~/components/sections/main/ExchangeProcess.vue'
 </script> 

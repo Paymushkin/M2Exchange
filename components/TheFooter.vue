@@ -47,10 +47,10 @@
 <script setup>
 import TheLogo from './TheLogo.vue'
 import TheNavigation from './TheNavigation.vue'
-import InstagramIcon from '../icons/InstagramIcon.vue'
-import FacebookIcon from '../icons/FacebookIcon.vue'
-import GlobeIconMini from '../icons/GlobeIconMini.vue'
-import ChevronDownIcon from '../icons/ChevronDownIcon.vue'
+import InstagramIcon from './icons/InstagramIcon.vue'
+import FacebookIcon from './icons/FacebookIcon.vue'
+import GlobeIconMini from './icons/GlobeIconMini.vue'
+import ChevronDownIcon from './icons/ChevronDownIcon.vue'
 </script>
 
 <style scoped>

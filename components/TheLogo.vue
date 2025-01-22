@@ -10,7 +10,7 @@
 </template> 
 
 <script setup>
-import LogoIcon from '../icons/LogoIcon.vue'
+import LogoIcon from './icons/LogoIcon.vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()

@@ -5,7 +5,7 @@
       class="block"
     >
       <img 
-        :src="isAuthenticated ? userAvatar : defaultAvatar" 
+        :src="isAuthenticated ? '/images/avatars/avatar.png' : '/images/avatars/default-avatar.svg'" 
         :alt="isAuthenticated ? 'User avatar' : 'Default avatar'"
         class="min-w-[46px] h-[46px] aspect-square rounded-full object-cover"
       />
@@ -23,8 +23,6 @@
 
 <script setup>
 import { ref } from 'vue'
-import defaultAvatar from '../assets/images/default-avatar.svg'
-import userAvatar from '../assets/images/avatar.png'
 
 const isAuthenticated = ref(true) // В реальном приложении это значение будет приходить из хранилища или пропсов
 const notificationsCount = ref(3) // Количество уведомлений

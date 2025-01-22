@@ -25,7 +25,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { FavoriteIcon, SearchIcon, GlobeIcon } from '../icons/index'
+import { FavoriteIcon, SearchIcon, GlobeIcon } from '../src/icons/index'
 import MenuButton from './MenuButton.vue'
 import UserAvatar from './UserAvatar.vue'
 import HeaderMenu from './HeaderMenu.vue'

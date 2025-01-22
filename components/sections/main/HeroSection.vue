@@ -7,9 +7,9 @@
           <span class="text-dark-secondary text-[28px] leading-[34px] tracking-[12px] uppercase font-normal mb-9 block">
             exchange
           </span>
-          <h1 class="text-[77px] leading-[80px] font-bold text-dark-deep mb-11">
+          <h2 class="h2-custom text-[77px] leading-[80px] font-bold text-dark-deep mb-11">
             Обмен недвижимостью
-          </h1>
+          </h2>
           <p class="text-[#426BFF] text-[26px] leading-[36px] font-medium max-w-[608px] mb-11">
             Станьте собственником недвижимости в другой стране не расплачиваясь за нее
           </p>
@@ -36,11 +36,7 @@
 
         <!-- Правый блок с изображением -->
         <div class="max-w-[40%] xl:w-[800px]">
-          <img 
-            src="../../assets/images/hero-image.jpg" 
-            alt="Обмен недвижимостью" 
-            class="w-full rounded-[20px]"
-          />
+          <img src="~/assets/images/hero/hero-image.jpg" alt="Обмен недвижимостью" class="w-full rounded-[20px]">
         </div>
       </div>
     </div>
@@ -48,6 +44,6 @@
 </template>
 
 <script setup>
-import SearchIconForm from '../../icons/SearchIconForm.vue'
-import ExchangeButton from '../ExchangeButton.vue'
+import SearchIconForm from '~/components/icons/SearchIconForm.vue'
+import ExchangeButton from '~/components/buttons/ExchangeButton.vue'
 </script> 
