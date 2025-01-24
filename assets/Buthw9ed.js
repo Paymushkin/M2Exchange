@@ -1,1 +1,0 @@
-import{_ as t}from"./DlAUqK2U.js";import{c as o,a as s,o as c}from"./CiCD21az.js";const n={},r={class:"flex items-center justify-center p-10"};function a(f,e){return c(),o("div",r,e[0]||(e[0]=[s("h1",{class:"text-4xl font-bold"},"Account Page",-1)]))}const _=t(n,[["render",a]]);export{_ as default};
