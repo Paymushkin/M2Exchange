@@ -6,7 +6,7 @@
         <TheLogo class="mr-[78px]"/>
         <TheNavigation />
         <div class="flex items-center ml-auto gap-10">
-          <span class="text-black text-[16px] font-bold">Social</span>
+          <span class="text-black text-sm font-bold">Social</span>
           <div class="flex items-center gap-4">
             <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
               <InstagramIcon />

@@ -33,7 +33,7 @@ const { scrollContainer, startDragging, stopDragging, drag } = useDragScroll()
 const cards = [
   {
     id: 1,
-    image: '/images/objects/object-1.png',
+    image: new URL('@/assets/images/objects/object-1.png', import.meta.url).href,
     title: 'Apartment',
     price: '267000',
     location: 'Playa Arenal-Bol',
@@ -43,7 +43,7 @@ const cards = [
   },
   {
     id: 2,
-    image: '/images/objects/object-2.png',
+    image: new URL('@/assets/images/objects/object-2.png', import.meta.url).href,
     title: 'Apartment',
     price: '267000',
     location: 'Playa Arenal-Bol',
@@ -53,7 +53,7 @@ const cards = [
   },
   {
     id: 3,
-    image: '/images/objects/object-3.png',
+    image: new URL('@/assets/images/objects/object-3.png', import.meta.url).href,
     title: 'Apartment',
     price: '267000',
     location: 'Playa Arenal-Bol',
@@ -63,7 +63,7 @@ const cards = [
   },
   {
     id: 4,
-    image: '/images/objects/object-4.png',
+    image: new URL('@/assets/images/objects/object-4.png', import.meta.url).href,
     title: 'Apartment',
     price: '267000',
     location: 'Playa Arenal-Bol',
@@ -73,7 +73,7 @@ const cards = [
   },
   {
     id: 5,
-    image: '/images/objects/object-5.png',
+    image: new URL('@/assets/images/objects/object-5.png', import.meta.url).href,
     title: 'Apartment',
     price: '267000',
     location: 'Playa Arenal-Bol',

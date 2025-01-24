@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h2>Слайд 6</h2>
-    <p>Содержимое первого слайда.</p>
+    <p>Test</p>
+    <UButton>Test Button</UButton>
   </div>
 </template>
 

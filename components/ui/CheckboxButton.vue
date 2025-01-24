@@ -1,10 +1,7 @@
 <template>
   <UButton
-    :variant="modelValue === value ? 'solid' : 'outline'"
-    :color="modelValue === value ? 'primary' : 'gray'"
-    class="custom-button"
-    :class="{ 'custom-button--selected': modelValue === value }"
-    @click="$emit('update:modelValue', value)"
+    :class="['custom-checkbox-button', { 'selected': modelValue }]"
+    @click="$emit('update:modelValue', !modelValue)"
   >
     <slot />
   </UButton>
@@ -13,11 +10,7 @@
 <script setup>
 defineProps({
   modelValue: {
-    type: String,
-    required: true
-  },
-  value: {
-    type: String,
+    type: Boolean,
     required: true
   }
 })
@@ -26,7 +19,7 @@ defineEmits(['update:modelValue'])
 </script>
 
 <style>
-.custom-button {
+.custom-checkbox-button {
   font-size: 16px;
   font-weight: 500;
   padding: 8px 24px;
@@ -34,16 +27,17 @@ defineEmits(['update:modelValue'])
   height: 50px;
   border: none;
   outline: none;
-  border-radius: 16px;
+  border-radius: 40px;
   background-color: #F2F4FD;
   color: #656565;
   box-shadow: none;
 }
 
-.custom-button--selected,
-.custom-button--selected:hover,
-.custom-button:hover {
+.custom-checkbox-button.selected,
+.custom-checkbox-button.selected:hover,
+.custom-checkbox-button:hover {
   background-color: #1C2D6A;
   color: #ffffff;
 }
+
 </style> 

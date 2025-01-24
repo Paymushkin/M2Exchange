@@ -5,39 +5,40 @@
       Укажите цену и площадь вашей недвижимости
     </p>
 
-    <!-- Блок с ползунками -->
     <div class="w-[750px] max-w-full">
       <div class="mb-6">
         <div class="flex items-center gap-7">
           <label class="block text-left text-[18px] font-semibold text-[#001062]">Стоимость</label>
-          <div class="text-[16px] font-semibold text-[#001062] border border-[#3D62FF] rounded-[30px] px-4 py-2">{{ price.value }} €</div>
+          <div class="text-[16px] font-semibold text-[#001062] border border-[#3D62FF] rounded-[30px] px-4 py-2">{{ price }} €</div>
         </div>
-        <div class="relative">
-          <input type="range" :min="price.min" :max="price.max" v-model="price.value" class="w-full range-input" />
-          <div class="range-scale-container mb-2">
-            <div class="range-scale" :style="{ width: (price.value / price.max) * 100 + '%' }"></div>
-          </div>
-        </div>
+        <URange
+          v-model="price"
+          :min="priceConfig.min"
+          :max="priceConfig.max"
+          :step="priceConfig.step"
+          class="my-4 custom-range"
+        />
         <div class="flex justify-between">
-          <span class="text-[22px] font-semibold text-[#001062]">{{ price.min }} €</span>
-          <span class="text-[22px] font-semibold text-[#001062]">{{ price.max }} €</span>
+          <span class="text-[22px] font-semibold text-[#001062]">{{ priceConfig.min }} €</span>
+          <span class="text-[22px] font-semibold text-[#001062]">{{ priceConfig.max }} €</span>
         </div>
       </div>
 
       <div>
         <div class="flex items-center gap-7">
           <label class="block text-left text-[18px] font-semibold text-[#001062]">Площадь</label>
-          <div class="text-[16px] font-semibold text-[#001062] border border-[#3D62FF] rounded-[30px] px-4 py-2">{{ area.value }} м²</div>
+          <div class="text-[16px] font-semibold text-[#001062] border border-[#3D62FF] rounded-[30px] px-4 py-2">{{ area }} м²</div>
         </div>
-        <div class="relative">
-          <input type="range" :min="area.min" :max="area.max" v-model="area.value" class="w-full range-input" />
-          <div class="range-scale-container mb-2">
-            <div class="range-scale" :style="{ width: (area.value / area.max) * 100 + '%' }"></div>
-          </div>
-        </div>
+        <URange
+          v-model="area"
+          :min="areaConfig.min"
+          :max="areaConfig.max"
+          :step="areaConfig.step"
+          class="my-4 custom-range"
+        />
         <div class="flex justify-between">
-          <span class="text-[22px] font-semibold text-[#001062]">{{ area.min }} м²</span>
-          <span class="text-[22px] font-semibold text-[#001062]">{{ area.max }} м²</span>
+          <span class="text-[22px] font-semibold text-[#001062]">{{ areaConfig.min }} м²</span>
+          <span class="text-[22px] font-semibold text-[#001062]">{{ areaConfig.max }} м²</span>
         </div>
       </div>
     </div>
@@ -45,21 +46,27 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref } from 'vue'
 
-const price = ref({
+const priceConfig = {
   min: 0,
-  max: 10000000,
-  value: 300000,
-});
-const area = ref({
+  max: 1000000,
+  step: 10000,
+  defaultValue: 300000
+}
+
+const areaConfig = {
   min: 0,
-  max: 100000,
-  value: 300,
-}); 
+  max: 300000,
+  step: 10,
+  defaultValue: 30000
+}
+
+const price = ref(priceConfig.defaultValue)
+const area = ref(areaConfig.defaultValue)
 </script>
 
-<style scoped>
+<style>
 .custom-title {
   color: #202020;
   font-size: 30px;
@@ -74,51 +81,21 @@ const area = ref({
   line-height: 1.2;
 }
 
-.range-input {
-  -webkit-appearance: none;
-  width: 100%;
-  height: 0;
-  background: transparent;
-  outline: none;
-  position: relative;
-  z-index: 2;
-  transform: translateY(8px);
+.custom-range {
+  --u-range-thumb-background: #4169E1;
+  --u-range-thumb-border-color: #4169E1;
+  --u-range-track-background: #E5E7EB;
+  --u-range-track-active-background: #4169E1;
+  --u-range-thumb-size: 20px;
+  --u-range-track-height: 6px;
 }
 
-.range-input::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 26px;
-  height: 26px;
-  background: #ffffff;
-  border: 2px solid #3D62FF;
+.custom-range .u-range-thumb {
   border-radius: 50%;
   cursor: pointer;
 }
 
-.range-input::-moz-range-thumb {
-  width: 26px;
-  height: 26px;
-  background: #ffffff;
-  border: 2px solid #3D62FF;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.range-scale {
-  position: absolute;
-  height: 5px;
-  background: #3D62FF;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  border-radius: 30px;
-}
-
-.range-scale-container {
-  position: relative;
-  height: 5px;
-  background: #EAEFFB;
-  border-radius: 30px;
+.custom-range .u-range-track {
+  border-radius: 3px;
 }
 </style> 

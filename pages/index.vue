@@ -8,6 +8,7 @@
     <Slider />
     </div>
   </div>
+
 </template>
 
 <script setup>
@@ -16,6 +17,7 @@ import RecommendationsSection from '~/components/sections/main/RecommendationsSe
 import ExchangeInfoSection from '~/components/sections/main/ExchangeInfoSection.vue'
 import ExchangeProcess from '~/components/sections/main/ExchangeProcess.vue'
 import Slider from '~/components/Slider.vue'
+
 </script>
 
 <style scoped>

@@ -1,19 +1,24 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import { defineNuxtConfig } from 'nuxt/config'
+import type { NuxtConfig } from '@nuxt/schema'
 
 export default defineNuxtConfig({
   
   devtools: { enabled: true },
 
   modules: [
+    '@nuxt/ui',
     '@nuxtjs/tailwindcss',
-    '@nuxt/image'
+    '@nuxt/image',
+    '@nuxtjs/color-mode',
   ],
 
   css: [
     './assets/css/main.css',
     './assets/css/global.css'
   ],
+
+  ssr: false,
 
   app: {
     head: {
@@ -28,7 +33,9 @@ export default defineNuxtConfig({
           href: 'https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap'
         }
       ]
-    }
+    },
+    buildAssetsDir: '/assets/', 
+    baseURL: '/M2Exchange/'
   },
 
   image: {
@@ -71,10 +78,20 @@ export default defineNuxtConfig({
     staticFilename: '[publicPath]/[name]-[hash][ext]'
   },
 
-  router: {
-    base: '/M2Exchange/'
+  compatibilityDate: '2025-01-21',
+
+  colorMode: {
+    preference: 'light',
+    classSuffix: ''
   },
 
-
-  compatibilityDate: '2025-01-21'
-})
+  tailwindcss: {
+    exposeConfig: true,
+    config: {
+      content: [],
+      theme: {
+        extend: {}
+      }
+    }
+  }
+} satisfies NuxtConfig)

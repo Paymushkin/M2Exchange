@@ -4,13 +4,13 @@
       <div class="flex items-center justify-between">
         <!-- Левый блок с контентом -->
         <div class="w-[55%] max-w-[777px]">
-          <span class="text-dark-secondary text-[28px] leading-[34px] tracking-[12px] uppercase font-normal mb-9 block">
+          <span class="text-dark-secondary text-3xl tracking-[12px] uppercase font-normal mb-9 block">
             exchange
           </span>
-          <h2 class="h2-custom text-[77px] leading-[80px] font-bold text-dark-deep mb-11">
+          <h1 class="text-5xl font-bold text-dark-deep mb-11">
             Обмен недвижимостью
-          </h2>
-          <p class="text-[#426BFF] text-[26px] leading-[36px] font-medium max-w-[608px] mb-11">
+          </h1>
+          <p class="text-[#426BFF] text-2xl font-medium max-w-[608px] mb-11">
             Станьте собственником недвижимости в другой стране не расплачиваясь за нее
           </p>
           
@@ -23,10 +23,10 @@
                 <input 
                   type="text" 
                   placeholder="Поиск" 
-                  class="flex-1 px-4 max-w-[260px] outline-none text-[22px] leading-[32px] text-dark"
+                  class="flex-1 px-4 max-w-[260px] outline-none text-xl text-dark"
                 />
               </div>
-              <button type="submit" class="text-dark-deep rounded-[8px] text-[25px] leading-[34px] transition-colors hover:text-primary">
+              <button type="submit" class="text-dark-deep rounded-[8px] text-2xl transition-colors hover:text-primary">
                 Найти
               </button>
             </div>

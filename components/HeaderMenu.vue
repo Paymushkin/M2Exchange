@@ -3,7 +3,7 @@
     v-show="isOpen"
     class="absolute top-[calc(100%+25px)] right-0 w-[232px] bg-white rounded-[26px] shadow-lg px-[10px] pt-[36px] pb-[12px] transition-all duration-300 z-50"
   >
-    <nav class="flex flex-col gap-4">
+    <nav class="flex items-start flex-col gap-4">
       <template v-for="(item, index) in menuItems" :key="item.path">
         <router-link 
           :to="item.path"
@@ -11,13 +11,14 @@
           @click="closeMenu"
         >
           <component :is="item.icon" class="w-5 h-5 text-primary group-hover:text-primary" />
-          <span class="text-dark group-hover:text-primary text-[13px] leading-[20px]">{{ item.name }}</span>
+          <span class="text-dark group-hover:text-primary text-xs leading-[20px]">{{ item.name }}</span>
         </router-link>
         <div 
           v-if="index === 2 || index === 5" 
-          class="h-[1px] bg-gray-divider"
+          class="h-[1px] w-full bg-divider-light"
         />
       </template>
+      <LogoutButton v-if="isAuthenticated" />
     </nav>
   </div>
 </template>
@@ -31,6 +32,8 @@ import AddObjectIcon from './icons/AddObjectIcon.vue'
 import FavoritesIcon from './icons/FavoritesIcon.vue'
 import HelpIcon from './icons/HelpIcon.vue'
 import ContactIcon from './icons/ContactIcon.vue'
+import LogoutButton from './ui/LogoutButton.vue'
+import { ref } from 'vue'
 
 defineProps({
   isOpen: {
@@ -87,4 +90,15 @@ const menuItems = [
 const closeMenu = () => {
   emit('close')
 }
-</script> 
+
+const isAuthenticated = ref(true) // Замените на вашу логику аутентификации
+</script>
+
+<style scoped>
+.header-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+</style> 

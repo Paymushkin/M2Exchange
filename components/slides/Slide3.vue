@@ -6,12 +6,12 @@
     </p>
     
     <div class="flex flex-wrap justify-center gap-4">
-      <RadioButton 
-        v-for="button in buttons" 
-        :key="button.value" 
-        :value="button.value" 
-        name="property-type" 
-        v-model="selectedType">
+      <RadioButton
+        v-for="button in buttons"
+        :key="button.value"
+        v-model="selectedType"
+        :value="button.value"
+      >
         {{ button.label }}
       </RadioButton>
     </div>
@@ -19,10 +19,10 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import RadioButton from '~/components/ui/RadioButton.vue';
+import { ref } from 'vue'
+import RadioButton from '../ui/RadioButton.vue'
 
-const selectedType = ref('all');
+const selectedType = ref('all')
 
 const buttons = [
   { value: 'all', label: 'Все' },
@@ -40,10 +40,10 @@ const buttons = [
   { value: 'hotels', label: 'Гостиницы и отели' },
   { value: 'commercial', label: 'Коммерческая недвижимость' },
   { value: 'industrial', label: 'Промышленная недвижимость' }
-];
+]
 </script>
 
-<style scoped>
+<style>
 .custom-title {
   color: #202020;
   font-size: 30px;

@@ -11,13 +11,13 @@
     >
       <HeartIcon class="h-6" />
     </div>
-    <div class="flex items-center mb-3 gap-2 justify-between text-[24px]">
+    <div class="flex items-center mb-3 gap-2 justify-between text-xl">
       <p class="font-semibold">{{ card.title }}</p>
       <p class="text-primary-lighter font-semibold">${{ card.price }}</p>
     </div>
     <div class="flex items-center mb-3">
       <LocationIcon />
-      <span class="ml-1 text-[18px]">{{ card.location }}</span>
+      <span class="ml-1">{{ card.location }}</span>
     </div>
     <div class="flex items-center gap-2">
       <div class="flex items-center grow mt-2">
