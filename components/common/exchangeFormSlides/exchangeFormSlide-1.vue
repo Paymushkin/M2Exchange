@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col max-w-[600px] h-full">
-    <h2 class="custom-title mb-6 text-left">Вы хотите обменять свое жилье?</h2>
-    <p class="description text-base mb-[90px]">
+    <h2 class="slide-custom__title mb-6 text-left">Вы хотите обменять свое жилье?</h2>
+    <p class="slide-custom__description text-base mb-[90px]">
       На нашей платформе вы можете разместить свое
       объявление и ответить на несколько вопросов об интересующем вас варианте обмена, после чего сервис сам предложит вам варианты обмена!
     </p>
@@ -45,19 +45,3 @@ const updateSelection = (value) => {
   selectedOption.value = value;
 };
 </script>
-
-<style scoped>
-.custom-title {
-  color: #202020;
-  font-size: 30px;
-  font-weight: 500;
-  line-height: 1.3;
-}
-
-.description {
-  max-width: 560px;
-  color: #8C8B8B;
-  font-size: 16px;
-  line-height: 1.2;
-}
-</style> 

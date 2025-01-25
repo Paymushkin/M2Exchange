@@ -1,6 +1,6 @@
 <template>
   <div class="hidden md:flex items-center space-x-8">
-    <ExchangeButton @click="$emit('open-modal')" />
+    <HeaderExchangeButton @click="$emit('open-modal')" />
     <a 
       v-for="item in navigationItems" 
       :key="item.text"
@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import ExchangeButton from '@/components/ui/ExchangeButton.vue'
+import HeaderExchangeButton from '@/components/ui/HeaderExchangeButton.vue'
 
 defineEmits(['open-modal'])
 

@@ -1,25 +1,27 @@
 <template>
-  <section class="relative pl-[80px] pr-6 py-6 mb-20">
+  <section class="relative pl-[80px] py-6 mb-20">
     <!-- Фоновый блок -->
     <div class="absolute inset-0 object-shape"></div>
     
-    <h2 class="text-[42px] leading-[50px] font-bold text-left mb-6 text-dark">Рекомендуемые объекты</h2>
-    
-    <div class="cards-container">
-      <ul 
-        ref="scrollContainer"
-        class="flex space-x-4 overflow-x-auto scrollbar-hide scroll-grab"
-        @mousedown="startDragging"
-        @mousemove="drag"
-        @mouseup="stopDragging"
-        @mouseleave="stopDragging"
-      >
-        <ObjectCard 
-          v-for="card in cards" 
-          :key="card.id" 
-          :card="card"
-        />
-      </ul>
+    <div class="container p-0">
+      <h2 class="text-[42px] leading-[50px] font-bold text-left mb-6 text-dark">Рекомендуемые объекты</h2>
+      
+      <div class="cards-container">
+        <ul 
+          ref="scrollContainer"
+          class="flex space-x-4 overflow-x-auto scrollbar-hide scroll-grab"
+          @mousedown="startDragging"
+          @mousemove="drag"
+          @mouseup="stopDragging"
+          @mouseleave="stopDragging"
+        >
+          <ObjectCard 
+            v-for="card in cards" 
+            :key="card.id" 
+            :card="card"
+          />
+        </ul>
+      </div>
     </div>
   </section>
 </template>

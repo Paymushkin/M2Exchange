@@ -48,31 +48,30 @@
 
 <script setup>
 import { ref, markRaw, computed, defineProps } from 'vue';
-import Slide1 from './slides/Slide1.vue';
-import Slide2 from './slides/Slide2.vue';
-import Slide3 from './slides/Slide3.vue';
-import Slide4 from './slides/Slide4.vue';
-import Slide5 from './slides/Slide5.vue';
-import Slide6 from './slides/Slide6.vue';
-import Slide7 from './slides/Slide7.vue';
-import Slide8 from './slides/Slide8.vue';
-import Slide9 from './slides/Slide9.vue';
-import LogoIcon from './icons/LogoIcon.vue';
-import ArrowIcon from './icons/ArrowIcon.vue'
-import CloseIcon from './icons/CloseIcon.vue'
+import exchangeFormSlide1 from '@/components/common/exchangeFormSlides/exchangeFormSlide-1.vue';
+import exchangeFormSlide2 from '@/components/common/exchangeFormSlides/exchangeFormSlide-2.vue';
+import exchangeFormSlide3 from '@/components/common/exchangeFormSlides/exchangeFormSlide-3.vue';
+import exchangeFormSlide4 from '@/components/common/exchangeFormSlides/exchangeFormSlide-4.vue';
+import exchangeFormSlide5 from '@/components/common/exchangeFormSlides/exchangeFormSlide-5.vue';
+import exchangeFormSlide6 from '@/components/common/exchangeFormSlides/exchangeFormSlide-6.vue';
+import exchangeFormSlide7 from '@/components/common/exchangeFormSlides/exchangeFormSlide-7.vue';
+import exchangeFormSlide8 from '@/components/common/exchangeFormSlides/exchangeFormSlide-8.vue';
+import exchangeFormSlide9 from '@/components/common/exchangeFormSlides/exchangeFormSlide-9.vue';
+
+import { LogoIcon, ArrowIcon, CloseIcon } from '@/components/icons/icons.js'
 
 const props = defineProps(['fromModal', 'closeModal'])
 
 const slides = [
-  markRaw(Slide1),
-  markRaw(Slide2),
-  markRaw(Slide3),
-  markRaw(Slide4),
-  markRaw(Slide5),
-  markRaw(Slide6),
-  markRaw(Slide7),
-  markRaw(Slide8),
-  markRaw(Slide9)
+  markRaw(exchangeFormSlide1),
+  markRaw(exchangeFormSlide2),
+  markRaw(exchangeFormSlide3),
+  markRaw(exchangeFormSlide4),
+  markRaw(exchangeFormSlide5),
+  markRaw(exchangeFormSlide6),
+  markRaw(exchangeFormSlide7),
+  markRaw(exchangeFormSlide8),
+  markRaw(exchangeFormSlide9)
 ];
 
 const currentIndex = ref(0);

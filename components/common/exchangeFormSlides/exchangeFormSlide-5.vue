@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-center justify-center max-w-[970px] h-full">
-    <h2 class="custom-title mb-6 text-center">Дополнительная информация об объекте</h2>
+    <h2 class="slide-custom__title mb-6 text-center">Дополнительная информация об объекте</h2>
     
     <div class="flex flex-col gap-8 w-full">
       <div class="flex flex-col gap-4 max-w-[480px]">
@@ -70,7 +70,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import CheckboxButton from '../ui/CheckboxButton.vue'
+import CheckboxButton from '@/components/ui/CheckboxButton.vue'
 
 const bedroomsConfig = {
   min: 0,

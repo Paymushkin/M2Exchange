@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col items-center justify-center max-w-[970px] h-full">
-    <h2 class="custom-title mb-6 text-center">Тип объекта</h2>
-    <p class="description text-base mb-6 text-center">
+    <h2 class="slide-custom__title mb-6 text-center">Тип объекта</h2>
+    <p class="slide-custom__description text-base mb-6 text-center">
       Выберите одну или несколько категорий интересующей вас недвижимости
     </p>
     
@@ -20,7 +20,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import RadioButton from '../ui/RadioButton.vue'
+import RadioButton from '@/components/ui/RadioButton.vue'
 
 const selectedType = ref('all')
 
@@ -42,19 +42,3 @@ const buttons = [
   { value: 'industrial', label: 'Промышленная недвижимость' }
 ]
 </script>
-
-<style>
-.custom-title {
-  color: #202020;
-  font-size: 30px;
-  font-weight: 500;
-  line-height: 1.3;
-}
-
-.description {
-  max-width: 560px;
-  color: #8C8B8B;
-  font-size: 16px;
-  line-height: 1.2;
-}
-</style> 

@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col items-start justify-center h-full max-w-[420px]">
-    <h2 class="custom-title mb-6 text-left">Добавьте фото</h2>
-    <p class="description text-base mb-6">
+    <h2 class="slide-custom__title mb-6 text-left">Добавьте фото</h2>
+    <p class="slide-custom__description text-base mb-6">
       Добавьте как минимум 4 фотографии с названиями. Чем больше фото вы разместите, тем выше шанс найти вариант на обмен.
     </p>
     
@@ -36,7 +36,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import PlusIcon from '../icons/PlusIcon.vue'
+import { PlusIcon } from '@/components/icons/icons.js'
 
 const fileInput0 = ref(null);
 const fileInput1 = ref(null);
@@ -57,21 +57,7 @@ const handleFileChange = (index) => {
 }
 </script>
 
-<style>
-.custom-title {
-  color: #202020;
-  font-size: 30px;
-  font-weight: 500;
-  line-height: 1.3;
-}
-
-.description {
-  max-width: 560px;
-  color: #8C8B8B;
-  font-size: 16px;
-  line-height: 1.2;
-}
-
+<style scoped>
 .flex-item {
   padding: 12px;
   border-radius: 20px;

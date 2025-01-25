@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col items-center justify-center max-w-[970px] h-full">
-    <h2 class="custom-title mb-6 text-center">Стоимость и площадь объекта</h2>
-    <p class="description text-base mb-6 text-center">
+    <h2 class="slide-custom__title mb-6 text-center">Стоимость и площадь объекта</h2>
+    <p class="slide-custom__description text-base mb-6 text-center">
       Укажите цену и площадь вашей недвижимости
     </p>
 
@@ -67,20 +67,6 @@ const area = ref(areaConfig.defaultValue)
 </script>
 
 <style>
-.custom-title {
-  color: #202020;
-  font-size: 30px;
-  font-weight: 500;
-  line-height: 1.3;
-}
-
-.description {
-  max-width: 560px;
-  color: #8C8B8B;
-  font-size: 16px;
-  line-height: 1.2;
-}
-
 .custom-range {
   --u-range-thumb-background: #4169E1;
   --u-range-thumb-border-color: #4169E1;

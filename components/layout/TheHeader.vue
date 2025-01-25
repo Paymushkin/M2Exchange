@@ -13,7 +13,7 @@
   </header>
 
   <UModal v-model="isOpen">
-    <Slider :fromModal="true" :closeModal="() => { isOpen = false }" />
+    <ExchangeFormSlider :fromModal="true" :closeModal="() => { isOpen = false }" />
   </UModal>
 </template>
 
@@ -23,7 +23,7 @@ import { ref } from 'vue'
 import TheLogo from '@/components/common/TheLogo.vue'
 import TheNavigation from '@/components/common/TheNavigation.vue'
 import TheHeaderActions from '@/components/TheHeaderActions.vue'
-import Slider from '@/components/Slider.vue'
+import ExchangeFormSlider from '@/components/common/ExchangeFormSlider.vue'
 
 const isOpen = ref(false)
 </script> 

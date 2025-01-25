@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col items-center justify-center max-w-[480px] h-full">
-    <h2 class="custom-title mb-6 text-left">Назовите объявление и опишите жилье</h2>
-    <p class="description text-base mb-6">
+    <h2 class="slide-custom__title mb-6 text-left">Назовите объявление и опишите жилье</h2>
+    <p class="slide-custom__description text-base mb-6">
       Поделитесь основными сведениями, например где оно находится, что окружает, какой ремонт и год постройки.
     </p>
     <div class="flex flex-col w-full h-full">

@@ -1,4 +1,4 @@
-<template>
+<template class="flex flex-col min-h-screen">
   <TheHeader />
   <NuxtPage />
   <TheFooter />
@@ -8,7 +8,3 @@
 import TheHeader from '@/components/layout/TheHeader.vue'
 import TheFooter from '@/components/layout/TheFooter.vue'
 </script>
-
-<style>
-/* Ваши стили */
-</style> 

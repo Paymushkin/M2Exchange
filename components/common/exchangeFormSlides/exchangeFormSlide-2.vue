@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col justify-center h-full">
-    <h2 class="custom-title mb-6">Где находится объект?</h2>
-    <p class="description text-base mb-[40px]">
+    <h2 class="slide-custom__title mb-6">Где находится объект?</h2>
+    <p class="slide-custom__description text-base mb-[40px]">
       Введите адрес или выберите зону на карте
     </p>
     
@@ -21,22 +21,7 @@
 </template>
 
 <script setup>
-import LocationIcon from '~/components/icons/LocationIcon.vue';
-import MapIcon from '~/components/icons/MapIcon.vue';
+import { LocationIcon } from '@/components/icons/icons.js';
+import { MapIcon } from '@/components/icons/icons.js';
+
 </script>
-
-<style scoped>
-.custom-title {
-  color: #202020;
-  font-size: 30px;
-  font-weight: 500;
-  line-height: 1.3;
-}
-
-.description {
-  max-width: 560px;
-  color: #8C8B8B;
-  font-size: 16px;
-  line-height: 1.2;
-}
-</style> 
