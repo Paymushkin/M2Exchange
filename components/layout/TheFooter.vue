@@ -1,7 +1,6 @@
 <template>
   <footer class="bg-footer py-12 rounded-t-[30px]">
     <div class="container mx-auto flex flex-col items-center">
-      <!-- Верхняя часть подвала -->
       <div class="flex items-center w-full mb-[72px]">
         <TheLogo class="mr-[78px]"/>
         <TheNavigation />
@@ -17,9 +16,7 @@
           </div>
         </div>
       </div>
-      <!-- Разделитель -->
       <div class="w-full h-[1px] bg-gray-200"></div>
-      <!-- Нижняя часть подвала -->
       <div class="flex items-center mt-5 w-full text-center text-gray-600">
         <p>&copy; {{ new Date().getFullYear() }} <b>m2 exchange</b></p>
         <div class="flex ml-[95px] gap-9">
@@ -28,12 +25,10 @@
           <a href="/download" class="hover:underline">Скачать приложение</a>
         </div>
         <div class="flex items-center ml-auto gap-8">
-          <!-- Переключатель языка -->
           <div class="flex items-center gap-2">
             <GlobeIconMini />
             <span class="ml-1">Русский</span>
           </div>
-          <!-- Блок с текстом 'Поддержка и вопросы' -->
           <div class="flex items-center gap-2">
             <span class="ml-1">Поддержка и вопросы</span>
             <ChevronDownIcon />
@@ -45,14 +40,10 @@
 </template>
 
 <script setup>
-import TheLogo from './TheLogo.vue'
-import TheNavigation from './TheNavigation.vue'
-import InstagramIcon from './icons/InstagramIcon.vue'
-import FacebookIcon from './icons/FacebookIcon.vue'
-import GlobeIconMini from './icons/GlobeIconMini.vue'
-import ChevronDownIcon from './icons/ChevronDownIcon.vue'
+import TheLogo from '@/components/common/TheLogo.vue'
+import TheNavigation from '@/components/common/TheNavigation.vue'
+import InstagramIcon from '@/components/icons/InstagramIcon.vue'
+import FacebookIcon from '@/components/icons/FacebookIcon.vue'
+import GlobeIconMini from '@/components/icons/GlobeIconMini.vue'
+import ChevronDownIcon from '@/components/icons/ChevronDownIcon.vue'
 </script>
-
-<style scoped>
-/* Добавьте стили, если необходимо */
-</style> 

@@ -23,6 +23,7 @@ export default {
       colors: {
         'primary': '#4460F6',
         'primary-dark': '#2B3F9E',
+        'primary-darker': '#252B5C',
         'primary-light': '#F0F3FE',
         'primary-lighter': '#426BFF',
         'secondary': '#5B7BA6',
@@ -48,6 +49,17 @@ export default {
         'error': '#FF6B6B',
         'warning': '#FFB800',
         footer: '#F4F7FF',
+      },
+      borderRadius: {
+        'none': '0',
+        'sm': '0.125rem', // 2px
+        'DEFAULT': '0.25rem', // 4px
+        'md': '0.375rem', // 6px
+        'lg': '55px', // 8px
+        'xl': '0.75rem', // 12px
+        '2xl': '1rem', // 16px
+        '3xl': '1.5rem', // 24px
+        'full': '9999px', // Полное закругление
       },
     },
     container: {

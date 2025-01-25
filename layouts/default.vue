@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="min-h-screen flex flex-col">
     <TheHeader />
     <main class="flex flex-grow flex-col">
@@ -9,6 +9,6 @@
 </template>
 
 <script setup>
-import TheHeader from '~/components/TheHeader.vue'
-import TheFooter from '~/components/TheFooter.vue'
-</script> 
+import TheHeader from '~/components/layout/TheHeader.vue'
+import TheFooter from '~/components/layout/TheFooter.vue'
+</script>  -->

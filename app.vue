@@ -1,10 +1,14 @@
 <template>
-  <NuxtLayout>
-    <NuxtPage />
-  </NuxtLayout>
+  <TheHeader />
+  <NuxtPage />
+  <TheFooter />
 </template>
 
 <script setup>
-import TheHeader from './components/TheHeader.vue'
-import TheFooter from './components/TheFooter.vue'
-</script> 
+import TheHeader from '@/components/layout/TheHeader.vue'
+import TheFooter from '@/components/layout/TheFooter.vue'
+</script>
+
+<style>
+/* Ваши стили */
+</style> 

@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import ExchangeButton from './ui/ExchangeButton.vue'
+import ExchangeButton from '@/components/ui/ExchangeButton.vue'
 
 defineEmits(['open-modal'])
 

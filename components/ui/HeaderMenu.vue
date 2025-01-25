@@ -24,16 +24,18 @@
 </template>
 
 <script setup>
-import ProfileIcon from './icons/ProfileIcon.vue'
-import NotificationIcon from './icons/NotificationIcon.vue'
-import MessageIcon from './icons/MessageIcon.vue'
-import MyObjectsIcon from './icons/MyObjectsIcon.vue'
-import AddObjectIcon from './icons/AddObjectIcon.vue'
-import FavoritesIcon from './icons/FavoritesIcon.vue'
-import HelpIcon from './icons/HelpIcon.vue'
-import ContactIcon from './icons/ContactIcon.vue'
-import LogoutButton from './ui/LogoutButton.vue'
 import { ref } from 'vue'
+
+import { 
+  ProfileIcon, 
+  NotificationIcon, 
+  MessageIcon, 
+  MyObjectsIcon, 
+  AddObjectIcon, 
+  FavoritesIcon, 
+  HelpIcon, 
+  ContactIcon 
+} from '@/components/icons/icons.js'
 
 defineProps({
   isOpen: {
@@ -91,7 +93,7 @@ const closeMenu = () => {
   emit('close')
 }
 
-const isAuthenticated = ref(true) // Замените на вашу логику аутентификации
+const isAuthenticated = ref(true)
 </script>
 
 <style scoped>

@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="mb-[100px]">
     <div class="container mx-auto">
       <div class="flex justify-between gap-5 bg-[#F0F3FE] rounded-[85px] py-16 px-[70px]">
         <div class="flex flex-col items-start gap-6 min-w-[570px]">
@@ -34,7 +34,7 @@
 </template>
 
 <script setup>
-import ExchangeButton from '~/components/buttons/ExchangeButton.vue'
+import ExchangeButton from '@/components/ui/ExchangeButton.vue'
 </script> 
 
 <style scoped>

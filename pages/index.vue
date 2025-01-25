@@ -2,8 +2,9 @@
   <HeroSection />
   <RecommendationsSection />
   <ExchangeInfoSection />
+  <TopLocations />
   <ExchangeProcess />
-  <div class="container">
+  <div class="container mb-[200px]">
     <div class="py-12 bg-[#EFF3FF] rounded-[80px]">
     <Slider />
     </div>
@@ -17,6 +18,7 @@ import RecommendationsSection from '~/components/sections/main/RecommendationsSe
 import ExchangeInfoSection from '~/components/sections/main/ExchangeInfoSection.vue'
 import ExchangeProcess from '~/components/sections/main/ExchangeProcess.vue'
 import Slider from '~/components/Slider.vue'
+import TopLocations from '~/components/sections/main/TopLocations.vue'
 
 </script>
 

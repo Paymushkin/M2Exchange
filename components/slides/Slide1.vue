@@ -1,7 +1,7 @@
 <template>
-  <div class="flex flex-col items-center justify-center h-full">
-    <h2 class="custom-title mb-6 text-center">Вы хотите обменять свое жилье?</h2>
-    <p class="description text-base mb-[90px] text-center">
+  <div class="flex flex-col max-w-[600px] h-full">
+    <h2 class="custom-title mb-6 text-left">Вы хотите обменять свое жилье?</h2>
+    <p class="description text-base mb-[90px]">
       На нашей платформе вы можете разместить свое
       объявление и ответить на несколько вопросов об интересующем вас варианте обмена, после чего сервис сам предложит вам варианты обмена!
     </p>

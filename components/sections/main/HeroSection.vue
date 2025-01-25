@@ -18,7 +18,7 @@
           <div class="flex gap-4">
             <div class="flex items-center max-w-[460px] bg-white rounded-[60px] border-divider-light border py-5 pr-10 pl-5 flex-1 transition-all duration-300 hover:shadow-[0px_0px_0px_1px_#4460F6] hover:border-transparent">
               <div class="flex items-center flex-1">
-                <SearchIconForm class="text-primary ml-2 mr-3" />
+                <SearchFormIcon class="text-primary ml-2 mr-3" />
                 <div class="w-[1px] h-[32px] bg-[#7974E7]"></div>
                 <input 
                   type="text" 
@@ -44,6 +44,6 @@
 </template>
 
 <script setup>
-import SearchIconForm from '~/components/icons/SearchIconForm.vue'
-import ExchangeButton from '~/components/buttons/ExchangeButton.vue'
+  import { SearchFormIcon } from '@/components/icons/icons.js'
+  import ExchangeButton from '@/components/ui/ExchangeButton.vue'
 </script> 

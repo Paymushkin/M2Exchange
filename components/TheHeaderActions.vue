@@ -25,10 +25,12 @@
 
 <script setup>
 import { ref } from 'vue'
-import { FavoriteIcon, SearchIcon, GlobeIcon } from '../src/icons/index'
-import MenuButton from './MenuButton.vue'
-import UserAvatar from './UserAvatar.vue'
-import HeaderMenu from './HeaderMenu.vue'
+import FavoriteIcon from '@/components/icons/FavoriteIcon.vue'
+import SearchIcon from '@/components/icons/SearchIcon.vue'
+import GlobeIcon from '@/components/icons/GlobeIcon.vue'
+import MenuButton from '@/components/ui/MenuButton.vue'
+import UserAvatar from '@/components/common/TheUserAvatar.vue'
+import HeaderMenu from '@/components/ui/HeaderMenu.vue'
 
 const actions = [
   { icon: FavoriteIcon },

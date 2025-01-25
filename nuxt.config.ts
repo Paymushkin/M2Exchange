@@ -14,8 +14,9 @@ export default defineNuxtConfig({
   ],
 
   css: [
-    './assets/css/main.css',
-    './assets/css/global.css'
+    '@/assets/styles/fonts.css',
+    '@/assets/styles/main.css',
+    '@/assets/styles/global.css'
   ],
 
   ssr: false,
@@ -28,10 +29,6 @@ export default defineNuxtConfig({
         { name: 'viewport', content: 'width=device-width, initial-scale=1' }
       ],
       link: [
-        { 
-          rel: 'stylesheet', 
-          href: 'https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap'
-        }
       ]
     },
     buildAssetsDir: '/assets/', 
@@ -43,30 +40,6 @@ export default defineNuxtConfig({
     domains: ['localhost'],
     format: ['webp', 'jpg', 'png', 'svg'],
     provider: 'ipx',
-    presets: {
-      avatar: {
-        modifiers: {
-          format: 'webp',
-          width: 46,
-          height: 46
-        }
-      },
-      hero: {
-        modifiers: {
-          format: 'webp',
-          width: 800,
-          quality: 90
-        }
-      },
-      object: {
-        modifiers: {
-          format: 'webp',
-          width: 282,
-          height: 200,
-          quality: 85
-        }
-      }
-    },
     screens: {
       xs: 320,
       sm: 640,

@@ -1,12 +1,21 @@
 <template>
-  <button class="flex items-center gap-2 bg-white hover:bg-[#6284FF] px-[8px] py-[6px] rounded-[40px] min-w-[179px] duration-300 transition-colors text-[#171652] hover:text-white">
-    <div class="w-[44px] h-[44px] rounded-full bg-[#060565] flex items-center justify-center">
-      <RefreshIcon />
-    </div>
-    <span>Обменять</span>
+  <button 
+    class="flex items-center gap-3 bg-primary text-white rounded-[60px] py-4 px-8 hover:bg-primary-dark transition-colors"
+    :class="{ 'w-[282px]': isWide }"
+  >
+    <SearchBackgroundIcon />
+    <span class="text-[25px] leading-[34px]">
+      <slot>Обменять</slot>
+    </span>
   </button>
 </template>
 
 <script setup>
-import RefreshIcon from '../icons/RefreshIcon.vue'
+import { SearchBackgroundIcon } from '@/components/icons/icons.js'
+defineProps({
+  isWide: {
+    type: Boolean,
+    default: false
+  }
+})
 </script> 

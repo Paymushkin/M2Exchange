@@ -1,7 +1,7 @@
 <template>
-  <div class="flex flex-col items-center justify-center h-full">
-    <h2 class="custom-title mb-6 text-center">Где находится объект?</h2>
-    <p class="description text-base mb-6 text-center">
+  <div class="flex flex-col justify-center h-full">
+    <h2 class="custom-title mb-6">Где находится объект?</h2>
+    <p class="description text-base mb-[40px]">
       Введите адрес или выберите зону на карте
     </p>
     

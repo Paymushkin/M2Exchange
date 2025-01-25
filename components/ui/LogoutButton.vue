@@ -6,5 +6,5 @@
 </template>
 
 <script setup>
-import ArrowIcon from '../icons/ArrowIcon.vue' // Импортируем новый компонент
+import { ArrowIcon } from '@/components/icons/icons.js'
 </script>
