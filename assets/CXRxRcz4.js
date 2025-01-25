@@ -1,1 +1,0 @@
-import{o as a,c as o,b as e,j as c,a as t,r as l,k as r}from"./DIyiyFUI.js";const n={class:"min-h-screen flex flex-col"},_={class:"flex flex-grow flex-col"},m={__name:"default",setup(f){return(s,d)=>(a(),o("div",n,[e(c),t("main",_,[l(s.$slots,"default")]),e(r)]))}};export{m as default};
