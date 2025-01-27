@@ -1,1 +1,0 @@
-import{_ as t,c as s,a as o,o as c}from"./BLLwgVpc.js";const n={},r={class:"flex items-center justify-center p-10"};function a(f,e){return c(),s("div",r,e[0]||(e[0]=[o("h1",{class:"text-4xl font-bold"},"Account Page",-1)]))}const _=t(n,[["render",a]]);export{_ as default};
