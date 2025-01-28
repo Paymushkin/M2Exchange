@@ -17,24 +17,30 @@ export default {
         'xl': ['22px', '30px'],     // Заголовок 3-го уровня
         '2xl': ['26px', '32px'],    // Заголовок 2-го уровня
         '3xl': ['30px', '40px'],    // Заголовок 1-го уровня
-        '4xl': ['60px', '70px'],    // Крупный заголовок
-        '5xl': ['76px', '80px'],    // Очень крупный заголовок
+        '4xl': ['36px', '44px'],    // Крупный заголовок
+        '5xl': ['60px', '70px'],    // Крупный заголовок
+        '6xl': ['76px', '80px'],    // Очень крупный заголовок
       },
       colors: {
-        'primary': '#4460F6',
-        'primary-dark': '#2B3F9E',
-        'primary-darker': '#252B5C',
-        'primary-light': '#F0F3FE',
-        'primary-lighter': '#426BFF',
-        'secondary': '#5B7BA6',
+        primary: {
+          DEFAULT: '#4A43EC',
+          darker: '#171652',
+          light: '#F3F4FF',
+          hover: '#171652/80',
+        },
+        secondary: {
+          DEFAULT: '#3D62FF',
+          light: '#EFF3FF',
+        },
+        dark: '#171652',
+        white: '#FFFFFF',
+        darker: '#535151',
+        background: {
+          light: '#F3F4FF',
+          blue: '#EFF3FF',
+        },
         'accent': '#E5EDFF',
         'divider-light': '#D2DBF5',
-        'dark': {
-          DEFAULT: '#252B5C',
-          secondary: '#2B3B70',
-          deep: '#0B1F5B',
-          deeper: '#202378',
-        },
         'gray': {
           DEFAULT: '#58667E',
           border: '#E3E4E8',
@@ -48,35 +54,35 @@ export default {
         'success': '#58BD7D',
         'error': '#FF6B6B',
         'warning': '#FFB800',
-        footer: '#F4F7FF',
       },
       borderRadius: {
         'none': '0',
-        'sm': '0.125rem', // 2px
-        'DEFAULT': '0.25rem', // 4px
-        'md': '0.375rem', // 6px
-        'lg': '55px', // 8px
-        'xl': '0.75rem', // 12px
-        '2xl': '1rem', // 16px
-        '3xl': '1.5rem', // 24px
+        'sm': '10px', // 2px
+        'DEFAULT': '16px', // 4px
+        'md': '22px', // 6px
+        'lg': '30px', // 8px
+        'xl': '40px', // 12px
+        '2xl': '54px', // 16px
+        '3xl': '80px', // 24px
         'full': '9999px', // Полное закругление
       },
     },
     container: {
       center: true,
       padding: {
-        DEFAULT: '1rem',
-        sm: '2rem',
-        lg: '4rem',
-        xl: '5rem',
-        '2xl': '6rem',
+        // DEFAULT: '1rem',
+        // sm: '2rem',
+        // lg: '4rem',
+        // xl: '50px',
+        // '2xl': '80px',
       },
       screens: {
-        // sm: '640px',
-        // md: '768px',
-        // lg: '1024px',
-        // xl: '100%',
-        '2xl': '1680px',
+        xs: '375px',
+        sm: '640px',
+        md: '768px',
+        lg: '1024px',
+        xl: '1440px',
+        '2xl': '1920px',
       },
     },
   },

@@ -1,10 +1,10 @@
 <template>
   <button 
-    class="flex items-center gap-3 bg-primary text-white rounded-[60px] py-4 px-8 hover:bg-primary-dark transition-colors"
+    class="flex items-center gap-3 lg:w-auto bg-primary text-white rounded-[60px] 2xl:py-4 py-2 2xl:px-8 px-4 hover:bg-primary-dark transition-colors"
     :class="{ 'w-[282px]': isWide }"
   >
     <SearchBackgroundIcon />
-    <span class="text-[25px] leading-[34px]">
+    <span class="2xl:text-xl text-lg leading-[1.2]">
       <slot>Обменять</slot>
     </span>
   </button>

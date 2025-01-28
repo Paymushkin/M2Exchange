@@ -31,6 +31,13 @@ defineEmits(['update:modelValue'])
   background-color: #F2F4FD;
   color: #656565;
   box-shadow: none;
+
+  @media (max-width: 640px) {
+    font-size: 12px;
+    padding: 6px 12px;
+    min-height: 40px;
+    height: 40px;
+  }
 }
 
 .custom-checkbox-button.selected,

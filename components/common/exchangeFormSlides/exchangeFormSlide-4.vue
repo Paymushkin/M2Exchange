@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center justify-center max-w-[970px] h-full">
+  <div class="flex flex-col items-center justify-center w-[970px] max-w-full h-full">
     <h2 class="slide-custom__title mb-6 text-center">Стоимость и площадь объекта</h2>
     <p class="slide-custom__description text-base mb-6 text-center">
       Укажите цену и площадь вашей недвижимости
@@ -8,37 +8,37 @@
     <div class="w-[750px] max-w-full">
       <div class="mb-6">
         <div class="flex items-center gap-7">
-          <label class="block text-left text-[18px] font-semibold text-[#001062]">Стоимость</label>
-          <div class="text-[16px] font-semibold text-[#001062] border border-[#3D62FF] rounded-[30px] px-4 py-2">{{ price }} €</div>
+          <label class="block text-left xl:text-base text-sm font-semibold text-[#001062]">Стоимость</label>
+          <div class="xl:text-sm text-xs font-semibold text-[#001062] border border-[#3D62FF] rounded-[30px] xl:px-4 xl:py-2 px-2 py-1">{{ price }} €</div>
         </div>
         <URange
           v-model="price"
           :min="priceConfig.min"
           :max="priceConfig.max"
           :step="priceConfig.step"
-          class="my-4 custom-range"
+          class="xl:my-4 my-2 custom-range"
         />
         <div class="flex justify-between">
-          <span class="text-[22px] font-semibold text-[#001062]">{{ priceConfig.min }} €</span>
-          <span class="text-[22px] font-semibold text-[#001062]">{{ priceConfig.max }} €</span>
+          <span class="xl:text-lg text-sm font-semibold text-[#001062]">{{ priceConfig.min }} €</span>
+          <span class="xl:text-lg text-sm font-semibold text-[#001062]">{{ priceConfig.max }} €</span>
         </div>
       </div>
 
       <div>
         <div class="flex items-center gap-7">
-          <label class="block text-left text-[18px] font-semibold text-[#001062]">Площадь</label>
-          <div class="text-[16px] font-semibold text-[#001062] border border-[#3D62FF] rounded-[30px] px-4 py-2">{{ area }} м²</div>
+          <label class="block text-left xl:text-base text-sm font-semibold text-[#001062]">Площадь</label>
+          <div class="xl:text-sm text-xs font-semibold text-[#001062] border border-[#3D62FF] rounded-[30px] xl:px-4 xl:py-2 px-2 py-1">{{ area }} м²</div>
         </div>
         <URange
           v-model="area"
           :min="areaConfig.min"
           :max="areaConfig.max"
           :step="areaConfig.step"
-          class="my-4 custom-range"
+          class="xl:my-4 my-2 custom-range"
         />
         <div class="flex justify-between">
-          <span class="text-[22px] font-semibold text-[#001062]">{{ areaConfig.min }} м²</span>
-          <span class="text-[22px] font-semibold text-[#001062]">{{ areaConfig.max }} м²</span>
+          <span class="xl:text-lg text-sm font-semibold text-[#001062]">{{ areaConfig.min }} м²</span>
+          <span class="xl:text-lg text-sm font-semibold text-[#001062]">{{ areaConfig.max }} м²</span>
         </div>
       </div>
     </div>

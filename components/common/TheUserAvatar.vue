@@ -7,7 +7,7 @@
       <img 
         :src="isAuthenticated ? avatarUrl : defaultAvatarUrl" 
         :alt="isAuthenticated ? 'User avatar' : 'Default avatar'"
-        class="min-w-[46px] h-[46px] aspect-square rounded-full object-cover"
+        class="min-w-[38px] h-[38px] aspect-square rounded-full object-cover"
       />
     </router-link>
     

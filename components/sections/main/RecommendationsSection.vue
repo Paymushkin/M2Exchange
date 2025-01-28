@@ -1,15 +1,15 @@
 <template>
-  <section class="relative pl-[80px] py-6 mb-20">
+  <section class="relative xl:mb-20 mb-5">
     <!-- Фоновый блок -->
-    <div class="absolute inset-0 object-shape"></div>
+    <div class="hidden lg:block absolute inset-0 bg-background-blue object-shape"></div>
     
-    <div class="container p-0">
-      <h2 class="text-[42px] leading-[50px] font-bold text-left mb-6 text-dark">Рекомендуемые объекты</h2>
+    <div class="container custom-container mx-auto">
+      <h2 class="2xl:text-[42px] lg:4xl text-2xl leading-[1.2]] font-bold text-left 2xl:mb-12 xl:mb-8 mb-5 pt-10 text-dark">Рекомендуемые объекты</h2>
       
       <div class="cards-container">
         <ul 
           ref="scrollContainer"
-          class="flex space-x-4 overflow-x-auto scrollbar-hide scroll-grab"
+          class="flex xl:gap-4 gap-2 overflow-x-auto pb-5 scrollbar-hide scroll-grab"
           @mousedown="startDragging"
           @mousemove="drag"
           @mouseup="stopDragging"
@@ -27,8 +27,8 @@
 </template>
 
 <script setup>
-import ObjectCard from './ObjectCard.vue'
-import { useDragScroll } from '~/composables/useDragScroll'
+import ObjectCard from '@/components/common/ObjectCard.vue'
+import { useDragScroll } from '@/composables/useDragScroll'
 
 const { scrollContainer, startDragging, stopDragging, drag } = useDragScroll()
 
@@ -36,7 +36,7 @@ const cards = [
   {
     id: 1,
     image: new URL('@/assets/images/objects/object-1.png', import.meta.url).href,
-    title: 'Apartment',
+    title: ' Apartment',
     price: '267000',
     location: 'Playa Arenal-Bol',
     area: '600',
@@ -87,16 +87,10 @@ const cards = [
 </script>
 
 <style scoped>
-.cards-container {
-  overflow: hidden;
-  padding-bottom: 20px; /* Компенсация скрытой прокрутки */
-  margin-bottom: -20px; /* Компенсация отступа */
-}
 .object-shape {
   width: 65%;
   max-height: 530px;
   aspect-ratio: 1252 / 530;
-  background-color: #EFF3FF;
   border-radius: 0 100px 100px 0;
   z-index: -1;
 }

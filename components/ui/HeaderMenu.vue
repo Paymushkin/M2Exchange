@@ -3,7 +3,7 @@
     v-show="isOpen"
     class="absolute top-[calc(100%+25px)] right-0 w-[232px] bg-white rounded-[26px] shadow-lg px-[10px] pt-[36px] pb-[12px] transition-all duration-300 z-50"
   >
-    <nav class="flex items-start flex-col gap-4">
+    <nav class="flex items-start flex-col xl:gap-4 gap-2">
       <template v-for="(item, index) in menuItems" :key="item.path">
         <router-link 
           :to="item.path"
@@ -36,6 +36,8 @@ import {
   HelpIcon, 
   ContactIcon 
 } from '@/components/icons/icons.js'
+
+import LogoutButton from '@/components/ui/LogoutButton.vue'
 
 defineProps({
   isOpen: {

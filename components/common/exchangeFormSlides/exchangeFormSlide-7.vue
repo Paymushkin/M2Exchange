@@ -8,7 +8,7 @@
       </p>
     </div>
     <form>
-      <div class="flex gap-3">
+      <div class="flex gap-3 justify-center flex-wrap">
         <label class="object-item" :style="{ backgroundImage: `url(${item1})` }">
           <input 
             type="radio" 
@@ -17,7 +17,7 @@
             v-model="selectedPhoto" 
             class="hidden"
           />
-          <span class="text-[14px] rounded-lg px-6 py-2 transition-colors"
+          <span class="xl:text-[14px] text-xs rounded-lg xl:px-6 px-4 xl:py-2 py-1 transition-colors"
                 :class="selectedPhoto === 'main' ? 'bg-[#1C2D6A] text-white' : 'bg-white'">
             Главное
           </span>
@@ -31,7 +31,7 @@
             v-model="selectedPhoto" 
             class="hidden"
           />
-          <span class="text-[14px] rounded-lg px-6 py-2 transition-colors"
+          <span class="xl:text-[14px] text-xs rounded-lg xl:px-6 px-4 xl:py-2 py-1 transition-colors"
                 :class="selectedPhoto === 'yard' ? 'bg-[#1C2D6A] text-white' : 'bg-white'">
             Двор
           </span>
@@ -45,7 +45,7 @@
             v-model="selectedPhoto" 
             class="hidden"
           />
-          <span class="text-[14px] rounded-lg px-6 py-2 transition-colors"
+          <span class="xl:text-[14px] text-xs rounded-lg xl:px-6 px-4 xl:py-2 py-1 transition-colors"
                 :class="selectedPhoto === 'pool' ? 'bg-[#1C2D6A] text-white' : 'bg-white'">
             Бассейн
           </span>
@@ -59,11 +59,12 @@
             v-model="selectedPhoto" 
             class="hidden"
           />
-          <span class="text-[14px] rounded-lg px-6 py-2 transition-colors"
+          <span class="xl:text-[14px] text-xs rounded-lg xl:px-6 px-4 xl:py-2 py-1 transition-colors"
                 :class="selectedPhoto === 'bedroom' ? 'bg-[#1C2D6A] text-white' : 'bg-white'">
             Спальня
           </span>
         </label>
+        
       </div>
     </form>
   </div>
@@ -89,6 +90,15 @@ const selectedPhoto = ref('main')
   background-size: cover;
   background-position: center;
   cursor: pointer;
+
+  @media (max-width: 1024px) {
+    width: 200px;
+  }
+
+  @media (max-width: 640px) {
+    width: 150px;
+    aspect-ratio: 1/1;
+  }
 }
 
 .object-item span {

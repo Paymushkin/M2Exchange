@@ -5,7 +5,7 @@
       Добавьте как минимум 4 фотографии с названиями. Чем больше фото вы разместите, тем выше шанс найти вариант на обмен.
     </p>
     
-    <div class="flex flex-wrap gap-3">
+    <div class="flex flex-wrap justify-center gap-3">
       <div class="flex-item flex-item__wide"
         @click="selectFile(0)"
       >
@@ -73,10 +73,18 @@ const handleFileChange = (index) => {
 .flex-item__wide {
   width: 245px;
   aspect-ratio: 245 / 145;
+
+  @media (max-width: 640px) {
+    width: 180px;
+  }
 }
 
 .flex-item__small {
   width: 155px;
   aspect-ratio: 155 / 145;
+
+  @media (max-width: 640px) {
+    width: 120px;
+  }
 }
 </style> 

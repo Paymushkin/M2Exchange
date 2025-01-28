@@ -1,26 +1,34 @@
 <template>
-  <div class="hidden md:flex items-center space-x-8">
-    <HeaderExchangeButton @click="$emit('open-modal')" />
-    <a 
+  <div 
+    class="hidden sm:flex items-center gap-5 lg:gap-8"
+    :class="{ 'hidden': searchStore.isSearchOpen }"
+  >
+    <HeaderExchangeButton @click="modalStore.openModal" class="hidden xl:flex" />
+    
+    <NuxtLink 
       v-for="item in navigationItems" 
       :key="item.text"
-      :href="item.href" 
-      class="text-[#171652] hover:text-[#171652]/80"
+      :to="item.href" 
+      class="text-sm text-primary-darker hover:text-primary-hover"
     >
       {{ item.text }}
-    </a>
+    </NuxtLink>
   </div>
 </template>
 
 <script setup>
-import HeaderExchangeButton from '@/components/ui/HeaderExchangeButton.vue'
 
-defineEmits(['open-modal'])
+import HeaderExchangeButton from '@/components/ui/HeaderExchangeButton.vue';
+import { useModalStore } from '@/stores/modalStore';
+import { useSearchStore } from '@/stores/searchStore';
+
+const searchStore = useSearchStore();
+const modalStore = useModalStore();
 
 const navigationItems = [
-  { text: 'О сервисе', href: '#' },
-  { text: 'Партнерам', href: '#' },
-  { text: 'Объекты', href: '#' },
-  { text: 'Информация', href: '#' }
-]
+  { text: 'О сервисе', href: '/about' },
+  { text: 'Партнерам', href: '/partners' },
+  { text: 'Объекты', href: '/objects' },
+  { text: 'Информация', href: '/info' }
+];
 </script> 

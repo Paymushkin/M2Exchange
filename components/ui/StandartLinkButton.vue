@@ -2,7 +2,7 @@
   <NuxtLink 
     :to="to" 
     :class="[
-      'px-8 py-4 text-xs font-medium rounded-[100px] transition-colors shadow-custom',
+      'xl:px-8 px-4 xl:py-4 py-2 text-xs font-medium rounded-[100px] transition-colors shadow-custom',
       variant === 'primary' 
         ? 'bg-primary text-white hover:bg-[#001FCC]' 
         : 'border border-[#B4CEFF] text-primary-darker hover:bg-[#F5F7FF]'

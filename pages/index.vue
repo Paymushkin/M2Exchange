@@ -1,24 +1,27 @@
 <template>
-  <HeroSection />
-  <RecommendationsSection />
-  <ExchangeInfoSection />
-  <TopLocations />
-  <ExchangeProcess />
-  <div class="container mb-[200px]">
-    <div class="py-12 bg-[#EFF3FF] rounded-[80px]">
-    <ExchangeFormSlider />
+  <NuxtLayout>
+    <HeroSection />
+    <RecommendationsSection />
+    <StoriesSection />
+    <ExchangeInfoSection />
+    <TopLocationsSection />
+    <ExchangeProcessSection />
+    <div class="container slider-container xl:mb-[200px]">
+      <div class="2xl:py-12 xl:py-5 pt-[1px] xl:px-5 px-0 bg-background-blue xl:rounded-[80px]">
+        <ExchangeFormSlider />
+      </div>
     </div>
-  </div>
-
+  </NuxtLayout>
 </template>
 
 <script setup>
 import HeroSection from '@/components/sections/main/HeroSection.vue'
 import RecommendationsSection from '@/components/sections/main/RecommendationsSection.vue'
+import StoriesSection from '@/components/sections/main/StoriesSection.vue'
+import TopLocationsSection from '~/components/sections/main/TopLocationsSection.vue'
 import ExchangeInfoSection from '@/components/sections/main/ExchangeInfoSection.vue'
-import ExchangeProcess from '@/components/sections/main/ExchangeProcess.vue'
+import ExchangeProcessSection from '~/components/sections/main/ExchangeProcessSection.vue'
 import ExchangeFormSlider from '@/components/common/ExchangeFormSlider.vue'
-import TopLocations from '@/components/sections/main/TopLocations.vue'
 
 </script>
 

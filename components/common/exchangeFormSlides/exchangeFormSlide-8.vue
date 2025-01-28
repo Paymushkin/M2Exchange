@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center justify-center max-w-[480px] h-full">
+  <div class="flex flex-col items-center justify-center w-[480px] max-w-full h-full">
     <h2 class="slide-custom__title mb-6 text-left">Назовите объявление и опишите жилье</h2>
     <p class="slide-custom__description text-base mb-6">
       Поделитесь основными сведениями, например где оно находится, что окружает, какой ремонт и год постройки.
@@ -10,7 +10,7 @@
         type="text" 
         v-model="title" 
         placeholder="Вилла с видом на море" 
-        class="mb-6 border-[2px] border-[#E9ECFF] rounded-[30px] px-5 py-3 text-sm outline-none placeholder:text-[#828282]"
+        class="mb-6 border-[2px] border-[#E9ECFF] xl:rounded-lg rounded-sm xl:px-5 px-2 xl:py-3 py-2 xl:text-sm text-xs outline-none placeholder:text-[#828282]"
       />
 
       <h3 class="mb-3 text-left text-[#252B5C] font-semibold">Опишите объект</h3>
@@ -19,7 +19,7 @@
         cols="50"
         v-model="description" 
         placeholder="Дом с дизайнерским ремонтом для большой семьи" 
-        class="border-[2px] border-[#E9ECFF] rounded-[30px] px-5 py-3 text-sm outline-none resize-none placeholder:text-[#828282]"
+        class="border-[2px] border-[#E9ECFF] xl:rounded-lg rounded-sm xl:px-5 px-2 xl:py-3 py-2 xl:text-sm text-xs outline-none resize-none placeholder:text-[#828282]"
       ></textarea>
   </div>
   </div>

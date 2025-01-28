@@ -1,15 +1,21 @@
 <template>
   <NuxtLink
-    to="/" 
+    to="/"
+    class="2xl:mr-[95px] xl:mr-auto"
     :class="{ 'cursor-pointer': $route.path !== '/', 'cursor-default': $route.path === '/' }"
     @click.prevent="$route.path === '/' ? null : navigateToHome()"
   >
-    <LogoIcon />
+    <div class="block sm:hidden xl:block">
+      <LogoIcon />
+    </div>
+    <div class="hidden sm:block xl:hidden">
+      <LogoMiniIcon />
+    </div>
   </NuxtLink>
 </template> 
 
 <script setup>
-import LogoIcon from '@/components/icons/LogoIcon.vue'
+import { LogoIcon, LogoMiniIcon } from '@/components/icons/icons.js'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()

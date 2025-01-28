@@ -1,8 +1,8 @@
 <template>
-  <div class="slide w-full py-8 px-10 max-w-[1360px] min-h-[720px] mx-auto rounded-[50px] overflow-hidden bg-white flex flex-col">
+  <div class="slide w-full xl:px-10 px-5 xl:py-8 py-5 max-w-[1360px] xl:min-h-[720px] min-h-[600px] mx-auto xl:rounded-[50px] overflow-hidden bg-white flex flex-col">
     <header class="slider-header flex items-center justify-between">
-      <LogoIcon  v-if="!fromModal" />
-      <span v-else class="text-[#7B82AA] text-xl" :class="{ 'opacity-0': currentIndex === slides.length - 1 }">
+      <LogoIcon  v-if="!fromModal" class="hidden xl:block" />
+      <span v-else class="text-[#7B82AA] xl:text-xl text-sm" :class="{ 'opacity-0': currentIndex === slides.length - 1 }">
         {{ currentIndex + 1 }}/{{ slides.length }}
       </span>
       <button 
@@ -18,7 +18,8 @@
       <component :is="currentSlide" />
     </div>
     
-    <footer v-if="currentIndex < slides.length - 1" class="slider-footer flex items-center gap-7">
+    <footer v-if="currentIndex < slides.length - 1" class="slider-footer relative flex justify-between items-center gap-7 pt-10 xl:pt-0">
+
       <button 
         v-if="fromModal" 
         class="flex items-center" 
@@ -29,19 +30,22 @@
         <div class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 cursor-pointer">
           <ArrowIcon class="text-black" />
         </div>
-        <span class="ml-2 text-gray-600">Назад</span>
+        <span class="ml-2 xl:inline hidden text-gray-600">Назад</span>
       </button>
-      <div class="pagination flex gap-1 grow">
+
+      <div class="absolute top-4 left-0 right-0 lg:relative pagination flex gap-1 grow">
         <div v-for="(slide, index) in slides" :key="index" 
              class="bullet h-[5px] grow rounded transition-colors duration-300" 
              :class="{'bg-primary': currentIndex === index, 'bg-[#E9ECFF]': currentIndex !== index}">
         </div>
       </div>
+
       <button 
-        class="min-w-[140px] h-[50px] bg-primary-dark text-white text-[18px] px-4 py-2 rounded-[40px] hover:bg-blue-700" 
+        class="xl:min-w-[140px] xl:h-[50px] ml-auto bg-dark text-white xl:text-[18px] sm:text-base text-xs px-4 py-2 rounded-[40px] hover:bg-blue-700" 
         @click="nextSlide">
         {{ currentIndex === slides.length - 2 ? 'Отправить' : 'Далее' }}
       </button>
+      
     </footer>
   </div>
 </template>

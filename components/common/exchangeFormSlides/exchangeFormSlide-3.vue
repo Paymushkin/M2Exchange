@@ -1,11 +1,11 @@
 <template>
   <div class="flex flex-col items-center justify-center max-w-[970px] h-full">
     <h2 class="slide-custom__title mb-6 text-center">Тип объекта</h2>
-    <p class="slide-custom__description text-base mb-6 text-center">
+    <p class="slide-custom__description xl:text-base text-sm mb-[40px] text-center">
       Выберите одну или несколько категорий интересующей вас недвижимости
     </p>
     
-    <div class="flex flex-wrap justify-center gap-4">
+    <div class="flex flex-wrap justify-center xl:gap-4 gap-2">
       <RadioButton
         v-for="button in buttons"
         :key="button.value"
