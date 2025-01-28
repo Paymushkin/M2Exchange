@@ -7,16 +7,21 @@
 
     <div class="w-[750px] max-w-full">
       <div class="mb-6">
-        <div class="flex items-center gap-7">
+        <div class="flex items-center gap-7 mb-5">
           <label class="block text-left xl:text-base text-sm font-semibold text-[#001062]">Стоимость</label>
-          <div class="xl:text-sm text-xs font-semibold text-[#001062] border border-[#3D62FF] rounded-[30px] xl:px-4 xl:py-2 px-2 py-1">{{ price }} €</div>
+          <div class="flex items-center gap-2">
+            <div class="xl:text-sm text-xs font-semibold text-[#001062] border border-[#3D62FF] rounded-[30px] xl:px-4 xl:py-2 px-2 py-1">от {{ price[0] }} €</div>
+            <div class="xl:text-sm text-xs font-semibold text-[#001062] border border-[#3D62FF] rounded-[30px] xl:px-4 xl:py-2 px-2 py-1">до {{ price[1] }} €</div>
+          </div>
         </div>
-        <URange
+        <Slider
           v-model="price"
           :min="priceConfig.min"
           :max="priceConfig.max"
           :step="priceConfig.step"
-          class="xl:my-4 my-2 custom-range"
+          range
+          :tooltip="false"
+          class="xl:my-4 my-2 custom-slider"
         />
         <div class="flex justify-between">
           <span class="xl:text-lg text-sm font-semibold text-[#001062]">{{ priceConfig.min }} €</span>
@@ -25,16 +30,19 @@
       </div>
 
       <div>
-        <div class="flex items-center gap-7">
+        <div class="flex items-center gap-7 mb-5">
           <label class="block text-left xl:text-base text-sm font-semibold text-[#001062]">Площадь</label>
-          <div class="xl:text-sm text-xs font-semibold text-[#001062] border border-[#3D62FF] rounded-[30px] xl:px-4 xl:py-2 px-2 py-1">{{ area }} м²</div>
+          <div class="xl:text-sm text-xs font-semibold text-[#001062] border border-[#3D62FF] rounded-[30px] xl:px-4 xl:py-2 px-2 py-1">до {{ area[0] }} м²</div>
+          <div class="xl:text-sm text-xs font-semibold text-[#001062] border border-[#3D62FF] rounded-[30px] xl:px-4 xl:py-2 px-2 py-1">от {{ area[1] }} м²</div>
         </div>
-        <URange
+        <Slider
           v-model="area"
           :min="areaConfig.min"
           :max="areaConfig.max"
           :step="areaConfig.step"
-          class="xl:my-4 my-2 custom-range"
+          range
+          :tooltip="false"
+          class="xl:my-4 my-2 custom-slider"
         />
         <div class="flex justify-between">
           <span class="xl:text-lg text-sm font-semibold text-[#001062]">{{ areaConfig.min }} м²</span>
@@ -46,42 +54,34 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref } from 'vue';
+import Slider from '@vueform/slider';
 
 const priceConfig = {
   min: 0,
   max: 1000000,
   step: 10000,
-  defaultValue: 300000
-}
+  defaultValue: [300000, 800000],
+};
 
 const areaConfig = {
   min: 0,
   max: 300000,
   step: 10,
-  defaultValue: 30000
-}
+  defaultValue: [30000, 150000],
+};
 
-const price = ref(priceConfig.defaultValue)
-const area = ref(areaConfig.defaultValue)
+const price = ref(priceConfig.defaultValue);
+const area = ref(areaConfig.defaultValue);
 </script>
 
-<style>
-.custom-range {
-  --u-range-thumb-background: #4169E1;
-  --u-range-thumb-border-color: #4169E1;
-  --u-range-track-background: #E5E7EB;
-  --u-range-track-active-background: #4169E1;
-  --u-range-thumb-size: 20px;
-  --u-range-track-height: 6px;
+<style scoped>
+.custom-slider {
+  --slider-connect-bg: #4169E1;
+  --slider-tooltip-bg: transparent;
+  --slider-tooltip-color: transparent;
+  --slider-handle-ring-color: #3B82F630;
 }
+</style>
 
-.custom-range .u-range-thumb {
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.custom-range .u-range-track {
-  border-radius: 3px;
-}
-</style> 
+<style src="@vueform/slider/themes/default.css"></style>
