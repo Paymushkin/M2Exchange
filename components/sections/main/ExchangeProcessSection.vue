@@ -75,19 +75,4 @@ const exchangeSteps = [
   }
 }
 
-.step-item {
-  /* aspect-ratio: 1/1; */
-}
-/* .progress-item {
-  width: 380px;
-  aspect-ratio: 1/1;
-}
-
-@media (max-width: 1440px) {
-  .progress-item {
-    width: 300px;
-  } */
-/* }  */
-        /* <div class="border-2 border-black rounded-full flex flex-col items-center pt-10 pb-5 px-8 text-center gap-6"> */
-
 </style>

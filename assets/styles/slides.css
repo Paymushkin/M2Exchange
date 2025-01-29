@@ -64,3 +64,17 @@
 .custom-radio-button:hover {
   opacity: 0.9;
 }
+
+.arrow-slider {
+  top: unset;
+  left: unset;
+  bottom: 0;
+}
+
+.arrow-prev {
+  right: 70px;
+}
+
+.arrow-next {
+  right: 20px;
+}

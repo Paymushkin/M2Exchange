@@ -11,6 +11,7 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxt/image',
     '@nuxtjs/color-mode',
+    'vue-yandex-maps/nuxt'
   ],
 
   css: [
@@ -67,5 +68,15 @@ export default defineNuxtConfig({
         extend: {}
       }
     }
-  }
+  },
+
+  yandexMaps: {
+    apikey: 'ваш-api-ключ', // Получите ключ на https://developer.tech.yandex.ru/
+    lang: 'ru_RU',
+    version: '2.1'
+  },
+
+  plugins: [
+    { src: '~/plugins/yandex-maps.client.ts', mode: 'client' }
+  ]
 } satisfies NuxtConfig)

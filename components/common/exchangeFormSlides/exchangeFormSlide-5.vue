@@ -4,51 +4,21 @@
     
     <div class="flex flex-col gap-8 w-full">
       <div class="flex flex-col gap-4 max-w-[480px]">
-        <div class="flex items-center justify-between">
-          <span class="text-[#202020] xl:text-lg text-base">Спальни</span>
-          <div class="flex items-center gap-2">
-            <UButton
-              @click="bedrooms = Math.max(bedroomsConfig.min, bedrooms - 1)"
-              class="custom-counter-button"
-              variant="solid"
-            >
-              <UIcon name="i-heroicons-minus" />
-            </UButton>
-            <span class="custom-counter-value">
-              {{ bedrooms }}
-            </span>
-            <UButton
-              @click="bedrooms++"
-              class="custom-counter-button"
-              variant="solid"
-            >
-              <UIcon name="i-heroicons-plus" />
-            </UButton>
-          </div>
-        </div>
 
-        <div class="flex items-center justify-between">
-          <span class="text-[#202020] xl:text-lg text-base">Ванны</span>
-          <div class="flex items-center gap-2">
-            <UButton
-              @click="bathrooms = Math.max(bathroomsConfig.min, bathrooms - 1)"
-              class="custom-counter-button"
-              variant="solid"
-            >
-              <UIcon name="i-heroicons-minus" />
-            </UButton>
-            <span class="custom-counter-value">
-              {{ bathrooms }}
-            </span>
-            <UButton
-              @click="bathrooms++"
-              class="custom-counter-button"
-              variant="solid"
-            >
-              <UIcon name="i-heroicons-plus" />
-            </UButton>
-          </div>
-        </div>
+        <CounterControl
+          v-model="bedrooms"
+          label="Спальни"
+          :min="bedroomsConfig.min"
+          :max="bedroomsConfig.max"
+        />
+
+        <CounterControl
+          v-model="bathrooms"
+          label="Ванны"
+          :min="bathroomsConfig.min"
+          :max="bathroomsConfig.max"
+        />
+        
       </div>
 
 
@@ -71,19 +41,20 @@
 <script setup>
 import { ref } from 'vue'
 import CheckboxButton from '@/components/ui/CheckboxButton.vue'
+import CounterControl from '@/components/ui/CounterControl.vue'
 
 const bedroomsConfig = {
   min: 0,
-  defaultValue: 3
+  max: 10
 }
 
 const bathroomsConfig = {
   min: 0,
-  defaultValue: 2
+  max: 10
 }
 
-const bedrooms = ref(bedroomsConfig.defaultValue)
-const bathrooms = ref(bathroomsConfig.defaultValue)
+const bedrooms = ref(1)
+const bathrooms = ref(1)
 
 // Инициализируем массив с 8 элементами false
 const selectedComforts = ref(new Array(8).fill(false))

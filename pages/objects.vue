@@ -1,8 +1,11 @@
 <template>
-  <div class="flex items-center justify-center p-10">
-    <h1 class="text-4xl font-bold">Account Page</h1>
-  </div>
+  <NuxtLayout>
+    <CatalogSearchSection />
+    <CatalogListSection />
+  </NuxtLayout>
 </template>
 
 <script setup>
+  import CatalogSearchSection from '@/components/sections/catalog/CatalogSeachSection.vue'
+  import CatalogListSection from '@/components/sections/catalog/CatalogListSection.vue'
 </script> 

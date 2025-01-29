@@ -1,5 +1,7 @@
 import AddObjectIcon from '@/components/icons/AddObjectIcon.vue'
 import ArrowIcon from '@/components/icons/ArrowIcon.vue'
+import ArrowNextIcon from '@/components/icons/ArrowNextIcon.vue'
+import ArrowPrevIcon from '@/components/icons/ArrowPrevIcon.vue'
 import ArrowProcessIcon from '@/components/icons/ArrowProcessIcon.vue'
 import BathIcon from '@/components/icons/BathIcon.vue'
 import BedIcon from '@/components/icons/BedIcon.vue'
@@ -10,13 +12,16 @@ import ContactIcon from '@/components/icons/ContactIcon.vue'
 import FacebookIcon from '@/components/icons/FacebookIcon.vue'
 import FavoriteIcon from '@/components/icons/FavoriteIcon.vue'
 import FavoritesIcon from '@/components/icons/FavoritesIcon.vue'
+import FilterIcon from '@/components/icons/FilterIcon.vue'
 import GlobeIcon from '@/components/icons/GlobeIcon.vue'
 import GlobeIconMini from '@/components/icons/GlobeIconMini.vue'
 import HeartIcon from '@/components/icons/HeartIcon.vue'
 import HelpIcon from '@/components/icons/HelpIcon.vue'
 import InstagramIcon from '@/components/icons/InstagramIcon.vue'
 import KeyIcon from '@/components/icons/KeyIcon.vue'
+import LocatorIcon from '@/components/icons/LocatorIcon.vue'
 import LocationIcon from '@/components/icons/LocationIcon.vue'
+import Location2Icon from '@/components/icons/Location2Icon.vue'
 import LogoIcon from '@/components/icons/LogoIcon.vue'
 import LogoMiniIcon from '@/components/icons/LogoMiniIcon.vue'
 import MapIcon from '@/components/icons/MapIcon.vue'
@@ -36,6 +41,8 @@ import SquareIcon from '@/components/icons/SquareIcon.vue'
 export {
   AddObjectIcon,
   ArrowIcon,
+  ArrowNextIcon,
+  ArrowPrevIcon,
   ArrowProcessIcon,
   BathIcon,
   BedIcon,
@@ -46,13 +53,16 @@ export {
   FacebookIcon,
   FavoriteIcon,
   FavoritesIcon,
+  FilterIcon,
   GlobeIcon,
   GlobeIconMini,
   HeartIcon,
   HelpIcon,
   InstagramIcon,
   KeyIcon,
+  LocatorIcon,
   LocationIcon,
+  Location2Icon,
   LogoIcon,
   LogoMiniIcon,
   MapIcon,

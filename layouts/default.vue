@@ -8,6 +8,9 @@
     <UModal :fullscreen="isFullscreen" v-model="modalStore.isOpen">
       <ExchangeFormSlider :fromModal="true" :closeModal="modalStore.closeModal" />
     </UModal>
+    <UModal v-model="modalStore.isExchangeModalOpen">
+      <ObjectExchangeRequest @close="modalStore.closeExchangeModal" />
+    </UModal>
   </div>
 </template>
 
@@ -16,6 +19,7 @@ import TheHeader from '@/components/layout/TheHeader.vue'
 import TheFooter from '@/components/layout/TheFooter.vue'
 import { useModalStore } from '@/stores/modalStore'
 import ExchangeFormSlider from '@/components/common/ExchangeFormSlider.vue'
+import ObjectExchangeRequest from '@/components/common/ObjectExchangeRequest.vue'
 import { ref, onMounted, onUnmounted } from 'vue'
 
 const modalStore = useModalStore()

@@ -39,8 +39,9 @@ export default {
           light: '#F3F4FF',
           blue: '#EFF3FF',
         },
-        'accent': '#E5EDFF',
+        'accent': '#FB7C61',
         'divider-light': '#D2DBF5',
+        'accent-blue': '#6284FF',
         'gray': {
           DEFAULT: '#58667E',
           border: '#E3E4E8',
@@ -57,7 +58,7 @@ export default {
       },
       borderRadius: {
         'none': '0',
-        'sm': '10px', // 2px
+        'sm': '12px', // 2px
         'DEFAULT': '16px', // 4px
         'md': '22px', // 6px
         'lg': '30px', // 8px
