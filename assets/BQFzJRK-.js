@@ -1,1 +1,0 @@
-import{_ as e,o,c as s,r}from"./DpvwVuMT.js";const n={},c={class:"bg-dark lg:text-sm text-xs text-white rounded px-4 lg:h-[50px] h-[30px]"};function a(t,_){return o(),s("button",c,[r(t.$slots,"default")])}const x=e(n,[["render",a]]);export{x as T};
