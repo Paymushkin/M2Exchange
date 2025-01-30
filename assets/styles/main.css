@@ -3,36 +3,36 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    font-size: 18px;
-    line-height: 22px;
-  }
+	html {
+		font-size: 18px;
+		line-height: 22px;
+	}
 }
 
 @layer utilities {
-  .cards-container {
-    overflow: hidden;
-    padding-bottom: 20px;
-    margin-bottom: -20px;
-  }
+	.cards-container {
+		overflow: hidden;
+		padding-bottom: 20px;
+		margin-bottom: -20px;
+	}
 
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    user-select: none;
-  }
+	.scrollbar-hide {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+		scroll-behavior: smooth;
+		-webkit-overflow-scrolling: touch;
+		user-select: none;
+	}
 
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
+	.scrollbar-hide::-webkit-scrollbar {
+		display: none;
+	}
 
-  .scroll-grab {
-    cursor: grab;
-  }
+	.scroll-grab {
+		cursor: grab;
+	}
 
-  .scroll-grab:active {
-    cursor: grabbing;
-  }
-} 
+	.scroll-grab:active {
+		cursor: grabbing;
+	}
+}

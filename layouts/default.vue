@@ -1,17 +1,17 @@
 <template>
-  <div class="min-h-screen flex flex-col">
-    <TheHeader />
-    <main class="flex flex-grow flex-col">
-      <slot />
-    </main>
-    <TheFooter />
-    <UModal :fullscreen="isFullscreen" v-model="modalStore.isOpen">
-      <ExchangeFormSlider :fromModal="true" :closeModal="modalStore.closeModal" />
-    </UModal>
-    <UModal v-model="modalStore.isExchangeModalOpen">
-      <ObjectExchangeRequest @close="modalStore.closeExchangeModal" />
-    </UModal>
-  </div>
+	<div class="min-h-screen flex flex-col">
+		<TheHeader />
+		<main class="flex flex-grow flex-col">
+			<slot />
+		</main>
+		<TheFooter />
+		<UModal :fullscreen="isFullscreen" v-model="modalStore.isOpen">
+			<ExchangeFormSlider :fromModal="true" :closeModal="modalStore.closeModal" />
+		</UModal>
+		<UModal v-model="modalStore.isExchangeModalOpen">
+			<ObjectExchangeRequest @close="modalStore.closeExchangeModal" />
+		</UModal>
+	</div>
 </template>
 
 <script setup>
@@ -26,15 +26,15 @@ const modalStore = useModalStore()
 const isFullscreen = ref(window.innerWidth < 1024)
 
 const updateFullscreen = () => {
-  isFullscreen.value = window.innerWidth < 1024
+	isFullscreen.value = window.innerWidth < 1024
 }
 
 onMounted(() => {
-  window.addEventListener('resize', updateFullscreen)
+	window.addEventListener('resize', updateFullscreen)
 })
 
 onUnmounted(() => {
-  window.removeEventListener('resize', updateFullscreen)
+	window.removeEventListener('resize', updateFullscreen)
 })
 </script>
 

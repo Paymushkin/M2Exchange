@@ -1,1 +1,10 @@
-{"file":"account-CSIsKs8G.js","mappings":";;;;AAAA,SAAA,eAAA,MAAA,OAAA,SACY;;;;;;;;;;","names":[],"sources":["../../../../pages/account.vue"],"sourcesContent":["<template>\n  <div class=\"flex items-center justify-center p-10\">\n    <h1 class=\"text-4xl font-bold\">Account Page</h1>\n  </div>\n</template>\n\n<script setup>\n</script> "],"version":3}
+{
+	"file": "account-CSIsKs8G.js",
+	"mappings": ";;;;AAAA,SAAA,eAAA,MAAA,OAAA,SACY;;;;;;;;;;",
+	"names": [],
+	"sources": ["../../../../pages/account.vue"],
+	"sourcesContent": [
+		"<template>\n  <div class=\"flex items-center justify-center p-10\">\n    <h1 class=\"text-4xl font-bold\">Account Page</h1>\n  </div>\n</template>\n\n<script setup>\n</script> "
+	],
+	"version": 3
+}

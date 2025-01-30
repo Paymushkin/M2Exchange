@@ -1,34 +1,38 @@
 {
-  "name": "exchange-project",
-  "private": true,
-  "scripts": {
-    "build": "nuxt build",
-    "dev": "npx nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "deploy": "nuxt generate && gh-pages -d dist"
-  },
-  "dependencies": {
-    "@nuxt/ui": "^2.21.0",
-    "@vueform/slider": "^2.1.10",
-    "pinia": "^2.3.1",
-    "vue": "^3.3.4",
-    "vue-draggable": "^2.0.6",
-    "vue-router": "^4.2.5",
-    "vue-yandex-maps": "^2.1.6",
-    "vuedraggable": "^2.24.3"
-  },
-  "devDependencies": {
-    "@nuxt/devtools": "latest",
-    "@nuxt/image": "^1.9.0",
-    "@nuxtjs/color-mode": "^3.5.2",
-    "@nuxtjs/tailwindcss": "^6.8.0",
-    "autoprefixer": "^10.4.16",
-    "gh-pages": "^6.3.0",
-    "nuxt": "^3.7.4",
-    "postcss": "^8.4.31",
-    "tailwindcss": "^3.3.3",
-    "typescript": "^5.2.2"
-  }
+	"name": "exchange-project",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"build": "nuxt build",
+		"dev": "npx nuxt dev",
+		"generate": "nuxt generate",
+		"preview": "nuxt preview",
+		"postinstall": "nuxt prepare",
+		"deploy": "nuxt generate && gh-pages -d dist",
+		"generate-favicons": "NODE_OPTIONS=\"--loader ts-node/esm\" ts-node scripts/generate-favicons.ts"
+	},
+	"dependencies": {
+		"@nuxt/ui": "^2.21.0",
+		"@vueform/slider": "^2.1.10",
+		"pinia": "^2.3.1",
+		"vue": "^3.3.4",
+		"vue-draggable": "^2.0.6",
+		"vue-router": "^4.2.5",
+		"vue-yandex-maps": "^2.1.6",
+		"vuedraggable": "^2.24.3"
+	},
+	"devDependencies": {
+		"@nuxt/devtools": "latest",
+		"@nuxt/image": "^1.9.0",
+		"@nuxtjs/color-mode": "^3.5.2",
+		"@nuxtjs/tailwindcss": "^6.8.0",
+		"autoprefixer": "^10.4.16",
+		"gh-pages": "^6.3.0",
+		"nuxt": "^3.7.4",
+		"postcss": "^8.4.31",
+		"sharp": "^0.32.1",
+		"tailwindcss": "^3.3.3",
+		"ts-node": "^10.9.1",
+		"typescript": "^5.2.2"
+	}
 }
