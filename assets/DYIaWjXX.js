@@ -1,0 +1,1 @@
+import{_ as e,o,c as n,r}from"./IvOlMjkP.js";const s={},c={class:"flex items-center justify-center bg-secondary lg:text-base text-sm text-white rounded-full lg:px-5 px-3 lg:py-2 py-1 lg:h-[50px] h-[40px] hover:opacity-80 transition-opacity duration-300"};function a(t,l){return o(),n("button",c,[r(t.$slots,"default")])}const i=e(s,[["render",a]]);export{i as R};
