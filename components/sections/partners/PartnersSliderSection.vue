@@ -1,6 +1,6 @@
 <template>
-		<div class="flex flex-col items-start">
-			<div class="text-dark text-2xl px-8 py-2 border border[#D2DBF5] rounded-full mb-[70px]">
+		<section class="flex flex-col items-start">
+			<div class="text-dark xl:text-2xl lg:text-xl text-base xl:px-8 lg:px-6 px-4 py-2 border border[#D2DBF5] rounded-full xl:mb-[70px] lg:mb-[50px] mb-8">
 				<span>О нас говорят</span>
 			</div>
 			<UCarousel
@@ -13,31 +13,37 @@
 				>
 
 					<template #default="{ item }">
-						<div class="flex flex-col gap-8">
-							<QuoteIcon />
-							<p class="text-dark text-[55px] leading-[1.2]">
+						<div class="flex flex-col xl:gap-8 lg:gap-4 gap-2">
+							<QuoteIcon class="xl:max-h-auto lg:max-h-15 max-w-10" />
+							<p class="text-dark xl:text-[55px] lg:text-4xl text-xl xl:leading-[1.2] mb-2">
 								{{ item.review }}
 							</p>
 							<div class="flex items-center gap-2">
 								<div class="flex flex-col gap-2">
-									<span class="text-[#C2C5CD] text-2xl font-[Aclonica]">
+									<span class="text-[#C2C5CD] xl:text-2xl lg:text-xl text-base font-[Aclonica]">
 										{{ item.company }}
 									</span>
-									<div class="flex items-center gap-4 mb-4">
-										<img :src="item.avatar" alt="Аватар" class="w-16 h-16 rounded-full" />
-										<div class="flex flex-col gap-2">
-											<span class="text-2xl">
+									<div class="flex items-center lg:gap-4 gap-2 lg:mb-4 mb-2">
+										<img
+											:src="item.avatar"
+											alt="Аватар"
+											loading="lazy"
+											placeholder="blur"
+											class="lg:w-16 lg:h-16 w-10 h-10 rounded-full" />
+										<div class="flex flex-col lg:gap-2 gap-0">
+											<span class="lg:text-2xl text-base">
 												{{ item.author }}
 											</span>
-											<span class="text-[#41495D]">
+											<span class="text-[#41495D] lg:text-lg text-xs">
 												{{ item.position }}
 											</span>
 										</div>
 									</div>
 									<div class="flex items-center gap-2">
-										<template v-for="star in item.rating" :key="star">
-											<StarRaitingIcon />
-										</template>
+										<StarRaitingIcon
+											v-for="star in item.rating"
+											:key="star"
+										/>
 									</div>
 								</div>
 							</div>
@@ -51,15 +57,15 @@
 								onClick();
 								prevSlide();
 							}"
-							class="absolute right-[244px] bottom-20"
+							class="absolute xl:right-[244px] lg:right-[182px] sm:right-[150px] right-unset sm:left-[unset] left-0 lg:bottom-20 sm:bottom-0 bottom-[-80px]"
 						>
-							<ArrowPrevIcon class="cursor-pointer" />
+							<ArrowPrevIcon class="xl:max-w-[131px] lg:max-w-[100px] max-w-[80px] cursor-pointer" />
 						</button>
 					</template>
 
 					<template #indicator>
-						<div class="absolute right-[162px] bottom-[75px]">
-							<span class="text-[#41495E] text-lg leading-[79px] slider-counter">
+						<div class="absolute xl:right-[160px] lg:right-[115px] sm:right-[92px] right-[unset] sm:left-unset left-50% lg:bottom-[75px] sm:bottom-0 bottom-[-80px]">
+							<span class="text-[#41495E] lg:text-lg text-base lg:leading-[79px] leading-[47px] slider-counter">
 								<b>{{ formatSlideNumber(currentSlideIndex + 1) }}</b>/{{ formatSlideNumber(slides.length) }}
 							</span>
 						</div>
@@ -72,14 +78,14 @@
 								onClick();
 								nextSlide();
 							}"
-							class="absolute right-0 bottom-20"
+							class="absolute right-0 lg:bottom-20 sm:bottom-0 bottom-[-80px]"
 						>
-							<ArrowNextIcon class="cursor-pointer"/>
+							<ArrowNextIcon class="xl:max-w-[131px] lg:max-w-[100px] max-w-[80px] cursor-pointer"/>
 						</button>
 					</template>
 
 				</UCarousel>
-		</div>
+		</section>
 </template>
 
 <script setup>

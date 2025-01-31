@@ -1,19 +1,21 @@
 <template>
-	<ul class="flex gap-4">
-		<li v-for="benefit in benefits" :key="benefit.title" class="flex flex-col w-1/4 gap-5 p-8 bg-[#F5F6FB] rounded-lg">
-			<div class="flex items-center gap-3 mb-[60px]">
-				<div class="flex items-center justify-center bg-white rounded-full min-w-[70px] min-h-[70px]">
-					<component :is="benefit.icon" />
+	<section>
+		<ul class="grid 2xl:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4">
+			<li v-for="benefit in benefits" :key="benefit.title" class="flex flex-col grow gap-5 2xl:p-8 p-5 bg-[#F5F6FB] rounded-lg">
+			<div class="flex items-center gap-3 2xl:mb-[60px] lg:mb-2 mb-0">
+				<div class="flex items-center justify-center bg-white rounded-full 2xl:min-w-[70px] 2xl:min-h-[70px] min-w-[50px] min-h-[50px]">
+					<component :is="benefit.icon" class="2xl:w-auto lg:w-8 sm:w-8 w-6" />
 				</div>
-				<span class="text-2xl text-dark">
+				<span class="2xl:text-2xl xl:text-lg text-base text-dark">
 						{{ benefit.title }}
 				</span>
 			</div>
-			<p class="text-lg text-[#525184]">
-				{{ benefit.description }}
-			</p>
-		</li>
-	</ul>
+			<p class="2xl:text-lg xl:text-base text-sm text-[#525184]">
+					{{ benefit.description }}
+				</p>
+			</li>
+		</ul>
+	</section>
 </template>
 
 <script setup>

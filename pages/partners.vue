@@ -1,12 +1,12 @@
 <template>
 	<NuxtLayout>
 		<div class="container py-10">
-			<PartnersHeroSection />
-			<PartnersExchangeSection class="mb-12"/>
-			<PartnersWhySection class="mb-7" />
-			<PartnersBenefitsSection class="mb-7" />
-			<PartnersSpecialOfferSection />
-			<PartnersJoinSection class="mb-20" />
+			<PartnersHeroSection class="mb-10" />
+			<PartnersExchangeSection class="mb-10"/>
+			<PartnersWhySection class="mb-10" />
+			<PartnersBenefitsSection class="mb-10" />
+			<PartnersSpecialOfferSection class="mb-10" />
+			<PartnersJoinSection class="mb-10" />
 			<PartnersSliderSection class="mb-20" />
 		</div>
 	</NuxtLayout>

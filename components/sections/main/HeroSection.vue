@@ -50,6 +50,8 @@
 					<img
 						src="~/assets/images/hero/hero-image.jpg"
 						alt="Обмен недвижимостью"
+						loading="lazy"
+						placeholder="blur"
 						class="w-full rounded-[20px]"
 					/>
 				</div>

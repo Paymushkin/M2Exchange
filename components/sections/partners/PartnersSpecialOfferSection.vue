@@ -1,25 +1,25 @@
 <template>
-	<section class="py-20">
+	<section>
 			<!-- Верхний блок -->
-			<div class="flex justify-between items-start mb-10">
+			<div class="flex flex-col lg:flex-row justify-between 2xl:items-start lg:items-end items-start 2xl:mb-10 xl:mb-8 mb-6">
 				<!-- Левая часть с заголовком и описанием -->
 				<div class="flex flex-col items-start">
-					<h2 class="text-[55px] leading-[1.2] font-medium text-dark mb-6">
+					<h2 class="2xl:text-[55px] xl:text-5xl lg:text-4xl text-2xl 2xl:leading-[1.2] font-medium text-dark 2xl:mb-6 xl:mb-4 mb-2">
 						Уникальные предложения
 					</h2>
-					<p class="text-[#41495E] text-lg">
+					<p class="text-[#41495E] sm:text-lg text-base lg:mb-0 mb-4">
 						Доступ к эксклюзивным объектам со всего мира
 					</p>
 				</div>
 
 				<!-- Правая часть с табами -->
-				<div class="flex p-3 border border-[#D6D6D6] rounded-full">
+				<div class="flex  justify-between sm:w-auto w-full 2xl:p-3 p-2 border border-[#D6D6D6] rounded-full">
 					<button
 						v-for="tab in tabs"
 						:key="tab.id"
 						@click="activeTab = tab.id"
 						:class="[
-							'px-6 py-2 rounded-full text-lg transition-all duration-300',
+							'2xl:px-6 2xl:py-2 sm:px-4 px-2.5 py-1 rounded-full 2xl:text-lg sm:text-base text-sm transition-all duration-300',
 							activeTab === tab.id
 								? 'bg-[#6284FF] text-black'
 								: 'bg-transparent text-dark-primary'
@@ -31,29 +31,34 @@
 			</div>
 
 			<!-- Нижний блок с карточками -->
-			<div class="flex flex-wrap gap-8 justify-between">
-				<template v-for="item in filteredItems" :key="item.id">
-					<NuxtLink to="/" class="offer-card flex flex-col gap-8 mr-10 relative rounded-t-lg overflow-hidden">
-							<img
-								:src="item.image"
-							:alt="item.title"
-							class="w-full h-[445px] object-cover rounded-b-lg"
-						/>
+			<div class="flex flex-wrap 2xl:gap-8 gap-6 justify-between">
+				<NuxtLink
+					v-for="item in filteredItems"
+					:key="item.id"
+					to="/"
+					class="offer-card flex flex-col lg:gap-8 gap-4 2xl:mr-10 mr-0 relative rounded-t-[25px] overflow-hidden"
+				>
+					<img
+						:src="item.image"
+						:alt="item.title"
+						loading="lazy"
+						placeholder="blur"
+						class="w-full 2xl:h-[445px] lg:h-[300px] h-[200px] object-cover rounded-[30px]"
+					/>
 
-						<CustomCornerArrowIcon class="absolute top-[-1px] right-[-1px]"/>
+					<CustomCornerArrowIcon class="absolute top-[-1px] right-[-1px] 2xl:w-[138px] w-[69px] 2xl:h-[152px] h-[76px] "/>
 
-						<div class="flex flex-col gap-4">
-							<h3 class="text-3xl font-medium truncate">{{ item.title }}</h3>
-							<p class="text-lg text-[#41495D] truncate">{{ item.address }}</p>
-							<div class="flex justify-between items-center">
-								<div class="flex items-end gap-2">
-									<span class="text-3xl font-medium">${{ item.price }}</span>
-									<span class="text-lg text-[#41495D] line-through">${{ item.oldPrice }}</span>
-								</div>
+					<div class="flex flex-col sm:gap-4 gap-2">
+						<h3 class="2xl:text-3xl sm:text-2xl text-xl font-medium truncate">{{ item.title }}</h3>
+						<p class="2xl:text-lg sm:text-base text-sm text-[#41495D] truncate">{{ item.address }}</p>
+						<div class="flex justify-between items-center">
+							<div class="flex items-end gap-2">
+								<span class="2xl:text-3xl sm:text-2xl text-xl font-medium">${{ item.price }}</span>
+								<span class="2xl:text-lg sm:text-base text-sm text-[#41495D] line-through">${{ item.oldPrice }}</span>
 							</div>
 						</div>
-					</NuxtLink>
-				</template>
+					</div>
+				</NuxtLink>
 			</div>
 	</section>
 </template>
@@ -156,7 +161,28 @@ const filteredItems = computed(() => {
 
 <style scoped>
 .offer-card {
+	width: 36%;
 	transition: scale 0.3s ease-in-out;
+
+	@media (max-width: 1536px) {
+		width: 40%;
+	}
+
+	@media (max-width: 640px) {
+		width: 100%;
+	}
+}
+
+.offer-card:nth-child(3n + 1) {
+	width: 51%;
+
+	@media (max-width: 1536px) {
+		width: 55%;
+	}
+
+	@media (max-width: 640px) {
+		width: 100%;
+	}
 }
 
 .offer-card:hover {

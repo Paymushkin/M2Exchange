@@ -6,7 +6,13 @@
 			isWide ? 'object-item-wide' : 'object-item'
 		]"
 	>
-		<img :src="card.image" :alt="card.title" class="w-full h-auto rounded-md mb-3" />
+		<img
+			:src="card.image"
+			:alt="card.title"
+			loading="lazy"
+			placeholder="blur"
+			class="w-full h-auto rounded-md mb-3"
+		/>
 		<div
 			class="flex items-center justify-center rounded-full icon-heart cursor-pointer"
 			:class="{ 'is-favorite': isFavorite(card.id) }"

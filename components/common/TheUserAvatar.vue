@@ -4,6 +4,8 @@
 			<img
 				:src="isAuthenticated ? avatarUrl : defaultAvatarUrl"
 				:alt="isAuthenticated ? 'User avatar' : 'Default avatar'"
+				loading="lazy"
+				placeholder="blur"
 				class="min-w-[38px] h-[38px] aspect-square rounded-full object-cover"
 			/>
 		</router-link>
