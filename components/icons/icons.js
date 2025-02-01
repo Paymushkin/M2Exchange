@@ -1,4 +1,5 @@
 import AddObjectIcon from '@/components/icons/AddObjectIcon.vue'
+import AppleLoginIcon from '@/components/icons/AppleLoginIcon.vue'
 import AppleStoreIcon from '@/components/icons/AppleStoreIcon.vue'
 import Arrow45degIcon from '@/components/icons/Arrow45degIcon.vue'
 import ArrowIcon from '@/components/icons/ArrowIcon.vue'
@@ -15,6 +16,7 @@ import ContactIcon from '@/components/icons/ContactIcon.vue'
 import EmptyListIcon from '@/components/icons/EmptyListIcon.vue'
 import FacebookIcon from '@/components/icons/FacebookIcon.vue'
 import FavoriteIcon from '@/components/icons/FavoriteIcon.vue'
+import FacebookLoginIcon from '@/components/icons/FacebookLoginIcon.vue'
 import FavoritesIcon from '@/components/icons/FavoritesIcon.vue'
 import FilterIcon from '@/components/icons/FilterIcon.vue'
 import QuoteIcon from '@/components/icons/QuoteIcon.vue'
@@ -22,6 +24,7 @@ import GlobalNetworkIcon from '@/components/icons/GlobalNetworkIcon.vue'
 import GlobeIcon from '@/components/icons/GlobeIcon.vue'
 import Globe2Icon from '@/components/icons/Globe2Icon.vue'
 import GlobeIconMini from '@/components/icons/GlobeIconMini.vue'
+import GoogleLoginIcon from '@/components/icons/GoogleLoginIcon.vue'
 import HeartIcon from '@/components/icons/HeartIcon.vue'
 import HelpIcon from '@/components/icons/HelpIcon.vue'
 import IncreaseIcon from '@/components/icons/IncreaseIcon.vue'
@@ -52,6 +55,7 @@ import StarRaitingIcon from '@/components/icons/StarRaitingIcon.vue'
 
 export {
 	AddObjectIcon,
+	AppleLoginIcon,
 	AppleStoreIcon,
 	Arrow45degIcon,
 	ArrowIcon,
@@ -67,6 +71,7 @@ export {
 	ContactIcon,
 	EmptyListIcon,
 	FacebookIcon,
+	FacebookLoginIcon,
 	FavoriteIcon,
 	FavoritesIcon,
 	FilterIcon,
@@ -75,6 +80,7 @@ export {
 	GlobeIcon,
 	Globe2Icon,
 	GlobeIconMini,
+	GoogleLoginIcon,
 	HeartIcon,
 	HelpIcon,
 	IncreaseIcon,

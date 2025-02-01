@@ -1,6 +1,6 @@
 <template>
 	<div class="relative">
-		<router-link :to="isAuthenticated ? '/account' : '/auth'" class="block">
+		<router-link :to="isAuthenticated ? '/account' : '/login'" class="block">
 			<img
 				:src="isAuthenticated ? avatarUrl : defaultAvatarUrl"
 				:alt="isAuthenticated ? 'User avatar' : 'Default avatar'"
