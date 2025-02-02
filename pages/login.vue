@@ -7,7 +7,7 @@
 </template>
 
 <script setup>
-import TheLoginSection from '~/components/sections/TheLoginSection.vue'
+import TheLoginSection from '~/components/sections/login/TheLoginSection.vue'
 
 definePageMeta({
 	layout: 'login'

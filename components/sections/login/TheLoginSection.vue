@@ -5,5 +5,5 @@
 </template>
 
 <script setup>
-import TheLoginForm from '@/components/sections/TheLoginForm.vue'
+import TheLoginForm from '~/components/sections/login/TheLoginForm.vue'
 </script>
