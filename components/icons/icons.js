@@ -25,7 +25,9 @@ import GlobeIcon from '@/components/icons/GlobeIcon.vue'
 import Globe2Icon from '@/components/icons/Globe2Icon.vue'
 import GlobeIconMini from '@/components/icons/GlobeIconMini.vue'
 import GoogleLoginIcon from '@/components/icons/GoogleLoginIcon.vue'
+import HandIcon from '@/components/icons/HandIcon.vue'
 import HeartIcon from '@/components/icons/HeartIcon.vue'
+import Heart2Icon from '@/components/icons/Heart2Icon.vue'
 import HelpIcon from '@/components/icons/HelpIcon.vue'
 import IncreaseIcon from '@/components/icons/IncreaseIcon.vue'
 import InstagramIcon from '@/components/icons/InstagramIcon.vue'
@@ -39,10 +41,12 @@ import MapIcon from '@/components/icons/MapIcon.vue'
 import MessageIcon from '@/components/icons/MessageIcon.vue'
 import MyObjectsIcon from '@/components/icons/MyObjectsIcon.vue'
 import NotificationIcon from '@/components/icons/NotificationIcon.vue'
+import OptionsIcon from '@/components/icons/OptionsIcon.vue'
 import PlayMarketIcon from '@/components/icons/PlayMarketIcon.vue'
 import PlusIcon from '@/components/icons/PlusIcon.vue'
 import ProfileIcon from '@/components/icons/ProfileIcon.vue'
 import RefreshIcon from '@/components/icons/RefreshIcon.vue'
+import ReverseIcon from '@/components/icons/ReverseIcon.vue'
 import SearchBackgroundIcon from '@/components/icons/SearchBackgroundIcon.vue'
 import SearchFormIcon from '@/components/icons/SearchFormIcon.vue'
 import SearchIcon from '@/components/icons/SearchIcon.vue'
@@ -50,6 +54,8 @@ import SearchMiniIcon from '@/components/icons/SearchMiniIcon.vue'
 import SeeAllIcon from '@/components/icons/SeeAllIcon.vue'
 import ServiceIcon from '@/components/icons/ServiceIcon.vue'
 import SettingsIcon from '@/components/icons/SettingsIcon.vue'
+import ShareIcon from '@/components/icons/ShareIcon.vue'
+import ShareIcon2 from '@/components/icons/ShareIcon2.vue'
 import SquareIcon from '@/components/icons/SquareIcon.vue'
 import StarRaitingIcon from '@/components/icons/StarRaitingIcon.vue'
 
@@ -81,7 +87,9 @@ export {
 	Globe2Icon,
 	GlobeIconMini,
 	GoogleLoginIcon,
+	HandIcon,
 	HeartIcon,
+	Heart2Icon,
 	HelpIcon,
 	IncreaseIcon,
 	InstagramIcon,
@@ -95,10 +103,12 @@ export {
 	MessageIcon,
 	MyObjectsIcon,
 	NotificationIcon,
+	OptionsIcon,
 	PlusIcon,
 	PlayMarketIcon,
 	ProfileIcon,
 	RefreshIcon,
+	ReverseIcon,
 	SearchBackgroundIcon,
 	SearchFormIcon,
 	SearchIcon,
@@ -106,6 +116,8 @@ export {
 	SeeAllIcon,
 	ServiceIcon,
 	SettingsIcon,
+	ShareIcon,
+	ShareIcon2,
 	SquareIcon,
 	StarRaitingIcon
 }

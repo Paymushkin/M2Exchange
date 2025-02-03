@@ -5,12 +5,35 @@
 			<slot />
 		</main>
 		<TheFooter />
+
 		<UModal :fullscreen="isFullscreen" v-model="modalStore.isOpen">
 			<ExchangeFormSlider :fromModal="true" :closeModal="modalStore.closeModal" />
 		</UModal>
-		<UModal v-model="modalStore.isExchangeModalOpen">
-			<ObjectExchangeRequest @close="modalStore.closeExchangeModal" />
+
+		<UModal :fullscreen="isFullscreen" v-model="modalStore.isExchangeModalOpen"
+			:ui="{
+				container: 'max-w-[820px] w-full mx-auto',
+			}"
+		>
+			<ObjectExchangeRequestModal @close="modalStore.closeExchangeModal" />
 		</UModal>
+
+		<UModal :fullscreen="isFullscreen" v-model="modalStore.isContactsModalOpen"
+			:ui="{
+				container: 'max-w-[820px] w-full mx-auto',
+			}"
+		>
+			<ObjectContactsRequestModal @close="modalStore.closeContactsModal" />
+		</UModal>
+
+		<UModal v-model="modalStore.isObjectOptionModalOpen"
+		    :ui="{
+					container: 'max-w-[580px] w-full mx-auto',
+        }"
+		>
+			<ObjectOptionModal @close="modalStore.closeObjectOptionModal" />
+		</UModal>
+
 		<AlertContainer />
 	</div>
 </template>
@@ -21,8 +44,9 @@ import TheHeader from '@/components/layout/TheHeader.vue'
 import TheFooter from '@/components/layout/TheFooter.vue'
 import { useModalStore } from '@/stores/modalStore'
 import ExchangeFormSlider from '@/components/common/ExchangeFormSlider.vue'
-import ObjectExchangeRequest from '@/components/common/modals/ObjectExchangeRequestModal.vue'
-import AlertContainer from '@/components/common/AlertContainer.vue'
+import ObjectExchangeRequestModal from '@/components/common/modals/ObjectExchangeRequestModal.vue'
+import ObjectContactsRequestModal from '@/components/common/modals/ObjectContactsRequestModal.vue'
+import ObjectOptionModal from '@/components/common/modals/ObjectOptionModal.vue'
 
 const modalStore = useModalStore()
 const isFullscreen = ref(window.innerWidth < 1024)

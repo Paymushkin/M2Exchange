@@ -7,16 +7,18 @@
 		<UModal :fullscreen="isFullscreen" v-model="modalStore.isOpen">
 			<ExchangeFormSlider :fromModal="true" :closeModal="modalStore.closeModal" />
 		</UModal>
+		<AlertContainer />
 	</div>
 </template>
 
 <script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
 import TheHeader from '@/components/layout/TheHeader.vue'
 import TheFooter from '@/components/layout/TheFooter.vue'
 import { useModalStore } from '@/stores/modalStore'
 import ExchangeFormSlider from '@/components/common/ExchangeFormSlider.vue'
-import ObjectExchangeRequest from '@/components/common/ObjectExchangeRequest.vue'
-import { ref, onMounted, onUnmounted } from 'vue'
+import ObjectExchangeRequest from '@/components/common/modals/ObjectExchangeRequestModal.vue'
+import AlertContainer from '@/components/common/AlertContainer.vue'
 
 const modalStore = useModalStore()
 const isFullscreen = ref(window.innerWidth < 1024)

@@ -28,31 +28,11 @@
 				<h2 class="text-[#41495E] 2xl:text-3xl sm:text-xl text-base 2xl:mb-5 mb-3">
 					Недвижимоть со всего мира в одном приложение
 				</h2>
-				<div class="flex items-center gap-1 lg:mb-0 mb-12">
-					<NuxtLink to="/">
-						<AppleStoreIcon class="hover:bg-black bg-[#060565] 2xl:h-full max-h-[40px] sm:max-w-auto max-w-[120px] p-[2px] rounded-[8px] transition-colors duration-300"/>
-					</NuxtLink>
-					<NuxtLink to="/">
-						<PlayMarketIcon class="hover:bg-black bg-[#060565] 2xl:h-full max-h-[40px] sm:max-w-auto max-w-[120px] p-[2px] rounded-[8px] transition-colors duration-300" />
-					</NuxtLink>
-				</div>
-				<div class="relative flex items-center self-end gap-0 mt-auto animate-cards-container">
-					<div class="flex items-center justify-center bg-[#6A85F7] rounded-full sm:px-[30px] px-4 2xl:h-[60px] h-[40px]">
-						<span class="text-sm 2xl:text-base">
-							Real estate
-						</span>
-					</div>
-					<div class="absolute flex items-center justify-center bg-[#6A85F7] rounded-full sm:px-[30px] px-4 2xl:h-[60px] h-[40px] rotated-item animate-card">
-						<span class="text-sm 2xl:text-base">
-							house property
-						</span>
-					</div>
-					<div class="flex items-center justify-center bg-[#6A85F7] rounded-full sm:px-[30px] px-4 2xl:h-[60px] h-[40px]">
-						<span class="text-sm 2xl:text-base">
-							Apartment
-						</span>
-					</div>
-				</div>
+				<StoreButtons
+					app-store-link="/"
+					play-market-link="/"
+				/>
+				<AnimatedTags :tags="['Real estate', 'house property', 'Apartment']" />
 			</div>
 
 			<div class="flex flex-col items-start grow w-full bg-[#6A85F7] 2xl:rounded-2xl rounded-xl 2xl:py-10 py-8 2xl:px-8 px-6">
@@ -77,6 +57,8 @@
 <script setup>
 import { Arrow45degIcon, AppleStoreIcon, PlayMarketIcon } from '@/components/icons/icons'
 import ArrowButton from '@/components/ui/ArrowButton.vue'
+import StoreButtons from '@/components/ui/StoreButtons.vue'
+import AnimatedTags from '@/components/ui/AnimatedTags.vue'
 </script>
 
 <style scoped>

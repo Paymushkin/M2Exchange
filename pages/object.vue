@@ -1,16 +1,20 @@
 <template>
-	<NuxtLayout>
+	<NuxtLayout name="object">
 		<div class="container py-10">
 			<!-- Хлебные крошки -->
 			<Breadcrumbs class="mb-2" :breadcrumbs="breadcrumbs" />
-			<ObjectTopSection />
+			<ObjectSection />
 		</div>
 	</NuxtLayout>
 </template>
 
 <script setup>
 import Breadcrumbs from '@/components/common/Breadcrumbs.vue'
-import ObjectTopSection from '~/components/sections/object/ObjectSection.vue'
+import ObjectSection from '~/components/sections/object/ObjectSection.vue'
+
+definePageMeta({
+	layout: 'object'
+})
 // Пример данных для хлебных крошек
 const breadcrumbs = [
 	{

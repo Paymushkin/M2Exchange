@@ -5,7 +5,7 @@
 
 		<div class="container custom-container mx-auto">
 			<h2
-				class="2xl:text-[42px] lg:4xl text-2xl leading-[1.2]] font-bold text-left 2xl:mb-12 xl:mb-8 mb-5 pt-10 text-dark"
+				class="2xl:text-[42px] lg:4xl text-2xl leading-[1.2]] font-bold text-left 2xl:mb-8 xl:mb-4 mb-5 pt-10 text-dark"
 			>
 				Рекомендуемые объекты
 			</h2>
@@ -13,7 +13,7 @@
 			<div class="cards-container">
 				<ul
 					ref="scrollContainer"
-					class="flex xl:gap-4 gap-2 overflow-x-auto pb-5 scrollbar-hide scroll-grab"
+					class="flex xl:gap-4 gap-2 overflow-x-auto py-4 scrollbar-hide scroll-grab"
 					@mousedown="startDragging"
 					@mousemove="drag"
 					@mouseup="stopDragging"

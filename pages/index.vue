@@ -4,6 +4,9 @@
 		<RecommendationsSection />
 		<StoriesSection />
 		<ExchangeInfoSection />
+		<div class="container mb-20">
+			<MainBanner />
+		</div>
 		<TopLocationsSection />
 		<ExchangeProcessSection />
 		<div class="container slider-container xl:mb-[200px]">
@@ -18,6 +21,7 @@
 import HeroSection from '@/components/sections/main/HeroSection.vue'
 import RecommendationsSection from '@/components/sections/main/RecommendationsSection.vue'
 import StoriesSection from '@/components/sections/main/StoriesSection.vue'
+import MainBanner from '@/components/common/banners/MainBanner.vue'
 import TopLocationsSection from '~/components/sections/main/TopLocationsSection.vue'
 import ExchangeInfoSection from '@/components/sections/main/ExchangeInfoSection.vue'
 import ExchangeProcessSection from '~/components/sections/main/ExchangeProcessSection.vue'

@@ -2,7 +2,7 @@
 	<li
 		class="shadow-card relative bg-white xl:rounded-2xl rounded-lg xl:p-6 p-3 hover:scale-105 transition-all duration-300"
 		:class="[
-			{ 'favorite-object': isFavorite(card.id) },
+			{ 'favorite-object': favoriteStore.isFavorite(card.id) },
 			isWide ? 'object-item-wide' : 'object-item'
 		]"
 	>
@@ -15,17 +15,20 @@
 		/>
 		<div
 			class="flex items-center justify-center rounded-full icon-heart cursor-pointer"
-			:class="{ 'is-favorite': isFavorite(card.id) }"
-			@click="toggleFavorite(card.id)"
+			:class="{ 'is-favorite': favoriteStore.isFavorite(card.id) }"
+			@click="handleFavoriteClick"
 		>
-			<HeartIcon class="h-6" />
+			<HeartIcon
+				class="h-6"
+				:class="{ 'fill-[#FF7E56] stroke-[#FF7E56]': favoriteStore.isFavorite(card.id) }"
+			/>
 		</div>
 		<span
 			v-if="isWide"
 			class="card-label bg-white color-dark rounded-xl px-2 py-1 text-xs font-bold"
 			>{{ card.type }}</span
 		>
-		<NuxtLink :to="`/object/${card.id}`">
+		<NuxtLink to="/object">
 			<div class="flex flex-col xl:gap-3 gap-2">
 				<div
 					class="flex items-center flex-wrap gap-2 justify-between xl:text-xl lg:text-lg sm:text-sm text-xs"
@@ -60,7 +63,7 @@
 </template>
 
 <script setup>
-import { useFavorites } from '@/composables/useFavorites'
+import { useFavoriteStore } from '@/stores/favoriteStore'
 import { HeartIcon, LocationIcon, SquareIcon, BedIcon, BathIcon } from '@/components/icons/icons.js'
 
 const props = defineProps({
@@ -74,7 +77,11 @@ const props = defineProps({
 	}
 })
 
-const { toggleFavorite, isFavorite } = useFavorites()
+const favoriteStore = useFavoriteStore()
+
+const handleFavoriteClick = () => {
+	favoriteStore.toggleFavorite(props.card.id)
+}
 </script>
 
 <style scoped>
@@ -129,14 +136,13 @@ const { toggleFavorite, isFavorite } = useFavorites()
 	top: 48px;
 	right: 48px;
 	width: 40px;
-	aspect-ratio: 1 / 1;
-	background-color: rgba(255, 255, 255, 0.5);
+	height: 40px;
+	background: rgba(255, 255, 255, 0.9);
 	transition: all 0.3s ease;
 
 	@media (max-width: 1024px) {
 		top: 30px;
 		right: 30px;
-		width: 30px;
 	}
 
 	@media (max-width: 640px) {
@@ -145,18 +151,19 @@ const { toggleFavorite, isFavorite } = useFavorites()
 	}
 }
 
-.icon-heart svg {
-	@media (max-width: 640px) {
-		width: 15px;
-	}
+.icon-heart:hover {
+	background: #3d62ff;
+}
+
+.icon-heart:hover svg {
+	stroke: white;
 }
 
 .icon-heart.is-favorite {
-	background-color: #4460f6;
+	background: #3D62FF;
 }
 
-.icon-heart.is-favorite :deep(svg path) {
-	fill: #4460f6;
+.icon-heart.is-favorite svg {
 	stroke: white;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-	<button class="bg-dark lg:text-sm text-xs text-white rounded px-4 lg:h-[50px] h-[30px]">
+	<button class="bg-[#E9ECFF] lg:text-[14px] lg:leading-[1.2] text-sm text-dark  rounded px-4 h-[44px]">
 		<slot></slot>
 	</button>
 </template>
