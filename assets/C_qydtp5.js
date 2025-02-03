@@ -1,1 +1,0 @@
-import{a8 as e}from"./DjO24xwg.js";const s=e("modal",{state:()=>({isOpen:!1,isExchangeModalOpen:!1}),actions:{openModal(){this.isOpen=!0},closeModal(){this.isOpen=!1},openExchangeModal(){this.isExchangeModalOpen=!0},closeExchangeModal(){this.isExchangeModalOpen=!1}}});export{s as u};
