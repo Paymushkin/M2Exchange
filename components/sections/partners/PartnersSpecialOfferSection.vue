@@ -36,7 +36,7 @@
 					v-for="item in filteredItems"
 					:key="item.id"
 					to="/"
-					class="offer-card flex flex-col lg:gap-8 gap-4 2xl:mr-10 mr-0 relative rounded-t-[25px] overflow-hidden"
+					class="offer-card flex flex-col lg:gap-8 gap-4 2xl:mr-10 mr-0 p-2 relative rounded-t-[25px] overflow-hidden"
 				>
 					<img
 						:src="item.image"

@@ -98,5 +98,10 @@ export default defineNuxtConfig({
 		version: '2.1'
 	},
 
-	plugins: [{ src: '~/plugins/yandex-maps.client.ts', mode: 'client' }]
+	plugins: [{ src: '~/plugins/yandex-maps.client.ts', mode: 'client' }],
+
+	devServer: {
+		port: 3000,
+		host: '0.0.0.0'
+	}
 } satisfies NuxtConfig)

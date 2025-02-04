@@ -16,5 +16,5 @@ import CatalogSearchSection from '@/components/sections/catalog/CatalogSeachSect
 import CatalogListSection from '@/components/sections/catalog/CatalogListSection.vue'
 import CatalogEmptyListSection from '@/components/sections/catalog/CatalogEmptyListSection.vue'
 import CatalogRecommendationsSection from '@/components/sections/catalog/CatalogRecommendationsSection.vue'
-const objects = ref([])
+const objects = ref(['1'])
 </script>

@@ -14,20 +14,24 @@
 			class="w-full h-auto rounded-md mb-3"
 		/>
 		<div
-			class="flex items-center justify-center rounded-full icon-heart cursor-pointer"
+			class="absolute flex justify-center gap-2 card-top-info"
 			:class="{ 'is-favorite': favoriteStore.isFavorite(card.id) }"
 			@click="handleFavoriteClick"
 		>
-			<HeartIcon
-				class="h-6"
-				:class="{ 'fill-[#FF7E56] stroke-[#FF7E56]': favoriteStore.isFavorite(card.id) }"
-			/>
+			<div
+				v-if="isWide"
+				class="flex items-center justify-center card-label bg-white color-dark rounded-xl px-2 text-xs font-bold"
+				>{{ card.type }}
+			</div>
+			<div class="icon-heart rounded-full cursor-pointer flex items-center justify-center">
+				<HeartIcon :class="{ 'fill-[#FF7E56] stroke-[#FF7E56]': favoriteStore.isFavorite(card.id) }"/>
+			</div>
 		</div>
-		<span
-			v-if="isWide"
-			class="card-label bg-white color-dark rounded-xl px-2 py-1 text-xs font-bold"
-			>{{ card.type }}</span
-		>
+
+		<NuxtLink v-if="isWide" to="/object" class="absolute xl:top-[25px] xl:right-[25px] top-[12px] right-[12px] custom-arrow-icon">
+			<CustomCornerArrowIcon class="w-full h-full"/>
+		</NuxtLink>
+
 		<NuxtLink to="/object">
 			<div class="flex flex-col xl:gap-3 gap-2">
 				<div
@@ -64,7 +68,7 @@
 
 <script setup>
 import { useFavoriteStore } from '@/stores/favoriteStore'
-import { HeartIcon, LocationIcon, SquareIcon, BedIcon, BathIcon } from '@/components/icons/icons.js'
+import { HeartIcon, LocationIcon, SquareIcon, BedIcon, BathIcon, CustomCornerArrowIcon } from '@/components/icons/icons.js'
 
 const props = defineProps({
 	card: {
@@ -115,55 +119,69 @@ const handleFavoriteClick = () => {
 	object-fit: cover;
 }
 
-.card-label {
-	position: absolute;
-	top: 48px;
-	left: 48px;
+.object-item .card-top-info {
+	top: 40px;
+	right: 50px;
 
-	@media (max-width: 1024px) {
+	@media (max-width: 1280px) {
 		top: 30px;
-		left: 30px;
+		right: 30px;
 	}
+}
 
-	@media (max-width: 640px) {
-		top: 24px;
-		left: 24px;
+.object-item-wide .card-top-info {
+	top: 40px;
+	left: 40px;
+
+	@media (max-width: 1280px) {
+		left: 30px;
+		top: 30px;
 	}
 }
 
 .icon-heart {
-	position: absolute;
-	top: 48px;
-	right: 48px;
-	width: 40px;
-	height: 40px;
 	background: rgba(255, 255, 255, 0.9);
 	transition: all 0.3s ease;
+}
 
-	@media (max-width: 1024px) {
-		top: 30px;
-		right: 30px;
-	}
+.object-item .icon-heart {
+	width: 40px;
+	height: 40px;
+}
 
-	@media (max-width: 640px) {
-		top: 24px;
-		right: 24px;
-	}
+.object-item-wide .icon-heart {
+	width: 24px;
+	height: 24px;
+}
+
+.object-item-wide .icon-heart svg {
+	height: 12px;
 }
 
 .icon-heart:hover {
-	background: #3d62ff;
+	background: #3d62ff80;
 }
 
 .icon-heart:hover svg {
 	stroke: white;
 }
 
-.icon-heart.is-favorite {
+.is-favorite .icon-heart {
 	background: #3D62FF;
 }
 
 .icon-heart.is-favorite svg {
 	stroke: white;
 }
+
+.custom-arrow-icon {
+	width: 100px;
+	border-top-right-radius: 12px;
+	aspect-ratio: 138/152;
+
+	@media (max-width: 1280px) {
+		width: 80px;
+	}
+}
+
 </style>
