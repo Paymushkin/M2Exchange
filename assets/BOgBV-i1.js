@@ -1,1 +1,0 @@
-import{_ as e,o,c as n,r}from"./C-aQP7sg.js";const s={},c={class:"flex items-center justify-center bg-secondary text-base text-white rounded-full px-5 py-3 hover:opacity-80 transition-opacity duration-300"};function a(t,d){return o(),n("button",c,[r(t.$slots,"default")])}const l=e(s,[["render",a]]);export{l as R};
