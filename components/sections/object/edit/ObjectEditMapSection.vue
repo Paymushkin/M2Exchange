@@ -11,10 +11,7 @@
 import { ref, onMounted } from 'vue'
 
 const props = defineProps({
-	location: {
-		type: String,
-		required: true
-	},
+	object: Object,
 	coordinates: {
 		type: Array,
 		required: false,
@@ -37,7 +34,7 @@ onMounted(() => {
 
 const initMap = () => {
 	const map = new window.ymaps.Map('map', {
-		center: props.coordinates,
+		center: props.object.coordinates,
 		zoom: 14,
 		controls: ['zoomControl']
 	})
@@ -52,7 +49,7 @@ const initMap = () => {
 	)
 
 	const placemark = new window.ymaps.Placemark(
-		props.coordinates,
+		props.object.coordinates,
 		{},
 		{
 			iconLayout: customLayout,
@@ -80,6 +77,7 @@ const initMap = () => {
 	width: 100%;
 	height: 100%;
 }
+
 .custom-placemark {
 	width: 40px;
 	height: 48px;

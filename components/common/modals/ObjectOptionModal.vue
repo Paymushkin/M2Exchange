@@ -24,8 +24,9 @@
 
 			<li>
 				<NuxtLink
-					to="/objects/edit"
+					to="/objects/object/edit?id=1"
 					class="flex justify-center items-center w-full py-4 hover:text-[#4460F6] transition-colors duration-300"
+					@click="emit('close')"
 				>
 					Редактировать объект
 				</NuxtLink>

@@ -18,7 +18,7 @@ type IslandComponent<T extends DefineComponent> = T &
 interface _GlobalComponents {
 	HeaderMenu: (typeof import('../components/ui/HeaderMenu.vue'))['default']
 	MenuButton: (typeof import('../components/ui/MenuButton.vue'))['default']
-	Slider: (typeof import('../components/common/ExchangeFormSlider.vue'))['default']
+	Slider: (typeof import('../components/common/modals/ExchangeFormSliderModal.vue'))['default']
 	TheFooter: (typeof import('../components/layout/TheFooter.vue'))['default']
 	TheHeader: (typeof import('../components/layout/TheHeader.vue'))['default']
 	TheHeaderActions: (typeof import('../components/TheHeaderActions.vue'))['default']
@@ -92,7 +92,7 @@ interface _GlobalComponents {
 	>
 	LazyHeaderMenu: (typeof import('../components/ui/HeaderMenu.vue'))['default']
 	LazyMenuButton: (typeof import('../components/ui/MenuButton.vue'))['default']
-	LazySlider: (typeof import('../components/common/ExchangeFormSlider.vue'))['default']
+	LazySlider: (typeof import('../components/common/modals/ExchangeFormSliderModal.vue'))['default']
 	LazyTheFooter: (typeof import('../components/layout/TheFooter.vue'))['default']
 	LazyTheHeader: (typeof import('../components/layout/TheHeader.vue'))['default']
 	LazyTheHeaderActions: (typeof import('../components/TheHeaderActions.vue'))['default']
@@ -172,7 +172,7 @@ declare module 'vue' {
 
 export const HeaderMenu: (typeof import('../components/ui/HeaderMenu.vue'))['default']
 export const MenuButton: (typeof import('../components/ui/MenuButton.vue'))['default']
-export const Slider: (typeof import('../components/common/ExchangeFormSlider.vue'))['default']
+export const Slider: (typeof import('../components/common/modals/ExchangeFormSliderModal.vue'))['default']
 export const TheFooter: (typeof import('../components/layout/TheFooter.vue'))['default']
 export const TheHeader: (typeof import('../components/layout/TheHeader.vue'))['default']
 export const TheHeaderActions: (typeof import('../components/TheHeaderActions.vue'))['default']
@@ -246,7 +246,7 @@ export const NuxtRouteAnnouncer: IslandComponent<
 >
 export const LazyHeaderMenu: (typeof import('../components/ui/HeaderMenu.vue'))['default']
 export const LazyMenuButton: (typeof import('../components/ui/MenuButton.vue'))['default']
-export const LazySlider: (typeof import('../components/common/ExchangeFormSlider.vue'))['default']
+export const LazySlider: (typeof import('../components/common/modals/ExchangeFormSliderModal.vue'))['default']
 export const LazyTheFooter: (typeof import('../components/layout/TheFooter.vue'))['default']
 export const LazyTheHeader: (typeof import('../components/layout/TheHeader.vue'))['default']
 export const LazyTheHeaderActions: (typeof import('../components/TheHeaderActions.vue'))['default']

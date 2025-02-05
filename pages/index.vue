@@ -25,7 +25,7 @@ import MainBanner from '@/components/common/banners/MainBanner.vue'
 import TopLocationsSection from '~/components/sections/main/TopLocationsSection.vue'
 import ExchangeInfoSection from '@/components/sections/main/ExchangeInfoSection.vue'
 import ExchangeProcessSection from '~/components/sections/main/ExchangeProcessSection.vue'
-import ExchangeFormSlider from '@/components/common/ExchangeFormSlider.vue'
+import ExchangeFormSlider from '~/components/common/modals/ExchangeFormSliderModal.vue'
 </script>
 
 <style scoped>

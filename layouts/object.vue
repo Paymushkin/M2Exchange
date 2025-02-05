@@ -6,8 +6,8 @@
 		</main>
 		<TheFooter />
 
-		<UModal :fullscreen="isFullscreen" v-model="modalStore.isOpen">
-			<ExchangeFormSlider :fromModal="true" :closeModal="modalStore.closeModal" />
+		<UModal :fullscreen="isFullscreen" v-model="modalStore.isExchangeFormSliderModalOpen">
+			<ExchangeFormSliderModal :fromModal="true" :closeModal="modalStore.closeExchangeFormSliderModal" />
 		</UModal>
 
 		<UModal :fullscreen="isFullscreen" v-model="modalStore.isExchangeModalOpen"
@@ -43,7 +43,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import TheHeader from '@/components/layout/TheHeader.vue'
 import TheFooter from '@/components/layout/TheFooter.vue'
 import { useModalStore } from '@/stores/modalStore'
-import ExchangeFormSlider from '@/components/common/ExchangeFormSlider.vue'
+import ExchangeFormSliderModal from '~/components/common/modals/ExchangeFormSliderModal.vue'
 import ObjectExchangeRequestModal from '@/components/common/modals/ObjectExchangeRequestModal.vue'
 import ObjectContactsRequestModal from '@/components/common/modals/ObjectContactsRequestModal.vue'
 import ObjectOptionModal from '@/components/common/modals/ObjectOptionModal.vue'

@@ -6,6 +6,7 @@ export const useModalStore = defineStore('modal', () => {
 	const isObjectOptionModalOpen = ref(false)
 	const isExchangeModalOpen = ref(false)
 	const isContactsModalOpen = ref(false)
+	const isExchangeFormSliderModalOpen = ref(false)
 	// Методы для ObjectOptionModal
 	const openObjectOptionModal = () => {
 		isObjectOptionModalOpen.value = true
@@ -33,17 +34,28 @@ export const useModalStore = defineStore('modal', () => {
 		isContactsModalOpen.value = false
 	}
 
+	const openExchangeFormSliderModal = () => {
+		isExchangeFormSliderModalOpen.value = true
+	}
+
+	const closeExchangeFormSliderModal = () => {
+		isExchangeFormSliderModalOpen.value = false
+	}
+
 	return {
 		// Состояния
 		isObjectOptionModalOpen,
 		isExchangeModalOpen,
 		isContactsModalOpen,
+		isExchangeFormSliderModalOpen,
 		// Методы
 		openObjectOptionModal,
 		closeObjectOptionModal,
 		openExchangeModal,
 		closeExchangeModal,
 		openContactsModal,
-		closeContactsModal
+		closeContactsModal,
+		openExchangeFormSliderModal,
+		closeExchangeFormSliderModal
 	}
 })

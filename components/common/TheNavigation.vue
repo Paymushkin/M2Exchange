@@ -3,7 +3,7 @@
 		class="hidden sm:flex items-center gap-5 lg:gap-8"
 		:class="{ hidden: searchStore.isSearchOpen }"
 	>
-		<HeaderExchangeButton @click="modalStore.openModal" class="hidden xl:flex" />
+		<HeaderExchangeButton @click="modalStore.openExchangeFormSliderModal" class="hidden xl:flex" />
 
 		<NuxtLink
 			v-for="item in navigationItems"

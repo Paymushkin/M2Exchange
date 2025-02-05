@@ -32,7 +32,7 @@
 			<CustomCornerArrowIcon class="w-full h-full"/>
 		</NuxtLink>
 
-		<NuxtLink to="/object">
+		<NuxtLink :to="`/objects/object?id=${card.id}`">
 			<div class="flex flex-col xl:gap-3 gap-2">
 				<div
 					class="flex items-center flex-wrap gap-2 justify-between xl:text-xl lg:text-lg sm:text-sm text-xs"
