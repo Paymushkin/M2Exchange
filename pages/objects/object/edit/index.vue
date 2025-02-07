@@ -44,8 +44,8 @@ import ObjectEditTitleSection from '@/components/sections/object/edit/ObjectEdit
 import ObjectEditPhotosSection from '@/components/sections/object/edit/ObjectEditPhotosSection.vue'
 import ObjectFilters from '@/components/common/ObjectFilters.vue'
 import ObjectEditDescriptionSection from '@/components/sections/object/edit/ObjectEditDescriptionSection.vue'
-import RoundedStandartButton from '@/components/ui/RoundedStandartButton.vue'
 import locationImage from '@/assets/images/object/big-item.png'
+
 
 definePageMeta({
 	layout: 'object'

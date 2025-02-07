@@ -8,6 +8,7 @@ import ArrowPrevIcon from '@/components/icons/ArrowPrevIcon.vue'
 import ArrowProcessIcon from '@/components/icons/ArrowProcessIcon.vue'
 import BathIcon from '@/components/icons/BathIcon.vue'
 import BedIcon from '@/components/icons/BedIcon.vue'
+import ChatIcon from '@/components/icons/ChatIcon.vue'
 import CheckIcon from '@/components/icons/CheckIcon.vue'
 import ChevronDownIcon from '@/components/icons/ChevronDownIcon.vue'
 import CustomCornerArrowIcon from '@/components/icons/CustomCornerArrowIcon.vue'
@@ -39,6 +40,7 @@ import LogoIcon from '@/components/icons/LogoIcon.vue'
 import LogoMiniIcon from '@/components/icons/LogoMiniIcon.vue'
 import MapIcon from '@/components/icons/MapIcon.vue'
 import MessageIcon from '@/components/icons/MessageIcon.vue'
+import MessagerIcon from '@/components/icons/MessagerIcon.vue'
 import MyObjectsIcon from '@/components/icons/MyObjectsIcon.vue'
 import NotificationIcon from '@/components/icons/NotificationIcon.vue'
 import OptionsIcon from '@/components/icons/OptionsIcon.vue'
@@ -51,6 +53,7 @@ import SearchBackgroundIcon from '@/components/icons/SearchBackgroundIcon.vue'
 import SearchFormIcon from '@/components/icons/SearchFormIcon.vue'
 import SearchIcon from '@/components/icons/SearchIcon.vue'
 import SearchMiniIcon from '@/components/icons/SearchMiniIcon.vue'
+import SendButtonIcon from '~/components/icons/SendButtonIcon.vue'
 import SeeAllIcon from '@/components/icons/SeeAllIcon.vue'
 import ServiceIcon from '@/components/icons/ServiceIcon.vue'
 import SettingsIcon from '@/components/icons/SettingsIcon.vue'
@@ -71,6 +74,7 @@ export {
 	BathIcon,
 	BedIcon,
 	CustomCornerArrowIcon,
+	ChatIcon,
 	CheckIcon,
 	ChevronDownIcon,
 	CloseIcon,
@@ -101,6 +105,7 @@ export {
 	LogoMiniIcon,
 	MapIcon,
 	MessageIcon,
+	MessagerIcon,
 	MyObjectsIcon,
 	NotificationIcon,
 	OptionsIcon,
@@ -113,6 +118,7 @@ export {
 	SearchFormIcon,
 	SearchIcon,
 	SearchMiniIcon,
+	SendButtonIcon,
 	SeeAllIcon,
 	ServiceIcon,
 	SettingsIcon,

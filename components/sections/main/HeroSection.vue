@@ -22,25 +22,7 @@
 
 					<!-- Форма поиска -->
 					<div class="flex gap-4">
-						<div
-							class="flex items-center w-full max-w-[460px] bg-white rounded-[60px] border-divider-light border 2xl:py-5 py-3 2xl:pr-10 pr-5 flex-1 transition-all duration-300 hover:shadow-[0px_0px_0px_1px_#4460F6] hover:border-transparent"
-						>
-							<div class="flex items-center flex-1">
-								<SearchFormIcon class="text-primary ml-2 mr-3 h-6 xl:h-auto" />
-								<div class="hidden lg:block w-[1px] h-[32px] bg-[#7974E7]"></div>
-								<input
-									type="text"
-									placeholder="Поиск"
-									class="flex-1 lg:px-4 lg:max-w-[260px] max-w-full outline-none xl:text-xl text-lg text-dark"
-								/>
-							</div>
-							<button
-								type="submit"
-								class="hidden lg:block text-dark-deep rounded-[8px] 2xl:text-2xl xl:text-xl text-lg transition-colors hover:text-primary"
-							>
-								Найти
-							</button>
-						</div>
+						<SearchForm placeholder="Поиск"/>
 						<ExchangeButton isWide class="hidden xl:flex" />
 					</div>
 				</div>
@@ -61,6 +43,6 @@
 </template>
 
 <script setup>
-import { SearchFormIcon } from '@/components/icons/icons.js'
 import ExchangeButton from '@/components/ui/ExchangeButton.vue'
+import SearchForm from '@/components/common/SearchForm.vue'
 </script>

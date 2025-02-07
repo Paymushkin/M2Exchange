@@ -80,7 +80,7 @@ const menuItems = [
 	},
 	{
 		name: 'Помощь',
-		path: '/help',
+		path: '/support',
 		icon: HelpIcon
 	},
 	{

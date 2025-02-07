@@ -146,7 +146,10 @@ const filters = ref({
 	price: { min: '', max: '' },
 	area: { min: '', max: '' },
 	rooms: { bedrooms: 1, bathrooms: 1 },
-	amenities: {}
+	amenities: filtersConfig.amenitiesSection.options.reduce((acc, option) => {
+		acc[option.id] = false
+		return acc
+	}, {})
 })
 </script>
 

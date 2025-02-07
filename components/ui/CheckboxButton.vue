@@ -1,17 +1,29 @@
 <template>
-	<UButton
-		:class="['custom-checkbox-button', { selected: modelValue }]"
-		@click="$emit('update:modelValue', !modelValue)"
-	>
-		<slot />
-	</UButton>
+	<label class="inline-flex items-center cursor-pointer">
+		<input
+			type="checkbox"
+			:checked="modelValue"
+			class="hidden"
+			@change="$emit('update:modelValue', $event.target.checked)"
+		/>
+		<div
+			class="flex items-center gap-2 px-4 py-2 border rounded-lg transition-colors duration-200"
+			:class="[
+				modelValue
+					? 'bg-primary text-white border-primary'
+					: 'bg-white text-dark border-[#B4CEFF] hover:bg-gray-50'
+			]"
+		>
+			<slot />
+		</div>
+	</label>
 </template>
 
 <script setup>
 defineProps({
 	modelValue: {
 		type: Boolean,
-		required: true
+		default: false
 	}
 })
 

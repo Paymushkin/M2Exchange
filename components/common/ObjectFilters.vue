@@ -160,7 +160,14 @@ const props = defineProps({
 
 const emit = defineEmits(['close', 'update:modelValue'])
 
-const filters = reactive({ ...props.modelValue })
+// Инициализируем amenities с булевыми значениями для каждой опции
+const filters = reactive({
+  ...props.modelValue,
+  amenities: props.modelValue.amenities || props.config.amenitiesSection.options.reduce((acc, option) => {
+    acc[option.id] = false
+    return acc
+  }, {})
+})
 
 const clearFilters = () => {
   filters.propertyType = 'all'
