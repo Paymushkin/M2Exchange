@@ -9,6 +9,7 @@ import ArrowProcessIcon from '@/components/icons/ArrowProcessIcon.vue'
 import BathIcon from '@/components/icons/BathIcon.vue'
 import BedIcon from '@/components/icons/BedIcon.vue'
 import ChatIcon from '@/components/icons/ChatIcon.vue'
+import Chat2Icon from '@/components/icons/Chat2Icon.vue'
 import CheckIcon from '@/components/icons/CheckIcon.vue'
 import ChevronDownIcon from '@/components/icons/ChevronDownIcon.vue'
 import CustomCornerArrowIcon from '@/components/icons/CustomCornerArrowIcon.vue'
@@ -30,6 +31,7 @@ import HandIcon from '@/components/icons/HandIcon.vue'
 import HeartIcon from '@/components/icons/HeartIcon.vue'
 import Heart2Icon from '@/components/icons/Heart2Icon.vue'
 import HelpIcon from '@/components/icons/HelpIcon.vue'
+import Help2Icon from '@/components/icons/Help2Icon.vue'
 import IncreaseIcon from '@/components/icons/IncreaseIcon.vue'
 import InstagramIcon from '@/components/icons/InstagramIcon.vue'
 import KeyIcon from '@/components/icons/KeyIcon.vue'
@@ -37,10 +39,12 @@ import LocatorIcon from '@/components/icons/LocatorIcon.vue'
 import LocationIcon from '@/components/icons/LocationIcon.vue'
 import Location2Icon from '@/components/icons/Location2Icon.vue'
 import LogoIcon from '@/components/icons/LogoIcon.vue'
+import LogoutIcon from '@/components/icons/LogoutIcon.vue'
 import LogoMiniIcon from '@/components/icons/LogoMiniIcon.vue'
 import MapIcon from '@/components/icons/MapIcon.vue'
 import MessageIcon from '@/components/icons/MessageIcon.vue'
 import MessagerIcon from '@/components/icons/MessagerIcon.vue'
+import Messager2Icon from '@/components/icons/Messager2Icon.vue'
 import MyObjectsIcon from '@/components/icons/MyObjectsIcon.vue'
 import NotificationIcon from '@/components/icons/NotificationIcon.vue'
 import OptionsIcon from '@/components/icons/OptionsIcon.vue'
@@ -75,6 +79,7 @@ export {
 	BedIcon,
 	CustomCornerArrowIcon,
 	ChatIcon,
+	Chat2Icon,
 	CheckIcon,
 	ChevronDownIcon,
 	CloseIcon,
@@ -95,6 +100,7 @@ export {
 	HeartIcon,
 	Heart2Icon,
 	HelpIcon,
+	Help2Icon,
 	IncreaseIcon,
 	InstagramIcon,
 	KeyIcon,
@@ -102,10 +108,12 @@ export {
 	LocationIcon,
 	Location2Icon,
 	LogoIcon,
+	LogoutIcon,
 	LogoMiniIcon,
 	MapIcon,
 	MessageIcon,
 	MessagerIcon,
+	Messager2Icon,
 	MyObjectsIcon,
 	NotificationIcon,
 	OptionsIcon,

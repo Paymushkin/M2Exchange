@@ -23,7 +23,7 @@
 <script setup>
 import { ref } from 'vue'
 
-const isAuthenticated = ref(false)
+const isAuthenticated = ref(true)
 const notificationsCount = ref(3)
 
 const avatarUrl = new URL('@/assets/images/avatars/avatar.png', import.meta.url).href

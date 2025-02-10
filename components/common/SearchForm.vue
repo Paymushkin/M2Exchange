@@ -16,7 +16,7 @@
 			/>
 		</div>
 		<button
-			type="submit"
+			@submit.prevent="submit"
 			class="hidden lg:block text-dark-deep rounded-[8px] 2xl:text-xl xl:text-lg text-sm transition-colors hover:text-primary"
 			:class="{ '2xl:text-2xl xl:text-xl text-lg': size === 'large' }"
 		>

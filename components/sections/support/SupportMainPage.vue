@@ -11,6 +11,10 @@
 			<SearchForm size="small" placeholder='Ведите тему, например "Как добавить объект"'/>
 		</div>
 
+		<div v-if="!searchData.length" class="flex justify-center w-full lg:mb-[100px] mb-10">
+			<h3 class="text-dark">К сожалению по вашему запросу ничего не найдено</h3>
+		</div>
+
 		<!-- Тематические разделы -->
 		<div v-if="!selectedQuestion" class="grid lg:grid-cols-3 gap-x-8 lg:gap-y-20 gap-y-5">
 			<div v-for="section in sections" :key="section.title" class="flex flex-col gap-4">
@@ -62,6 +66,8 @@ import SupportChatContainer from '@/components/common/SupportChatContainer.vue'
 const selectedQuestion = ref(null)
 
 const isChatOpen = ref(true)
+
+const searchData = ref('')
 
 const sections = [
 	{

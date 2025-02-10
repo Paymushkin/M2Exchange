@@ -102,6 +102,11 @@ export default defineNuxtConfig({
 
 	devServer: {
 		port: 3000,
-		host: '0.0.0.0'
+	},
+
+	vite: {
+		server: {
+			open: true
+		}
 	}
 } satisfies NuxtConfig)
