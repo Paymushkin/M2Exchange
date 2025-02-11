@@ -1,26 +1,13 @@
 <template>
 	<div id="payment" class="flex flex-col items-start xl:gap-7 gap-4 w-full">
 		<!-- Главный переключатель -->
-		<div class="flex items-center bg-[#F0F3FE] rounded-full">
-			<button
-				@click="activeMainTab = 'tariffs'"
-				:class="[
-					'h-[50px] px-6 py-2 rounded-full transition-colors text-sm',
-					activeMainTab === 'tariffs' ? 'bg-dark text-white' : 'bg-transparent text-dark-primary'
-				]"
-			>
-				Тарифы
-			</button>
-			<button
-				@click="activeMainTab = 'payment'"
-				:class="[
-					'h-[50px] px-6 py-2 rounded-full transition-colors text-sm',
-					activeMainTab === 'payment' ? 'bg-dark text-white' : 'bg-[#F4F5F9] text-dark-primary'
-				]"
-			>
-				Оплата
-			</button>
-		</div>
+		<TabSwitcher
+			v-model="activeMainTab"
+			:tabs="[
+				{ value: 'tariffs', label: 'Тарифы' },
+				{ value: 'payment', label: 'Оплата', bgClass: 'bg-[#F4F5F9] text-dark-primary' }
+			]"
+		/>
 
 		<!-- Блок тарифов -->
 		<TariffsSection v-if="activeMainTab === 'tariffs'" />
@@ -69,9 +56,10 @@
 import { ref } from 'vue'
 import { PlusIcon } from '@/components/icons/icons'
 import RoundedStandartButton from '@/components/ui/RoundedStandartButton.vue'
-import ExistingCard from '@/components/payment/ExistingCard.vue'
-import NewCardForm from '@/components/payment/NewCardForm.vue'
-import TariffsSection from '@/components/payment/TariffsSection.vue'
+import ExistingCard from '@/components/sections/account/payment/ExistingCard.vue'
+import NewCardForm from '@/components/sections/account/payment/NewCardForm.vue'
+import TariffsSection from '@/components/sections/account/payment/TariffsSection.vue'
+import TabSwitcher from '@/components/ui/TabSwitcher.vue'
 
 const activeMainTab = ref('tariffs')
 const selectedCard = ref(null)

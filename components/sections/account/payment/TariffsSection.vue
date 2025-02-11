@@ -71,9 +71,8 @@
 
 <script setup>
 import { ref } from 'vue'
-import RoundedStandartButton from '@/components/ui/RoundedStandartButton.vue'
-import TariffCard from '@/components/payment/TariffCard.vue'
-import ActiveTariffCard from '@/components/payment/ActiveTariffCard.vue'
+import TariffCard from '@/components/sections/account/payment/TariffCard.vue'
+import ActiveTariffCard from '@/components/sections/account/payment/ActiveTariffCard.vue'
 
 const activeTariffTab = ref('connect')
 const selectedContactTariff = ref('ten')

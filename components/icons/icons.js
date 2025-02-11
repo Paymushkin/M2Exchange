@@ -19,6 +19,7 @@ import ContactIcon from '@/components/icons/ContactIcon.vue'
 import EmptyListIcon from '@/components/icons/EmptyListIcon.vue'
 import FacebookIcon from '@/components/icons/FacebookIcon.vue'
 import FavoriteIcon from '@/components/icons/FavoriteIcon.vue'
+import FavoriteEmptyIcon from '@/components/icons/FavoriteEmptyIcon.vue'
 import FacebookLoginIcon from '@/components/icons/FacebookLoginIcon.vue'
 import FavoritesIcon from '@/components/icons/FavoritesIcon.vue'
 import FilterIcon from '@/components/icons/FilterIcon.vue'
@@ -31,6 +32,7 @@ import GoogleLoginIcon from '@/components/icons/GoogleLoginIcon.vue'
 import HandIcon from '@/components/icons/HandIcon.vue'
 import HeartIcon from '@/components/icons/HeartIcon.vue'
 import Heart2Icon from '@/components/icons/Heart2Icon.vue'
+import Heart3Icon from '@/components/icons/Heart3Icon.vue'
 import HelpIcon from '@/components/icons/HelpIcon.vue'
 import Help2Icon from '@/components/icons/Help2Icon.vue'
 import IncreaseIcon from '@/components/icons/IncreaseIcon.vue'
@@ -92,6 +94,7 @@ export {
 	FacebookIcon,
 	FacebookLoginIcon,
 	FavoriteIcon,
+	FavoriteEmptyIcon,
 	FavoritesIcon,
 	FilterIcon,
 	QuoteIcon,
@@ -103,6 +106,7 @@ export {
 	HandIcon,
 	HeartIcon,
 	Heart2Icon,
+	Heart3Icon,
 	HelpIcon,
 	Help2Icon,
 	IncreaseIcon,

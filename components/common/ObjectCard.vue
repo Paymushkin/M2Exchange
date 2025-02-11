@@ -15,6 +15,7 @@
 		/>
 		<div
 			class="absolute flex justify-center gap-2 card-top-info"
+			v-if="type !== 'account'"
 			:class="{ 'is-favorite': favoriteStore.isFavorite(card.id) }"
 			@click="handleFavoriteClick"
 		>
@@ -23,9 +24,15 @@
 				class="flex items-center justify-center card-label bg-white color-dark rounded-xl px-2 text-xs font-bold"
 				>{{ card.type }}
 			</div>
-			<div class="icon-heart rounded-full cursor-pointer flex items-center justify-center">
+			<div class="icon-heart rounded-full cursor-pointer flex items-center justify-center"
+				@click="handleFavoriteClick"
+			>
 				<HeartIcon :class="{ 'fill-[#FF7E56] stroke-[#FF7E56]': favoriteStore.isFavorite(card.id) }"/>
 			</div>
+		</div>
+		<div v-if="type === 'account'" class="flex items-center justify-center px-3 py-1 bg-[#E9ECFF] text-primary rounded-xl text-xs font-bold card-status">
+			<span v-if="status === 'actual'">Активен</span>
+			<span v-if="status === 'history'">Завершен</span>
 		</div>
 
 		<NuxtLink v-if="isWide" to="/object" class="absolute xl:top-[25px] xl:right-[25px] top-[12px] right-[12px] custom-arrow-icon">
@@ -78,6 +85,14 @@ const props = defineProps({
 	isWide: {
 		type: Boolean,
 		default: false
+	},
+	type: {
+		type: String,
+		default: 'catalog'
+	},
+	status: {
+		type: String,
+		default: 'actual'
 	}
 })
 
@@ -181,6 +196,17 @@ const handleFavoriteClick = () => {
 
 	@media (max-width: 1280px) {
 		width: 80px;
+	}
+}
+
+.card-status {
+	position: absolute;
+	top: 40px;
+	right: 50px;
+
+	@media (max-width: 1280px) {
+		top: 30px;
+		right: 30px;
 	}
 }
 
