@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-start gap-5">
+  <div id="personal" class="flex flex-col items-start gap-5">
 		<form action="" class="flex flex-col gap-4 max-w-[550px] w-full">
 			<div class="flex items-center sm:gap-6 gap-3">
 				<input ref="avatarInput" type="file" @change="onAvatarChange" hidden accept="image/*" />

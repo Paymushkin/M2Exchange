@@ -1,5 +1,5 @@
 <template>
-	<div class="flex flex-col gap-6 max-w-[345px] w-full">
+	<div id="notifications-access" class="flex flex-col gap-6 max-w-[345px] w-full">
 		<h2 class="text-dark font-semibold">Уведомления</h2>
 
 		<!-- Переключатель типа уведомлений -->

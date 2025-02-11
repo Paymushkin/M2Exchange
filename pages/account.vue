@@ -10,13 +10,20 @@
 					<h2 class="text-sm text-dark font-semibold mb-4 hidden md:block">Настройки</h2>
 					<ul class="sm:space-y-2">
 						<li v-for="item in settingsMenu" :key="item.id">
-							<a :href="`#${item.id}`"
-								:class="['flex items-center gap-2',
-										{ 'font-semibold': activeSection === item.id }]"
-								@click="setActiveSection(item.id)">
-								<component :is="item.icon" :class="['sm:w-6 sm:h-6 w-10 h-10 sm:rounded-full rounded-sm sm:p-1 p-2', { 'bg-[#F0F3FE]': activeSection === item.id }]" />
-								<span class="text-dark hover:text-primary transition-colors text-xs hidden md:block">{{ item.title }}</span>
-							</a>
+							<button
+								class="flex items-center gap-2"
+								:class="{ 'font-semibold': activeSection === item.id }"
+								@click="setActiveSection(item.id)"
+							>
+								<component
+									:is="item.icon"
+									:class="['md:w-8 md:h-8 w-10 h-10 md:rounded-full rounded-sm p-2',
+										{ 'bg-[#F0F3FE]': activeSection === item.id }]"
+								/>
+								<span class="text-dark hover:text-primary transition-colors text-xs hidden md:block">
+									{{ item.title }}
+								</span>
+							</button>
 						</li>
 					</ul>
 				</div>
@@ -26,13 +33,20 @@
 					<h2 class="text-sm text-dark font-semibold mb-4 hidden md:block">Обмен</h2>
 					<ul class="sm:space-y-2">
 						<li v-for="item in exchangeMenu" :key="item.id">
-							<a :href="`#${item.id}`"
-								:class="['flex items-center gap-2',
-										{ 'font-semibold': activeSection === item.id }]"
-								@click="setActiveSection(item.id)">
-								<component :is="item.icon" :class="['sm:w-6 sm:h-6 w-10 h-10 sm:rounded-full rounded-sm sm:p-1 p-2', { 'bg-[#F0F3FE]': activeSection === item.id }]" />
-								<span class="text-dark hover:text-primary transition-colors text-xs hidden md:block">{{ item.title }}</span>
-							</a>
+							<button
+								class="flex items-center gap-2"
+								:class="{ 'font-semibold': activeSection === item.id }"
+								@click="setActiveSection(item.id)"
+							>
+								<component
+									:is="item.icon"
+									:class="['md:w-8 md:h-8 w-10 h-10 md:rounded-full rounded-sm p-2',
+										{ 'bg-[#F0F3FE]': activeSection === item.id }]"
+								/>
+								<span class="text-dark hover:text-primary transition-colors text-xs hidden md:block">
+									{{ item.title }}
+								</span>
+							</button>
 						</li>
 					</ul>
 				</div>
@@ -43,13 +57,20 @@
 				<div class="mb-8">
 					<ul class="sm:space-y-2">
 						<li v-for="item in additionalMenu" :key="item.id">
-							<a :href="`#${item.id}`"
-								:class="['flex items-center gap-2',
-										{ 'font-semibold': activeSection === item.id }]"
-								@click="setActiveSection(item.id)">
-								<component :is="item.icon" :class="['sm:w-6 sm:h-6 w-10 h-10 sm:rounded-full rounded-sm sm:p-1 p-2', { 'bg-[#F0F3FE]': activeSection === item.id }]" />
-								<span class="text-dark hover:text-primary transition-colors text-xs hidden md:block">{{ item.title }}</span>
-							</a>
+							<button
+								class="flex items-center gap-2"
+								:class="{ 'font-semibold': activeSection === item.id }"
+								@click="setActiveSection(item.id)"
+							>
+								<component
+									:is="item.icon"
+									:class="['md:w-8 md:h-8 w-10 h-10 md:rounded-full rounded-sm p-2',
+										{ 'bg-[#F0F3FE]': activeSection === item.id }]"
+								/>
+								<span class="text-dark hover:text-primary transition-colors text-xs hidden md:block">
+									{{ item.title }}
+								</span>
+							</button>
 						</li>
 					</ul>
 				</div>
@@ -57,7 +78,7 @@
 				<!-- Нижний блок -->
 				<div class="mt-auto">
 					<div class="flex flex-col md:flex-row items-center gap-4">
-						<a href="#logout" @click="setActiveSection('logout')">
+						<button @click="setActiveSection('logout')" class="flex items-center gap-2">
 							<div class="hidden md:flex items-center gap-2 rounded-full border border-[#E9E8E8] py-3 pr-5 pl-3 cursor-pointer hover:opacity-50 transition-opacity">
 								<div class="flex items-center gap-2">
 									<component :is="ArrowIcon"/>
@@ -65,26 +86,26 @@
 								</div>
 							</div>
 							<div class="md:hidden flex items-center gap-2">
-								<component :is="LogoutIcon" :class="['w-10 h-10 sm:rounded-full rounded-sm sm:p-1 p-2', { 'bg-[#F0F3FE]': activeSection === 'logout'}]" />
+								<component :is="LogoutIcon" :class="['md:w-8 md:h-8 w-10 h-10 md:rounded-full rounded-sm p-2', { 'bg-[#F0F3FE]': activeSection === 'logout'}]" />
 							</div>
-						</a>
+						</button>
 
-						<a href="#delete-profile" @click="setActiveSection('delete-profile')">
+						<button @click="setActiveSection('delete-profile')" class="flex items-center gap-2">
 							<span class="text-[#AAB4CD] font-medium text-[10px] hidden md:block cursor-pointer hover:text-dark transition-colors">
 								Удалить профиль
 							</span>
 
 							<div class="md:hidden flex items-center gap-2">
-								<component :is="DeleteProfileIcon" :class="['w-10 h-10 sm:rounded-full rounded-sm sm:p-1 p-2', { 'bg-[#F0F3FE]': activeSection === 'delete-profile'}]" />
+								<component :is="DeleteProfileIcon" :class="['md:w-8 md:h-8 w-10 h-10 md:rounded-full rounded-sm p-2', { 'bg-[#F0F3FE]': activeSection === 'delete-profile'}]" />
 							</div>
-						</a>
+						</button>
 					</div>
 				</div>
 
 			</nav>
 
 			<!-- Основной контент -->
-			<main class="relative flex-grow bg-white lg:py-10 py-4 lg:px-[100px] px-5 lg:rounded-lg rounded-sm max-w-full">
+			<main class="relative flex-grow bg-white lg:py-10 py-4 2xl:px-[100px] px-5 lg:rounded-lg rounded-sm max-w-full">
 					<div class="bg-shape"></div>
 					<component :is="currentSection" class="relative z-10" />
 				</main>
@@ -156,17 +177,16 @@ const activeSection = ref('')
 
 const setActiveSection = (sectionId) => {
 	activeSection.value = sectionId
-	window.location.hash = sectionId
+	// Убираем обновление URL полностью
 }
 
 onMounted(() => {
-	// Установка активной секции из хэша URL при загрузке
+	// Установка активной секции из хэша URL только при начальной загрузке
 	const hash = window.location.hash.slice(1)
 	if (hash) {
 		activeSection.value = hash
 	} else {
 		activeSection.value = 'personal'
-		window.location.hash = 'personal'
 	}
 })
 

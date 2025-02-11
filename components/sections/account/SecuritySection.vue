@@ -1,5 +1,5 @@
 <template>
-	<div class="flex flex-col items-start gap-5">
+	<div id="security" class="flex flex-col items-start gap-5">
 		<!-- Показываем только блок успеха, если сброс выполнен -->
 		<div v-if="isResetSuccess" class="flex items-center gap-8 max-w-[400px] w-full">
 			<div class="min-w-[100px] min-h-[100px] rounded-full bg-background-light flex items-center justify-center">
@@ -18,18 +18,21 @@
 					<input
 						type="password"
 						v-model="passwords.current"
+						autocomplete="off"
 						placeholder="Текущий пароль"
 						class="border border-[#E9E8E8] rounded-sm h-[50px] p-3 sm:text-sm text-xs"
 					/>
 					<input
 						type="password"
 						v-model="passwords.new"
+						autocomplete="off"
 						placeholder="Введите новый пароль"
 						class="border border-[#E9E8E8] rounded-sm h-[50px] p-3 sm:text-sm text-xs"
 					/>
 					<input
 						type="password"
 						v-model="passwords.confirm"
+						autocomplete="off"
 						placeholder="Введите новый пароль еще раз"
 						class="border border-[#E9E8E8] rounded-sm h-[50px] p-3 sm:text-sm text-xs"
 					/>

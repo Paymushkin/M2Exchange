@@ -8,6 +8,7 @@ import ArrowPrevIcon from '@/components/icons/ArrowPrevIcon.vue'
 import ArrowProcessIcon from '@/components/icons/ArrowProcessIcon.vue'
 import BathIcon from '@/components/icons/BathIcon.vue'
 import BedIcon from '@/components/icons/BedIcon.vue'
+import CardDeleteIcon from '@/components/icons/CardDeleteIcon.vue'
 import ChatIcon from '@/components/icons/ChatIcon.vue'
 import Chat2Icon from '@/components/icons/Chat2Icon.vue'
 import CheckIcon from '@/components/icons/CheckIcon.vue'
@@ -41,10 +42,12 @@ import Location2Icon from '@/components/icons/Location2Icon.vue'
 import LogoIcon from '@/components/icons/LogoIcon.vue'
 import LogoutIcon from '@/components/icons/LogoutIcon.vue'
 import LogoMiniIcon from '@/components/icons/LogoMiniIcon.vue'
+import MasterCardIcon from '@/components/icons/MasterCardIcon.vue'
 import MapIcon from '@/components/icons/MapIcon.vue'
 import MessageIcon from '@/components/icons/MessageIcon.vue'
 import MessagerIcon from '@/components/icons/MessagerIcon.vue'
 import Messager2Icon from '@/components/icons/Messager2Icon.vue'
+import MirCardIcon from '@/components/icons/MirCardIcon.vue'
 import MyObjectsIcon from '@/components/icons/MyObjectsIcon.vue'
 import NotificationIcon from '@/components/icons/NotificationIcon.vue'
 import OptionsIcon from '@/components/icons/OptionsIcon.vue'
@@ -65,7 +68,7 @@ import ShareIcon from '@/components/icons/ShareIcon.vue'
 import ShareIcon2 from '@/components/icons/ShareIcon2.vue'
 import SquareIcon from '@/components/icons/SquareIcon.vue'
 import StarRaitingIcon from '@/components/icons/StarRaitingIcon.vue'
-
+import VisaCardIcon from '@/components/icons/VisaCardIcon.vue'
 export {
 	AddObjectIcon,
 	AppleLoginIcon,
@@ -77,6 +80,7 @@ export {
 	ArrowProcessIcon,
 	BathIcon,
 	BedIcon,
+	CardDeleteIcon,
 	CustomCornerArrowIcon,
 	ChatIcon,
 	Chat2Icon,
@@ -110,10 +114,12 @@ export {
 	LogoIcon,
 	LogoutIcon,
 	LogoMiniIcon,
+	MasterCardIcon,
 	MapIcon,
 	MessageIcon,
 	MessagerIcon,
 	Messager2Icon,
+	MirCardIcon,
 	MyObjectsIcon,
 	NotificationIcon,
 	OptionsIcon,
@@ -133,5 +139,6 @@ export {
 	ShareIcon,
 	ShareIcon2,
 	SquareIcon,
-	StarRaitingIcon
+	StarRaitingIcon,
+	VisaCardIcon
 }
