@@ -11,6 +11,9 @@
 		<UModal v-model="modalStore.isExchangeModalOpen">
 			<ObjectExchangeRequest @close="modalStore.closeExchangeModal" />
 		</UModal>
+		<UModal v-model="modalStore.isMessagerAndNotificationModalOpen">
+			<MessagerAndNotificationModal @close="modalStore.closeMessagerAndNotificationModal" />
+		</UModal>
 		<AlertContainer />
 	</div>
 </template>
@@ -22,6 +25,7 @@ import TheFooter from '@/components/layout/TheFooter.vue'
 import { useModalStore } from '@/stores/modalStore'
 import ExchangeFormSliderModal from '~/components/common/modals/ExchangeFormSliderModal.vue'
 import ObjectExchangeRequest from '@/components/common/modals/ObjectExchangeRequestModal.vue'
+import MessagerAndNotificationModal from '@/components/common/modals/MessagerAndNotificationModal.vue'
 import AlertContainer from '@/components/common/AlertContainer.vue'
 
 const modalStore = useModalStore()

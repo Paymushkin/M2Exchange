@@ -11,6 +11,7 @@
 		<UModal v-model="modalStore.isExchangeModalOpen">
 			<ObjectExchangeRequest @close="modalStore.closeExchangeModal" />
 		</UModal>
+
 		<AlertContainer />
 	</div>
 </template>
@@ -23,6 +24,7 @@ import { useModalStore } from '@/stores/modalStore'
 import ExchangeFormSliderModal from '~/components/common/modals/ExchangeFormSliderModal.vue'
 import ObjectExchangeRequest from '@/components/common/modals/ObjectExchangeRequestModal.vue'
 import AlertContainer from '@/components/common/AlertContainer.vue'
+import MessagerAndNotificationModal from '@/components/common/modals/MessagerAndNotificationModal.vue'
 
 const modalStore = useModalStore()
 const isFullscreen = ref(window.innerWidth < 1024)
