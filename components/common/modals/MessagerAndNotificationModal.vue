@@ -93,7 +93,7 @@
       <div
         v-if="selectedChat || selectedNotification"
 				id="chat-body"
-        class="chat-body flex-1 flex w-full flex-col bg-white"
+        class="chat-body flex-1 flex w-full flex-col bg-white pb-10 md:px-0 md:py-0"
       >
         <!-- Диалог -->
         <template v-if="selectedChat">
@@ -220,13 +220,13 @@
 </template>
 
 <script setup>
-import { ref, computed, nextTick, watch, defineProps, onMounted } from 'vue'
+import { ref, nextTick, watch, defineProps, onMounted } from 'vue'
 import { AddImageIcon, Plus2Icon, SendButtonIcon, CloseIcon, ArrowIcon } from '@/components/icons/icons'
-import userAvatar1 from '@/assets/images/avatars/avatar-1.png'
-import userAvatar2 from '@/assets/images/avatars/avatar-2.png'
-import objectImage from '@/assets/images/object/chat-image.png'
 import { useModalStore } from '@/stores/modalStore'
 import { storeToRefs } from 'pinia'
+import { useChat } from '@/composables/useChat'
+import { useNotifications } from '@/composables/useNotifications'
+import { useFileUpload } from '@/composables/useFileUpload'
 
 const props = defineProps({
   type: {
@@ -237,253 +237,58 @@ const props = defineProps({
 })
 
 const modalStore = useModalStore()
+const { messagerAndNotificationModal } = storeToRefs(modalStore)
+const activeTab = ref(messagerAndNotificationModal.value.type)
+
+const {
+  dialogs,
+  selectedChat,
+  newMessage,
+  unreadMessages,
+  selectChat,
+  sendMessage,
+  messagesContainer,
+  scrollToBottom
+} = useChat()
+
+const {
+  notifications,
+  selectedNotification,
+  unreadNotifications,
+  selectNotification
+} = useNotifications()
+
+const {
+  fileInput,
+  mediaInput,
+  handleFileUpload,
+  handleMediaUpload
+} = useFileUpload()
+
 const closeModal = () => {
   modalStore.closeMessagerAndNotificationModal()
 }
-const { messagerAndNotificationModal } = storeToRefs(modalStore)
-const activeTab = ref(messagerAndNotificationModal.value.type)
-const newMessage = ref('')
-const selectedNotification = ref(null)
-const unreadMessages = computed(() => dialogs.value.filter(dialog => !dialog.isRead).length)
-const unreadNotifications = computed(() => notifications.value.filter(notification => !notification.isRead).length)
-
-const dialogs = ref([
-  {
-    id: 1,
-    name: 'Сергей (Менеджер)',
-    avatar: userAvatar1,
-    text: 'Я ваш персональный менеджер, отвечу на все вопросы',
-    time: '10:24AM',
-    isRead: false,
-    messages: [
-      {
-        id: 1,
-        text: 'Здравствуйте, мы добавили ваш объект на на нашу платформу. Я ваш персональный менеджер. Если у вас появятся вопросы, всегда готов помочь!',
-        isMine: false,
-				attachment: {
-					image: objectImage,
-					text: 'C. Real de la Alhambra, s/n, Centro, 18009 Granada',
-					url: './objects/object?id=3'
-				}
-      },
-			{
-        id: 2,
-        text: 'Здравствуйте, Сергей! Рад знакомству, помогите, пожалуйста, подобрать для меня подходящие варианты.',
-        isMine: true,
-      },
-			{
-        id: 3,
-        text: 'Спасибо, Сергей!',
-        isMine: true,
-      },
-			{
-        id: 4,
-        text: 'Спасибо, Сергей!',
-        isMine: true,
-      },
-			{
-        id: 5,
-        text: 'Спасибо, Сергей!',
-        isMine: true,
-      },
-			{
-        id: 6,
-        text: 'Спасибо, Сергей!',
-        isMine: true,
-      },
-    ]
-  },
-  {
-    id: 2,
-    name: 'Сергей (Менеджер)',
-    avatar: userAvatar2,
-    text: 'Я ваш персональный менеджер, отвечу на все вопросы',
-    time: '10:24AM',
-    isRead: true,
-    messages: [
-			{
-        id: 1,
-        text: 'Привет! Как дела?',
-        isMine: false,
-      }
-    ]
-  },
-  {
-    id: 3,
-    name: 'Сергей (Менеджер)',
-    avatar: userAvatar1,
-    text: 'Я ваш персональный менеджер, отвечу на все вопросы',
-    time: '10:24AM',
-    isRead: true,
-    messages: [
-      {
-        id: 1,
-        text: 'Привет! Как дела?',
-        isMine: false,
-      }
-    ]
-  },
-	{
-    id: 4,
-    name: 'Сергей (Менеджер)',
-    avatar: userAvatar2,
-    text: 'Я ваш персональный менеджер, отвечу на все вопросы',
-    time: '10:24AM',
-    isRead: true,
-    messages: [
-      {
-        id: 1,
-        text: 'Привет! Как дела?',
-        isMine: false,
-      }
-    ]
-  },
-	{
-    id: 5,
-    name: 'Сергей (Менеджер)',
-    avatar: userAvatar1,
-    text: 'Я ваш персональный менеджер, отвечу на все вопросы',
-    time: '10:24AM',
-    isRead: true,
-    messages: [
-      {
-        id: 1,
-        text: 'Привет! Как дела?',
-        isMine: false,
-      }
-    ]
-  }
-])
-
-const notifications = ref([
-  {
-    id: 1,
-    title: 'Новое сообщение',
-    text: 'Вы получили новое сообщение!',
-    fullText: 'Вы получили новое сообщение от вашего менеджера. Пожалуйста, проверьте вкладку сообщений.',
-		isRead: false,
-  },
-  {
-    id: 2,
-    title: 'Новый объект',
-    text: 'Этот объект может вас заинтересовать!',
-    fullText: 'Мы нашли новый объект, который соответствует вашим критериям поиска.',
-		isRead: true,
-    object: {
-      image: objectImage,
-      title: 'C. Real de la Alhambra, s/n, Centro, 18009',
-      address: 'Granada',
-			link: './objects/object?id=3'
-    }
-  }
-])
-
-const selectedChat = ref(dialogs.value[0])
-
-const selectNotification = (notification) => {
-  selectedNotification.value = notification
-  selectedChat.value = null
-  document.getElementById('chat-body').classList.toggle('active-section')
-}
-
-const selectChat = (chat) => {
-  selectedChat.value = chat
-  selectedNotification.value = null
-  document.getElementById('chat-body').classList.toggle('active-section')
-}
 
 const goBack = () => {
-  document.getElementById('chat-body').classList.toggle('active-section')
-}
-
-const fileInput = ref(null)
-const mediaInput = ref(null)
-
-const messagesContainer = ref(null)
-
-const scrollToBottom = () => {
-  nextTick(() => {
-    if (messagesContainer.value) {
-      messagesContainer.value.scrollTop = messagesContainer.value.scrollHeight
-    }
-  })
-}
-
-const handleFileUpload = (event) => {
-  const files = event.target.files
-  if (!files.length) return
-
-  // Здесь можно добавить логику обработки файлов
-  // Например, отправка на сервер или добавление в чат
-  const formData = new FormData()
-  Array.from(files).forEach(file => {
-    formData.append('files[]', file)
-  })
-
-  // Очищаем input для возможности повторной загрузки того же файла
-  event.target.value = ''
-}
-
-const handleMediaUpload = (event) => {
-  const files = event.target.files
-  if (!files.length) return
-
-  const formData = new FormData()
-
-  Array.from(files).forEach(file => {
-    // Проверяем тип файла
-    if (file.type.startsWith('image/') || file.type.startsWith('video/')) {
-      formData.append('media[]', file)
-    }
-  })
-
-  // Здесь можно добавить логику обработки медиафайлов
-  // Например, отправка на сервер или добавление в чат
-
-  // Очищаем input для возможности повторной загрузки тех же файлов
-  event.target.value = ''
-}
-
-const sendMessage = () => {
-  if (!newMessage.value.trim() || !selectedChat.value) return
-
-  const message = {
-    id: Date.now(),
-    text: newMessage.value,
-    isMine: true,
-    timestamp: new Date().toISOString(),
+  document.getElementById('chat-body').classList.remove('active-section')
+  if (activeTab.value === 'messages') {
+    selectedChat.value = null
+  } else {
+    selectedNotification.value = null
   }
-
-  if (!selectedChat.value.messages) {
-    selectedChat.value.messages = []
-  }
-  selectedChat.value.messages.push(message)
-
-  const chatInList = dialogs.value.find(m => m.id === selectedChat.value.id)
-  if (chatInList) {
-    chatInList.text = newMessage.value
-    chatInList.time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-  }
-
-  newMessage.value = ''
-  scrollToBottom()
 }
 
-// Скроллим к последнему сообщению при первом открытии чата
 watch(selectedChat, () => {
   scrollToBottom()
 })
 
-// Обработка переключения между секциями
 watch(activeTab, (newTab) => {
   if (newTab === 'notifications') {
-    // При переключении на уведомления
     selectedChat.value = null
     if (notifications.value.length > 0) {
       selectedNotification.value = notifications.value[0]
     }
   } else {
-    // При переключении на сообщения
     selectedNotification.value = null
     if (dialogs.value.length > 0) {
       selectedChat.value = dialogs.value[0]
@@ -491,11 +296,13 @@ watch(activeTab, (newTab) => {
   }
 })
 
-// Инициализация при монтировании компонента
 onMounted(() => {
   if (activeTab.value === 'notifications' && notifications.value.length > 0) {
     selectedNotification.value = notifications.value[0]
     selectedChat.value = null
+  } else if (activeTab.value === 'messages' && dialogs.value.length > 0) {
+    selectedChat.value = dialogs.value[0]
+    scrollToBottom()
   }
 })
 </script>
