@@ -6,7 +6,7 @@ export default defineAppConfig({
 			overlay: {
 				background: 'bg-[rgba(0,0,70,0.30)]'
 			},
-			width: 'xl:max-w-[1270px]',
+			width: 'xl:max-w-[1270px] sm:max-w-full sm:w-full',
 			rounded: 'rounded-[155px]',
 			background: 'bg-transparent',
 			padding: 'p-0 sm:p-0'

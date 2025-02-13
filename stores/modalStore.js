@@ -7,7 +7,21 @@ export const useModalStore = defineStore('modal', () => {
 	const isExchangeModalOpen = ref(false)
 	const isContactsModalOpen = ref(false)
 	const isExchangeFormSliderModalOpen = ref(false)
-	const isMessagerAndNotificationModalOpen = ref(false)
+	const messagerAndNotificationModal = ref({
+		isVisible: false,
+		type: 'messages'
+	})
+
+	// Методы для MessagerAndNotificationModal
+	const openMessagerAndNotificationModal = (type) => {
+		messagerAndNotificationModal.value.isVisible = true
+		messagerAndNotificationModal.value.type = type
+	}
+
+	const closeMessagerAndNotificationModal = () => {
+		messagerAndNotificationModal.value.isVisible = false
+	}
+
 	// Методы для ObjectOptionModal
 	const openObjectOptionModal = () => {
 		isObjectOptionModalOpen.value = true
@@ -35,6 +49,7 @@ export const useModalStore = defineStore('modal', () => {
 		isContactsModalOpen.value = false
 	}
 
+	// Методы для ExchangeFormSliderModal
 	const openExchangeFormSliderModal = () => {
 		isExchangeFormSliderModalOpen.value = true
 	}
@@ -43,21 +58,13 @@ export const useModalStore = defineStore('modal', () => {
 		isExchangeFormSliderModalOpen.value = false
 	}
 
-	const openMessagerAndNotificationModal = () => {
-		isMessagerAndNotificationModalOpen.value = true
-	}
-
-	const closeMessagerAndNotificationModal = () => {
-		isMessagerAndNotificationModalOpen.value = false
-	}
-
 	return {
 		// Состояния
 		isObjectOptionModalOpen,
 		isExchangeModalOpen,
 		isContactsModalOpen,
 		isExchangeFormSliderModalOpen,
-		isMessagerAndNotificationModalOpen,
+		messagerAndNotificationModal,
 		// Методы
 		openObjectOptionModal,
 		closeObjectOptionModal,

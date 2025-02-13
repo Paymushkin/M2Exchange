@@ -11,8 +11,8 @@
 		<UModal v-model="modalStore.isExchangeModalOpen">
 			<ObjectExchangeRequest @close="modalStore.closeExchangeModal" />
 		</UModal>
-		<UModal v-model="modalStore.isMessagerAndNotificationModalOpen">
-			<MessagerAndNotificationModal @close="modalStore.closeMessagerAndNotificationModal" />
+		<UModal v-model="modalStore.messagerAndNotificationModal.isVisible">
+			<MessagerAndNotificationModal :type="modalStore.messagerAndNotificationModal.type" @close="modalStore.closeMessagerAndNotificationModal" />
 		</UModal>
 		<AlertContainer />
 	</div>

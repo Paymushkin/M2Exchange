@@ -7,26 +7,26 @@
 				<CloseIcon />
 			</button>
       <!-- Левая часть -->
-      <div class="w-[540px] border-r border-[#EBEBEB] flex flex-col">
+      <div class="2xl:w-[540px] lg:w-[400px] border-r border-[#EBEBEB] flex flex-col">
         <!-- Переключатели -->
         <div class="flex items-center mb-4 pr-10">
           <button
-            class="relative flex items-center text-dark px-7 py-4 rounded-full text-lg"
+            class="relative flex items-center text-dark lg:px-7 sm:px-5 px-4 lg:py-4 sm:py-3 py-2 rounded-full xl:text-lg lg:text-base text-sm"
             :class="{ 'font-medium bg-background-light': activeTab === 'messages' }"
             @click="activeTab = 'messages'"
           >
             Сообщения
-            <span v-if="unreadMessages" class="absolute right-2 top-1 bg-accent text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
+            <span v-if="unreadMessages" class="absolute lg:right-2 lg:top-1 right-0 top-0 bg-accent text-white rounded-full md:w-5 md:h-5 w-4 h-4 flex items-center justify-center lg:text-xs text-xs">
               {{ unreadMessages }}
             </span>
           </button>
           <button
-            class="relative flex items-center text-dark px-7 py-4 rounded-full text-lg"
+            class="relative flex items-center text-dark lg:px-7 sm:px-5 px-4 lg:py-4 sm:py-3 py-2 rounded-full xl:text-lg lg:text-base text-sm"
             :class="{ 'font-medium bg-background-light': activeTab === 'notifications' }"
             @click="activeTab = 'notifications'"
           >
             Уведомления
-            <span v-if="unreadNotifications" class="absolute right-2 top-1 bg-accent text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
+            <span v-if="unreadNotifications" class="absolute lg:right-2 lg:top-1 right-0 top-0 bg-accent text-white rounded-full md:w-5 md:h-5 w-4 h-4 flex items-center justify-center lg:text-xs text-xs">
               {{ unreadNotifications }}
             </span>
           </button>
@@ -92,8 +92,8 @@
         <template v-if="selectedChat">
           <!-- Шапка диалога -->
           <div class="p-4 flex items-center">
-            <img :src="selectedChat.avatar" class="w-10 h-10 rounded-full mr-3">
-            <span class="font-medium text-xl text-[#202020]">{{ selectedChat.name }}</span>
+            <img :src="selectedChat.avatar" class="xl:w-10 xl:h-10 lg:w-8 lg:h-8 w-6 h-6 rounded-full lg:mr-3 mr-2">
+            <span class="font-medium xl:text-xl lg:text-lg text-base text-[#202020]">{{ selectedChat.name }}</span>
           </div>
 
           <!-- Тело диалога -->
@@ -101,12 +101,12 @@
             <div
               v-for="message in selectedChat.messages"
               :key="message.id"
-              class="mb-4"
+              class="xl:mb-4 mb-3"
               :class="{ 'flex justify-end': message.isMine }"
             >
               <div
-                class="max-w-[70%] rounded-sm p-3"
-                :class="message.isMine ? 'bg-secondary text-white' : 'bg-gray-100'"
+                class="max-w-[70%] rounded-sm lg:p-3 p-2 xl:text-base text-sm"
+                :class="message.isMine ? 'bg-secondary text-white' : 'bg-background-light'"
               >
                 {{ message.text }}
               </div>
@@ -196,12 +196,13 @@
 </template>
 
 <script setup>
-import { ref, computed, nextTick, watch, defineProps } from 'vue'
+import { ref, computed, nextTick, watch, defineProps, onMounted } from 'vue'
 import { AddImageIcon, Plus2Icon, SendButtonIcon, CloseIcon } from '@/components/icons/icons'
 import userAvatar1 from '@/assets/images/avatars/avatar-1.png'
 import userAvatar2 from '@/assets/images/avatars/avatar-2.png'
 import objectImage from '@/assets/images/object/chat-image.png'
 import { useModalStore } from '@/stores/modalStore'
+import { storeToRefs } from 'pinia'
 
 const props = defineProps({
   type: {
@@ -212,12 +213,11 @@ const props = defineProps({
 })
 
 const modalStore = useModalStore()
-
 const closeModal = () => {
   modalStore.closeMessagerAndNotificationModal()
 }
-
-const activeTab = ref(props.type)
+const { messagerAndNotificationModal } = storeToRefs(modalStore)
+const activeTab = ref(messagerAndNotificationModal.value.type)
 const newMessage = ref('')
 const selectedNotification = ref(null)
 const unreadMessages = computed(() => messages.value.filter(message => !message.isRead).length)
@@ -442,6 +442,31 @@ const sendMessage = () => {
 // Скроллим к последнему сообщению при первом открытии чата
 watch(selectedChat, () => {
   scrollToBottom()
+})
+
+// Обработка переключения между секциями
+watch(activeTab, (newTab) => {
+  if (newTab === 'notifications') {
+    // При переключении на уведомления
+    selectedChat.value = null
+    if (notifications.value.length > 0) {
+      selectedNotification.value = notifications.value[0]
+    }
+  } else {
+    // При переключении на сообщения
+    selectedNotification.value = null
+    if (messages.value.length > 0) {
+      selectedChat.value = messages.value[0]
+    }
+  }
+})
+
+// Инициализация при монтировании компонента
+onMounted(() => {
+  if (activeTab.value === 'notifications' && notifications.value.length > 0) {
+    selectedNotification.value = notifications.value[0]
+    selectedChat.value = null
+  }
 })
 </script>
 
