@@ -4,9 +4,9 @@
 			<section class="sm:py-12 py-4">
 			<div id="account-page" class="flex sm:gap-3 sm:min-h-[calc(100vh-180px)] min-h-[calc(100vh-120px)]">
 				<!-- Боковая навигация -->
-				<nav class="flex flex-col w-auto xl:w-[282px] sm:w-[220px] shrink-0 bg-white lg:py-10 py-4 xl:px-7 sm:px-3 px-1 lg:rounded-lg rounded-sm sm:border-none border-r border-r-[#E9E8E8]">
+				<nav class="flex flex-col w-auto xl:w-[282px] md:w-[220px] shrink-0 bg-white lg:py-10 py-4 xl:px-7 sm:px-3 px-1 lg:rounded-lg rounded-sm sm:border-none border-r border-r-[#E9E8E8]">
 				<!-- Секция Настройки -->
-				<div class="sm:mb-8">
+				<div class="md:mb-8">
 					<h2 class="text-sm text-dark font-semibold mb-4 hidden md:block">Настройки</h2>
 					<ul class="sm:space-y-2">
 						<li v-for="item in settingsMenu" :key="item.id">

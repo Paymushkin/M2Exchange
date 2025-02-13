@@ -1,15 +1,18 @@
 <template>
-    <div class="relative bg-white rounded-lg w-[1465px] max-w-full h-[780px] max-h-screen flex py-10 px-[50px]">
-			<button
-				@click="closeModal"
-				class="absolute top-4 right-4 transition-colors duration-300 p-1 hover:bg-gray-200 rounded-full"
-			>
-				<CloseIcon />
-			</button>
+  <div class="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+    <div class="relative bg-white md:rounded-lg w-[1465px] max-w-full md:h-[780px] h-screen max-h-screen flex xl:py-10 xl:px-[50px] py-5 px-5">
+      <button
+        @click="closeModal"
+        class="absolute top-4 right-4 transition-colors duration-300 p-1 hover:bg-gray-200 rounded-full"
+      >
+        <CloseIcon />
+      </button>
       <!-- Левая часть -->
-      <div class="2xl:w-[540px] lg:w-[400px] border-r border-[#EBEBEB] flex flex-col">
+      <div
+        class="2xl:w-[540px] lg:w-[400px] md:w-[300px] w-full md:border-r border-[#EBEBEB] flex flex-col"
+      >
         <!-- Переключатели -->
-        <div class="flex items-center mb-4 pr-10">
+        <div class="flex items-center mb-4 xl:pr-10 pr-5">
           <button
             class="relative flex items-center text-dark lg:px-7 sm:px-5 px-4 lg:py-4 sm:py-3 py-2 rounded-full xl:text-lg lg:text-base text-sm"
             :class="{ 'font-medium bg-background-light': activeTab === 'messages' }"
@@ -33,34 +36,34 @@
         </div>
 
         <!-- Поиск -->
-        <div class="pr-10">
+        <div class="xl:pr-10 pr-5">
           <input
             type="search"
-            class="w-full border border-[#EBEBEB] rounded-lg px-4 py-2 h-[60px] mb-10 "
+            class="w-full border border-[#EBEBEB] rounded-lg px-4 py-2 xl:h-[60px] h-[50px] xl:mb-10 mb-5 xl:text-base text-sm"
             :placeholder="activeTab === 'messages' ? 'Поиск по сообщениям' : 'Поиск по уведомлениям'"
           >
         </div>
 
         <!-- Список сообщений/уведомлений -->
-        <div class="flex flex-col flex-1 overflow-y-auto gap-4 pr-10">
+        <div class="flex flex-col flex-1 overflow-y-auto gap-4 xl:pr-10 pr-5">
           <template v-if="activeTab === 'messages'">
             <div
-              v-for="message in messages"
-              :key="message.id"
-              class=" hover:bg-gray-50 cursor-pointer border border-[#E9E8E8] rounded-sm p-4"
-              :class="{ 'text-[#8C8B8B]': message.isRead, 'text-[#202020]': !message.isRead }"
-              @click="selectChat(message)"
+              v-for="dialog in dialogs"
+              :key="dialog.id"
+              class="hover:bg-gray-50 cursor-pointer border border-[#E9E8E8] rounded-sm xl:p-4 p-3"
+              :class="{ 'text-[#8C8B8B]': dialog.isRead, 'text-[#202020]': !dialog.isRead }"
+              @click="selectChat(dialog)"
             >
               <div class="flex items-center">
-                <img :src="message.avatar" class="w-[60px] h-[60px] rounded-full mr-3">
-                <div class="flex flex-col gap-2 overflow-hidden truncate">
-                  <div class="flex justify-between overflow-hidden">
-                    <span class="truncate">{{ message.name }}</span>
-                    <span :class="{ 'text-[#8C8B8B]': message.isRead, 'text-secondary': !message.isRead }">
-                        {{ message.time }}
+                <img :src="dialog.avatar" class="xl:min-w-[60px] xl:h-[60px] lg:min-w-[50px] lg:h-[50px] min-w-[40px] h-[40px] rounded-full mr-3">
+                <div class="flex flex-col xl:gap-2 gap-1 overflow-hidden truncate grow">
+                  <div class="flex items-center justify-between overflow-hidden">
+                    <span class="xl:text-base lg:text-sm text-xs truncate">{{ dialog.name }}</span>
+                    <span class="xl:text-sm text-xs" :class="{ 'text-[#8C8B8B]': dialog.isRead, 'text-secondary': !dialog.isRead }">
+                        {{ dialog.time }}
                     </span>
                   </div>
-                  <p class="truncate">{{ message.text }}</p>
+                  <p class="xl:text-sm text-xs truncate">{{ dialog.text }}</p>
                 </div>
               </div>
             </div>
@@ -77,8 +80,8 @@
               <div class="flex items-center">
                 <img src="@/assets/images/default-notification-avatar.png" class="w-10 h-10 rounded-full mr-3">
                 <div class="flex flex-col gap-2 overflow-hidden truncate">
-                  <div class="font-medium truncate">{{ notification.title }}</div>
-                  <p class="text-sm truncate">{{ notification.text }}</p>
+                  <div class="xl:text-sm text-xs font-medium truncate">{{ notification.title }}</div>
+                  <p class="xl:text-sm text-xs truncate">{{ notification.text }}</p>
                 </div>
               </div>
             </div>
@@ -86,18 +89,25 @@
         </div>
       </div>
 
-      <!-- Правая часть - Диалог или Уведомление -->
-      <div v-if="selectedChat || selectedNotification" class="flex-1 flex flex-col">
+      <!-- Правая часть -->
+      <div
+        v-if="selectedChat || selectedNotification"
+				id="chat-body"
+        class="chat-body flex-1 flex w-full flex-col bg-white"
+      >
         <!-- Диалог -->
         <template v-if="selectedChat">
           <!-- Шапка диалога -->
-          <div class="p-4 flex items-center">
-            <img :src="selectedChat.avatar" class="xl:w-10 xl:h-10 lg:w-8 lg:h-8 w-6 h-6 rounded-full lg:mr-3 mr-2">
+          <div class="p-4 flex items-center xl:gap-3 gap-2">
+						<button @click="goBack" class="md:hidden flex items-center justify-center xl:w-10 xl:h-10 w-8 h-8 rounded-full border border-[#E9E8E8] hover:border-primary transition-colors duration-300">
+							<ArrowIcon class="w-4 h-4" />
+						</button>
+            <img :src="selectedChat.avatar" class="xl:w-10 xl:h-10 w-8 h-8  rounded-full">
             <span class="font-medium xl:text-xl lg:text-lg text-base text-[#202020]">{{ selectedChat.name }}</span>
           </div>
 
           <!-- Тело диалога -->
-          <div ref="messagesContainer" class="flex-1 overflow-y-auto p-4">
+          <div ref="messagesContainer" class="flex-1 overflow-y-auto p-4 grow">
             <div
               v-for="message in selectedChat.messages"
               :key="message.id"
@@ -105,10 +115,19 @@
               :class="{ 'flex justify-end': message.isMine }"
             >
               <div
-                class="max-w-[70%] rounded-sm lg:p-3 p-2 xl:text-base text-sm"
+                class="max-w-[70%] rounded-sm lg:p-3 p-2"
                 :class="message.isMine ? 'bg-secondary text-white' : 'bg-background-light'"
               >
-                {{ message.text }}
+              	<div v-if="message.attachment" class="flex flex-col gap-3">
+									<NuxtLink :to="message.attachment.url" class="text-sm text-secondary hover:text-primary transition-colors duration-300">Объект добавлен</NuxtLink>
+									<div class="flex items-center gap-3 border-b border-[#E9E8E8] pb-3 mb-3">
+										<img :src="message.attachment.image" class="w-[50px] h-[50px] rounded-full">
+										<span class="text-sm">{{ message.attachment.text }}</span>
+									</div>
+								</div>
+
+                <span class="xl:text-base text-sm">{{ message.text }}</span>
+
               </div>
             </div>
           </div>
@@ -124,7 +143,7 @@
                 multiple
               />
               <button
-                class="flex items-center justify-center p-2 w-[55px] h-[55px] hover:bg-primary rounded-full bg-secondary border border-secondary transition-colors duration-300"
+                class="flex items-center justify-center p-2 xl:w-[55px] xl:h-[55px] w-[45px] h-[45px] hover:bg-primary rounded-full bg-secondary border border-secondary transition-colors duration-300"
                 @click="$refs.fileInput.click()"
               >
                 <Plus2Icon class="w-6 h-6" />
@@ -138,7 +157,7 @@
                 multiple
               />
               <button
-                class="flex items-center justify-center p-2 w-[55px] h-[55px] hover:bg-grey-200 rounded-full border border-secondary transition-colors duration-300"
+                class="flex items-center justify-center p-2 xl:w-[55px] xl:h-[55px] w-[45px] h-[45px] hover:bg-grey-200 rounded-full border border-secondary transition-colors duration-300"
                 @click="$refs.mediaInput.click()"
               >
                 <AddImageIcon class="w-6 h-6" />
@@ -148,14 +167,14 @@
               <input
                 v-model="newMessage"
                 type="text"
-                class="flex-1 border border-[#EBEBEB] rounded-lg p-4 max-h-[55px]"
+                class="flex-1 border border-[#EBEBEB] rounded-lg xl:p-4 p-3 max-h-[55px] xl:text-base text-sm"
                 placeholder="Введите сообщение..."
                 @keyup.enter="sendMessage"
               >
             </div>
             <div class="flex space-x-2">
               <button
-                class="flex items-center justify-center p-2 w-[55px] h-[55px] hover:bg-grey-200 rounded-full border border-secondary transition-colors duration-300 cursor-pointer"
+                class="flex items-center justify-center p-2 xl:w-[55px] xl:h-[55px] w-[45px] h-[45px] hover:bg-grey-200 rounded-full border border-secondary transition-colors duration-300 cursor-pointer"
                 @click="sendMessage"
                 :disabled="!newMessage.trim()"
               >
@@ -167,8 +186,11 @@
 
         <!-- Уведомление -->
         <template v-if="selectedNotification">
-          <div class="p-4 border-b border-[#EBEBEB] flex items-center">
-            <img src="@/assets/images/default-notification-avatar.png" class="w-10 h-10 rounded-full mr-3">
+          <div class="p-4 flex items-center xl:gap-3 gap-2">
+						<button @click="goBack" class="md:hidden flex items-center justify-center xl:w-10 xl:h-10 w-8 h-8 rounded-full border border-[#E9E8E8] hover:border-primary transition-colors duration-300">
+							<ArrowIcon class="w-4 h-4" />
+						</button>
+            <img src="@/assets/images/default-notification-avatar.png" class="xl:w-10 xl:h-10 w-8 h-8 rounded-full lg:mr-3 mr-2">
             <span class="font-medium">{{ selectedNotification.title }}</span>
           </div>
 
@@ -178,10 +200,10 @@
               <NuxtLink :to="selectedNotification.object.link" class="flex items-start">
                 <img
                   :src="selectedNotification.object.image"
-                  class="w-20 h-20 object-cover rounded-lg mr-4"
+                  class="xl:w-20 xl:h-20 lg:w-16 lg:h-16 w-12 h-12 object-cover rounded-lg xl:mr-4 mr-2"
                 >
                 <div>
-                  <h3 class="font-medium mb-2">{{ selectedNotification.object.title }}</h3>
+                  <h3 class="xl:text-lg lg:text-base text-sm font-medium xl:mb-2 mb-1">{{ selectedNotification.object.title }}</h3>
                   <p class="text-sm text-[#8C8B8B]">{{ selectedNotification.object.address }}</p>
                 </div>
               </NuxtLink>
@@ -191,13 +213,15 @@
             <p class="text-dark">{{ selectedNotification.fullText }}</p>
           </div>
         </template>
+
       </div>
     </div>
+  </div>
 </template>
 
 <script setup>
 import { ref, computed, nextTick, watch, defineProps, onMounted } from 'vue'
-import { AddImageIcon, Plus2Icon, SendButtonIcon, CloseIcon } from '@/components/icons/icons'
+import { AddImageIcon, Plus2Icon, SendButtonIcon, CloseIcon, ArrowIcon } from '@/components/icons/icons'
 import userAvatar1 from '@/assets/images/avatars/avatar-1.png'
 import userAvatar2 from '@/assets/images/avatars/avatar-2.png'
 import objectImage from '@/assets/images/object/chat-image.png'
@@ -220,10 +244,10 @@ const { messagerAndNotificationModal } = storeToRefs(modalStore)
 const activeTab = ref(messagerAndNotificationModal.value.type)
 const newMessage = ref('')
 const selectedNotification = ref(null)
-const unreadMessages = computed(() => messages.value.filter(message => !message.isRead).length)
+const unreadMessages = computed(() => dialogs.value.filter(dialog => !dialog.isRead).length)
 const unreadNotifications = computed(() => notifications.value.filter(notification => !notification.isRead).length)
 
-const messages = ref([
+const dialogs = ref([
   {
     id: 1,
     name: 'Сергей (Менеджер)',
@@ -354,16 +378,22 @@ const notifications = ref([
   }
 ])
 
-const selectedChat = ref(messages.value[0])
+const selectedChat = ref(dialogs.value[0])
 
 const selectNotification = (notification) => {
   selectedNotification.value = notification
   selectedChat.value = null
+  document.getElementById('chat-body').classList.toggle('active-section')
 }
 
 const selectChat = (chat) => {
   selectedChat.value = chat
   selectedNotification.value = null
+  document.getElementById('chat-body').classList.toggle('active-section')
+}
+
+const goBack = () => {
+  document.getElementById('chat-body').classList.toggle('active-section')
 }
 
 const fileInput = ref(null)
@@ -429,7 +459,7 @@ const sendMessage = () => {
   }
   selectedChat.value.messages.push(message)
 
-  const chatInList = messages.value.find(m => m.id === selectedChat.value.id)
+  const chatInList = dialogs.value.find(m => m.id === selectedChat.value.id)
   if (chatInList) {
     chatInList.text = newMessage.value
     chatInList.time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
@@ -455,8 +485,8 @@ watch(activeTab, (newTab) => {
   } else {
     // При переключении на сообщения
     selectedNotification.value = null
-    if (messages.value.length > 0) {
-      selectedChat.value = messages.value[0]
+    if (dialogs.value.length > 0) {
+      selectedChat.value = dialogs.value[0]
     }
   }
 })
@@ -471,6 +501,20 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.chat-body  {
+  @media (max-width: 768px) {
+    position: absolute;
+    inset: 0;
+    transform: translateX(100%);
+  }
+}
+
+.chat-body.active-section {
+  @media (max-width: 768px) {
+    transform: translateX(0);
+  }
+}
+
 .overflow-y-auto {
   /* Стили для Firefox */
   scrollbar-width: thin;
