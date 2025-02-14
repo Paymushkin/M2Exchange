@@ -8,22 +8,14 @@
 
 		<UModal :fullscreen="isFullscreen" v-model="modalStore.isExchangeFormSliderModalOpen"
 			:transition="false"
-			transition-enter="duration-300 ease-out"
-			transition-leave="duration-200 ease-in"
 			:overlay-transition="false"
-			overlay-enter="duration-300 ease-out"
-			overlay-leave="duration-200 ease-in"
 		>
 			<ExchangeFormSliderModal :fromModal="true" :closeModal="modalStore.closeExchangeFormSliderModal" />
 		</UModal>
 
 		<UModal :fullscreen="isFullscreen" v-model="modalStore.isExchangeModalOpen"
 			:transition="false"
-			transition-enter="duration-300 ease-out"
-			transition-leave="duration-200 ease-in"
 			:overlay-transition="false"
-			overlay-enter="duration-300 ease-out"
-			overlay-leave="duration-200 ease-in"
 			:ui="{
 				container: 'max-w-[820px] w-full mx-auto',
 			}"
@@ -33,11 +25,7 @@
 
 		<UModal :fullscreen="isFullscreen" v-model="modalStore.isContactsModalOpen"
 			:transition="false"
-			transition-enter="duration-300 ease-out"
-			transition-leave="duration-200 ease-in"
 			:overlay-transition="false"
-			overlay-enter="duration-300 ease-out"
-			overlay-leave="duration-200 ease-in"
 			:ui="{
 				container: 'max-w-[820px] w-full mx-auto',
 			}"
@@ -47,11 +35,7 @@
 
 		<UModal v-model="modalStore.isObjectOptionModalOpen"
 			:transition="false"
-			transition-enter="duration-300 ease-out"
-			transition-leave="duration-200 ease-in"
 			:overlay-transition="false"
-			overlay-enter="duration-300 ease-out"
-			overlay-leave="duration-200 ease-in"
 		    :ui="{
 					container: 'max-w-[580px] w-full mx-auto',
         }"

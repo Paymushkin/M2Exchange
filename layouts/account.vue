@@ -7,14 +7,9 @@
 		<TheFooter />
 		<UModal
 			:fullscreen="isFullscreen"
-			v-model="modalStore.isExchangeFormSliderModalOpen"
-			:transition="false"
-			transition-enter="duration-300 ease-out"
-			transition-leave="duration-200 ease-in"
 			:overlay-transition="false"
-			overlay-enter="duration-300 ease-out"
-			overlay-leave="duration-200 ease-in"
-		>
+			:transition="false"
+			v-model="modalStore.isExchangeFormSliderModalOpen">
 			<ExchangeFormSliderModal
 				:fromModal="true"
 				:closeModal="modalStore.closeExchangeFormSliderModal"
@@ -23,14 +18,9 @@
 
 		<UModal
 			:fullscreen="isFullscreen"
-			v-model="modalStore.messagerAndNotificationModal.isVisible"
-			:transition="false"
-			transition-enter="duration-300 ease-out"
-			transition-leave="duration-200 ease-in"
 			:overlay-transition="false"
-			overlay-enter="duration-300 ease-out"
-			overlay-leave="duration-200 ease-in"
-		>
+			:transition="false"
+			v-model="modalStore.messagerAndNotificationModal.isVisible">
 			<MessagerAndNotificationModal :type="modalStore.messagerAndNotificationModal.type" @close="modalStore.closeMessagerAndNotificationModal" />
 		</UModal>
 	</div>
