@@ -13,7 +13,7 @@
 						Обмена квартиры или дома в любой точке мира на Испанию
 					</h3>
 
-					<ExchangeButton @click="modalStore.openModal" />
+					<ExchangeButton @click="modalStore.openExchangeFormSliderModal" />
 				</div>
 
 				<div class="flex flex-col items-start xl:gap-12 lg:gap-6 gap-2 grow">

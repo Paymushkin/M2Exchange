@@ -6,10 +6,10 @@
     class="bg-[#FB7C61] rounded-sm max-w-[600px]"
   >
     <template #title>
-      <span class="text-lg font-medium">{{ title }}</span>
+      <span class="sm:text-lg text-sm font-medium">{{ title }}</span>
     </template>
     <template #description>
-      <span class="text-base font-normal">{{ description }}</span>
+      <span class="sm:text-base text-xs font-normal">{{ description }}</span>
     </template>
   </UAlert>
 </template>

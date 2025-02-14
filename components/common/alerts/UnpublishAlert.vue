@@ -6,10 +6,10 @@
     class="bg-[#FB7C61] rounded-sm max-w-[600px]"
   >
     <template #title>
-      <span class="text-lg font-medium">Объект снят с публикации</span>
+      <span class="sm:text-lg text-sm font-medium">Объект снят с публикации</span>
     </template>
     <template #description>
-      <span class="text-base font-normal">Объект больше не отображается в поиске</span>
+      <span class="sm:text-base text-xs font-normal">Объект больше не отображается в поиске</span>
     </template>
   </UAlert>
 </template>

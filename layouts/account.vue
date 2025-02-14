@@ -5,13 +5,34 @@
 			<slot />
 		</main>
 		<TheFooter />
-		<UModal :fullscreen="isFullscreen" v-model="modalStore.isExchangeFormSliderModalOpen">
-			<ExchangeFormSliderModal :fromModal="true" :closeModal="modalStore.closeExchangeFormSliderModal" />
+		<UModal
+			:fullscreen="isFullscreen"
+			v-model="modalStore.isExchangeFormSliderModalOpen"
+			:transition="false"
+			transition-enter="duration-300 ease-out"
+			transition-leave="duration-200 ease-in"
+			:overlay-transition="false"
+			overlay-enter="duration-300 ease-out"
+			overlay-leave="duration-200 ease-in"
+		>
+			<ExchangeFormSliderModal
+				:fromModal="true"
+				:closeModal="modalStore.closeExchangeFormSliderModal"
+			/>
 		</UModal>
-		<UModal v-model="modalStore.isExchangeModalOpen">
-			<ObjectExchangeRequest @close="modalStore.closeExchangeModal" />
+
+		<UModal
+			:fullscreen="isFullscreen"
+			v-model="modalStore.messagerAndNotificationModal.isVisible"
+			:transition="false"
+			transition-enter="duration-300 ease-out"
+			transition-leave="duration-200 ease-in"
+			:overlay-transition="false"
+			overlay-enter="duration-300 ease-out"
+			overlay-leave="duration-200 ease-in"
+		>
+			<MessagerAndNotificationModal :type="modalStore.messagerAndNotificationModal.type" @close="modalStore.closeMessagerAndNotificationModal" />
 		</UModal>
-		<AlertContainer />
 	</div>
 </template>
 
@@ -22,6 +43,7 @@ import TheFooter from '@/components/layout/TheFooter.vue'
 import { useModalStore } from '@/stores/modalStore'
 import ExchangeFormSliderModal from '~/components/common/modals/ExchangeFormSliderModal.vue'
 import ObjectExchangeRequest from '@/components/common/modals/ObjectExchangeRequestModal.vue'
+import MessagerAndNotificationModal from '@/components/common/modals/MessagerAndNotificationModal.vue'
 import AlertContainer from '@/components/common/AlertContainer.vue'
 
 const modalStore = useModalStore()

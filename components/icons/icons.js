@@ -1,4 +1,6 @@
+import AddImageIcon from '@/components/icons/AddImageIcon.vue'
 import AddObjectIcon from '@/components/icons/AddObjectIcon.vue'
+import AddVideoIcon from '@/components/icons/AddVideoIcon.vue'
 import AppleLoginIcon from '@/components/icons/AppleLoginIcon.vue'
 import AppleStoreIcon from '@/components/icons/AppleStoreIcon.vue'
 import Arrow45degIcon from '@/components/icons/Arrow45degIcon.vue'
@@ -55,6 +57,7 @@ import NotificationIcon from '@/components/icons/NotificationIcon.vue'
 import OptionsIcon from '@/components/icons/OptionsIcon.vue'
 import PlayMarketIcon from '@/components/icons/PlayMarketIcon.vue'
 import PlusIcon from '@/components/icons/PlusIcon.vue'
+import Plus2Icon from '@/components/icons/Plus2Icon.vue'
 import ProfileIcon from '@/components/icons/ProfileIcon.vue'
 import RefreshIcon from '@/components/icons/RefreshIcon.vue'
 import ReverseIcon from '@/components/icons/ReverseIcon.vue'
@@ -72,7 +75,9 @@ import SquareIcon from '@/components/icons/SquareIcon.vue'
 import StarRaitingIcon from '@/components/icons/StarRaitingIcon.vue'
 import VisaCardIcon from '@/components/icons/VisaCardIcon.vue'
 export {
+	AddImageIcon,
 	AddObjectIcon,
+	AddVideoIcon,
 	AppleLoginIcon,
 	AppleStoreIcon,
 	Arrow45degIcon,
@@ -128,6 +133,7 @@ export {
 	NotificationIcon,
 	OptionsIcon,
 	PlusIcon,
+	Plus2Icon,
 	PlayMarketIcon,
 	ProfileIcon,
 	RefreshIcon,

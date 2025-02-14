@@ -27,7 +27,7 @@ export default defineNuxtConfig({
 			title: 'Exchange Project',
 			meta: [
 				{ charset: 'utf-8' },
-				{ name: 'viewport', content: 'width=device-width, initial-scale=1' }
+				{ name: 'viewport', content: 'width=device-width, initial-scale=1, user-scalable=no' },
 			],
 			link: [
 				{
@@ -55,8 +55,8 @@ export default defineNuxtConfig({
 				}
 			]
 		},
-		buildAssetsDir: '/assets/',
-		baseURL: '/M2Exchange/'
+		baseURL: '/M2Exchange/',
+		buildAssetsDir: 'assets'
 	},
 
 	image: {

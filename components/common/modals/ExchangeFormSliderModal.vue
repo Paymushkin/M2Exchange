@@ -1,6 +1,7 @@
 <template>
 	<div
-		class="slide w-full xl:px-10 px-5 xl:py-8 py-5 max-w-[1360px] xl:min-h-[720px] min-h-[600px] mx-auto xl:rounded-[50px] overflow-hidden bg-white flex flex-col"
+		class="slide w-full xl:px-10 px-5 xl:py-8 py-10 md:py-5 2xl:max-w-[1360px] xl:min-h-[720px] md:min-h-[600px] h-[100dvh] mx-auto xl:rounded-[50px] overflow-hidden bg-white flex flex-col"
+		:class="{ 'fixed inset-0 pt-0': fromModal }"
 	>
 		<header class="slider-header flex items-center justify-between">
 			<LogoIcon v-if="!fromModal" class="hidden xl:block" />
@@ -14,7 +15,7 @@
 			<button
 				v-if="fromModal"
 				@click="closeModal"
-				class="flex items-center justify-center p-2 transition-colors duration-300 hover:bg-gray-200 rounded"
+				class="flex items-center justify-center md:p-2 py-2 px-0 transition-colors duration-300 hover:bg-gray-200 rounded outline-none"
 			>
 				<CloseIcon />
 			</button>

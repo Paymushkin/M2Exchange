@@ -4,9 +4,9 @@
 			<section class="sm:py-12 py-4">
 			<div id="account-page" class="flex sm:gap-3 sm:min-h-[calc(100vh-180px)] min-h-[calc(100vh-120px)]">
 				<!-- Боковая навигация -->
-				<nav class="flex flex-col w-auto lg:w-[282px] shrink-0 bg-white lg:py-10 py-4 lg:px-7 sm:px-3 px-1 lg:rounded-lg rounded-sm sm:border-none border-r border-r-[#E9E8E8]">
+				<nav class="flex flex-col w-auto xl:w-[282px] md:w-[220px] shrink-0 bg-white lg:py-10 py-4 xl:px-7 sm:px-3 px-1 lg:rounded-lg rounded-sm sm:border-none border-r border-r-[#E9E8E8]">
 				<!-- Секция Настройки -->
-				<div class="sm:mb-8">
+				<div class="md:mb-8">
 					<h2 class="text-sm text-dark font-semibold mb-4 hidden md:block">Настройки</h2>
 					<ul class="sm:space-y-2">
 						<li v-for="item in settingsMenu" :key="item.id">
@@ -32,6 +32,42 @@
 				<div>
 					<h2 class="text-sm text-dark font-semibold mb-4 hidden md:block">Обмен</h2>
 					<ul class="sm:space-y-2">
+						<li>
+							<button
+								class="flex items-center gap-2"
+								@click="modalStore.openMessagerAndNotificationModal('messages')"
+							>
+								<MessagerIcon class='md:w-8 md:h-8 w-10 h-10 md:rounded-full rounded-sm p-2' />
+								<span class="text-dark hover:text-primary transition-colors text-xs hidden md:block">
+									Сообщения
+								</span>
+							</button>
+						</li>
+
+						<li>
+							<button
+								class="flex items-center gap-2"
+								@click="modalStore.openMessagerAndNotificationModal('notifications')"
+							>
+								<BellIcon class='md:w-8 md:h-8 w-10 h-10 md:rounded-full rounded-sm p-2' />
+								<span class="text-dark hover:text-primary transition-colors text-xs hidden md:block">
+									Уведомления
+								</span>
+							</button>
+						</li>
+
+						<li>
+							<button
+								class="flex items-center gap-2"
+								@click="modalStore.openExchangeFormSliderModal"
+							>
+								<AddObjectIcon class='md:w-8 md:h-8 w-10 h-10 md:rounded-full rounded-sm p-2' />
+								<span class="text-dark hover:text-primary transition-colors text-xs hidden md:block">
+									Разместить объект
+								</span>
+							</button>
+						</li>
+
 						<li v-for="item in exchangeMenu" :key="item.id">
 							<button
 								class="flex items-center gap-2"
@@ -121,15 +157,12 @@ import PersonalInfoSection from '@/components/sections/account/PersonalInfoSecti
 import SecuritySection from '@/components/sections/account/SecuritySection.vue'
 import NotificationsAccessSection from '@/components/sections/account/NotificationsAccessSection.vue'
 import PaymentSection from '@/components/sections/account/PaymentSection.vue'
-// import MessagesSection from '@/components/sections/account/MessagesSection.vue'
-// import NotificationsSection from '@/components/sections/account/NotificationsSection.vue'
 import MyObjectsSection from '@/components/sections/account/MyObjectsSection.vue'
-// import PostObjectSection from '@/components/sections/account/PostObjectSection.vue'
 import FavoritesSection from '@/components/sections/account/FavoritesSection.vue'
 import HelpSection from '@/components/sections/account/HelpSection.vue'
-// import SupportSection from '@/components/sections/account/SupportSection.vue'
 import LogoutSection from '@/components/sections/account/LogoutSection.vue'
 import DeleteProfileSection from '@/components/sections/account/DeleteProfileSection.vue'
+import { useModalStore } from '@/stores/modalStore'
 
 import {
 	AddObjectIcon,
@@ -147,6 +180,9 @@ import {
 
 import { ArrowIcon } from '~/components/icons/icons.js'
 
+const modalStore = useModalStore()
+
+
 definePageMeta({
 	layout: 'account'
 })
@@ -161,10 +197,10 @@ const settingsMenu = [
 
 // Меню обмена
 const exchangeMenu = [
-	{ id: 'messages', title: 'Сообщения', icon: MessagerIcon },
-	{ id: 'notifications', title: 'Уведомления', icon: BellIcon },
+	// { id: 'messages', title: 'Сообщения', icon: MessagerIcon },
+	// { id: 'notifications', title: 'Уведомления', icon: BellIcon },
 	{ id: 'my-objects', title: 'Мои объекты', icon: ObjectsIcon },
-	{ id: 'post-object', title: 'Разместить объект', icon: AddObjectIcon },
+	// { id: 'post-object', title: 'Разместить объект', icon: AddObjectIcon },
 	{ id: 'favorites', title: 'Избранные объекты', icon: FavoriteIcon },
 ]
 
