@@ -56,6 +56,18 @@
 							</button>
 						</li>
 
+						<li>
+							<button
+								class="flex items-center gap-2"
+								@click="modalStore.openExchangeFormSliderModal"
+							>
+								<AddObjectIcon class='md:w-8 md:h-8 w-10 h-10 md:rounded-full rounded-sm p-2' />
+								<span class="text-dark hover:text-primary transition-colors text-xs hidden md:block">
+									Разместить объект
+								</span>
+							</button>
+						</li>
+
 						<li v-for="item in exchangeMenu" :key="item.id">
 							<button
 								class="flex items-center gap-2"
@@ -146,10 +158,8 @@ import SecuritySection from '@/components/sections/account/SecuritySection.vue'
 import NotificationsAccessSection from '@/components/sections/account/NotificationsAccessSection.vue'
 import PaymentSection from '@/components/sections/account/PaymentSection.vue'
 import MyObjectsSection from '@/components/sections/account/MyObjectsSection.vue'
-// import PostObjectSection from '@/components/sections/account/PostObjectSection.vue'
 import FavoritesSection from '@/components/sections/account/FavoritesSection.vue'
 import HelpSection from '@/components/sections/account/HelpSection.vue'
-// import SupportSection from '@/components/sections/account/SupportSection.vue'
 import LogoutSection from '@/components/sections/account/LogoutSection.vue'
 import DeleteProfileSection from '@/components/sections/account/DeleteProfileSection.vue'
 import { useModalStore } from '@/stores/modalStore'
@@ -190,7 +200,7 @@ const exchangeMenu = [
 	// { id: 'messages', title: 'Сообщения', icon: MessagerIcon },
 	// { id: 'notifications', title: 'Уведомления', icon: BellIcon },
 	{ id: 'my-objects', title: 'Мои объекты', icon: ObjectsIcon },
-	{ id: 'post-object', title: 'Разместить объект', icon: AddObjectIcon },
+	// { id: 'post-object', title: 'Разместить объект', icon: AddObjectIcon },
 	{ id: 'favorites', title: 'Избранные объекты', icon: FavoriteIcon },
 ]
 

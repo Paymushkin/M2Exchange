@@ -1,14 +1,27 @@
 <template>
-	<div class="min-h-screen flex flex-col">
+	<div class="min-h-screen max-w-[100vw] flex flex-col overflow-x-hidden">
 		<TheHeader />
 		<main class="flex flex-grow flex-col">
 			<slot />
 		</main>
 		<TheFooter />
-		<UModal :fullscreen="isFullscreen" v-model="modalStore.isExchangeFormSliderModalOpen">
+		<UModal
+			:fullscreen="isFullscreen"
+			v-model="modalStore.isExchangeFormSliderModalOpen"
+			:transition="false"
+			transition-enter="duration-300 ease-out"
+			transition-leave="duration-200 ease-in"
+			:overlay-transition="false">
 			<ExchangeFormSliderModal :fromModal="true" :closeModal="modalStore.closeExchangeFormSliderModal" />
 		</UModal>
-		<UModal v-model="modalStore.isExchangeModalOpen">
+
+		<UModal
+			v-model="modalStore.isExchangeModalOpen"
+			:transition="false"
+			transition-enter="duration-300 ease-out"
+			transition-leave="duration-200 ease-in"
+			:overlay-transition="false"
+		>
 			<ObjectExchangeRequest @close="modalStore.closeExchangeModal" />
 		</UModal>
 

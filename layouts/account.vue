@@ -5,16 +5,34 @@
 			<slot />
 		</main>
 		<TheFooter />
-		<UModal :fullscreen="isFullscreen" v-model="modalStore.isExchangeFormSliderModalOpen">
-			<ExchangeFormSliderModal :fromModal="true" :closeModal="modalStore.closeExchangeFormSliderModal" />
+		<UModal
+			:fullscreen="isFullscreen"
+			v-model="modalStore.isExchangeFormSliderModalOpen"
+			:transition="false"
+			transition-enter="duration-300 ease-out"
+			transition-leave="duration-200 ease-in"
+			:overlay-transition="false"
+			overlay-enter="duration-300 ease-out"
+			overlay-leave="duration-200 ease-in"
+		>
+			<ExchangeFormSliderModal
+				:fromModal="true"
+				:closeModal="modalStore.closeExchangeFormSliderModal"
+			/>
 		</UModal>
-		<UModal v-model="modalStore.isExchangeModalOpen">
-			<ObjectExchangeRequest @close="modalStore.closeExchangeModal" />
-		</UModal>
-		<UModal :fullscreen="isFullscreen" v-model="modalStore.messagerAndNotificationModal.isVisible">
+
+		<UModal
+			:fullscreen="isFullscreen"
+			v-model="modalStore.messagerAndNotificationModal.isVisible"
+			:transition="false"
+			transition-enter="duration-300 ease-out"
+			transition-leave="duration-200 ease-in"
+			:overlay-transition="false"
+			overlay-enter="duration-300 ease-out"
+			overlay-leave="duration-200 ease-in"
+		>
 			<MessagerAndNotificationModal :type="modalStore.messagerAndNotificationModal.type" @close="modalStore.closeMessagerAndNotificationModal" />
 		</UModal>
-		<AlertContainer />
 	</div>
 </template>
 

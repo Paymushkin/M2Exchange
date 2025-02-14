@@ -1,9 +1,9 @@
 <template>
   <div class="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-    <div class="relative bg-white md:rounded-lg w-[1465px] max-w-full md:h-[780px] h-screen max-h-screen flex xl:py-10 xl:px-[50px] py-5 px-5">
+    <div class="relative bg-white md:rounded-lg w-[1465px] max-w-full md:h-[780px] h-[100svh] max-h-[100svh] flex xl:py-10 xl:px-[50px] py-5 px-5">
       <button
         @click="closeModal"
-        class="absolute top-4 right-4 transition-colors duration-300 p-1 hover:bg-gray-200 rounded-full"
+        class="absolute top-4 right-4 transition-colors duration-300 p-1 hover:bg-gray-200 rounded-full outline-none"
       >
         <CloseIcon />
       </button>
@@ -93,7 +93,7 @@
       <div
         v-if="selectedChat || selectedNotification"
 				id="chat-body"
-        class="chat-body flex-1 flex w-full flex-col bg-white pb-10 md:px-0 md:py-0"
+        class="chat-body flex-1 flex w-full flex-col bg-white pb-5 md:px-0 md:py-0 z-40"
       >
         <!-- Диалог -->
         <template v-if="selectedChat">
@@ -133,55 +133,66 @@
           </div>
 
           <!-- Ввод сообщения -->
-          <div class="flex items-center gap-4 px-2">
-            <div class="flex space-x-2 items-center">
-              <input
-                type="file"
-                ref="fileInput"
-                class="hidden"
-                @change="handleFileUpload"
-                multiple
-              />
-              <button
-                class="flex items-center justify-center p-2 xl:w-[55px] xl:h-[55px] w-[45px] h-[45px] hover:bg-primary rounded-full bg-secondary border border-secondary transition-colors duration-300"
-                @click="$refs.fileInput.click()"
-              >
-                <Plus2Icon class="w-6 h-6" />
-              </button>
-              <input
-                type="file"
-                ref="mediaInput"
-                class="hidden"
-                @change="handleMediaUpload"
-                accept="image/*,video/*"
-                multiple
-              />
-              <button
-                class="flex items-center justify-center p-2 xl:w-[55px] xl:h-[55px] w-[45px] h-[45px] hover:bg-grey-200 rounded-full border border-secondary transition-colors duration-300"
-                @click="$refs.mediaInput.click()"
-              >
-                <AddImageIcon class="w-6 h-6" />
-              </button>
-            </div>
-            <div class="flex items-center grow pt-2">
-              <input
-                v-model="newMessage"
-                type="text"
-                class="flex-1 border border-[#EBEBEB] rounded-lg xl:p-4 p-3 max-h-[55px] xl:text-base text-sm"
-                placeholder="Введите сообщение..."
-                @keyup.enter="sendMessage"
-              >
-            </div>
-            <div class="flex space-x-2">
-              <button
-                class="flex items-center justify-center p-2 xl:w-[55px] xl:h-[55px] w-[45px] h-[45px] hover:bg-grey-200 rounded-full border border-secondary transition-colors duration-300 cursor-pointer"
-                @click="sendMessage"
-                :disabled="!newMessage.trim()"
-              >
-                <SendButtonIcon class="w-6 h-6" />
-              </button>
-            </div>
-          </div>
+					<div>
+						<div class="flex flex-col gap-3 px-4 mb-2 max-w-[500px]">
+							<h4 class="text-dark font-medium">Спросите собственника</h4>
+							<ul class="flex flex-wrap gap-2">
+								<li class="flex justify-center items-center h-[34px] text-[14px] bg-dark text-white rounded-full px-4 py-1 cursor-pointer hover:bg-primary transition-colors duration-300">Торг уместен?</li>
+								<li class="flex justify-center items-center h-[34px] text-[14px] bg-dark text-white rounded-full px-4 py-1 cursor-pointer hover:bg-primary transition-colors duration-300">Можно планировку?</li>
+								<li class="flex justify-center items-center h-[34px] text-[14px] bg-dark text-white rounded-full px-4 py-1 cursor-pointer hover:bg-primary transition-colors duration-300">Рассматриваете продажу?</li>
+								<li class="flex justify-center items-center h-[34px] text-[14px] bg-dark text-white rounded-full px-4 py-1 cursor-pointer hover:bg-primary transition-colors duration-300">Есть терраса?</li>
+							</ul>
+						</div>
+						<div class="flex items-center md:gap-4 gap-2 pt-2 px-4">
+							<div class="flex gap-2 items-center">
+								<input
+									type="file"
+									ref="fileInput"
+									class="hidden"
+									@change="handleFileUpload"
+									multiple
+								/>
+								<button
+									class="flex items-center justify-center p-2 xl:w-[55px] xl:h-[55px] md:w-[45px] md:h-[45px] w-[40px] h-[40px] hover:bg-primary rounded-full bg-secondary border border-secondary transition-colors duration-300"
+									@click="$refs.fileInput.click()"
+								>
+									<Plus2Icon class="w-6 h-6" />
+								</button>
+								<input
+									type="file"
+									ref="mediaInput"
+									class="hidden"
+									@change="handleMediaUpload"
+									accept="image/*,video/*"
+									multiple
+								/>
+								<button
+									class="flex items-center justify-center p-2 xl:w-[55px] xl:h-[55px] md:w-[45px] md:h-[45px] w-[40px] h-[40px] hover:bg-grey-200 rounded-full border border-secondary transition-colors duration-300"
+									@click="$refs.mediaInput.click()"
+								>
+									<AddImageIcon class="w-6 h-6" />
+								</button>
+							</div>
+							<div class="flex items-center grow">
+								<input
+									v-model="newMessage"
+									type="text"
+									class="flex-1 border border-[#EBEBEB] rounded-lg xl:p-4 p-3 xl:h-[55px] md:h-[45px] h-[40px] xl:text-base text-sm sm:max-w-auto max-w-[calc(100vw-183px)]"
+									placeholder="Введите сообщение..."
+									@keyup.enter="sendMessage"
+								>
+							</div>
+							<div class="flex space-x-2">
+								<button
+									class="flex items-center justify-center p-2 xl:w-[55px] xl:h-[55px] md:w-[45px] md:h-[45px] w-[40px] h-[40px] hover:bg-grey-200 rounded-full border border-secondary transition-colors duration-300 cursor-pointer"
+									@click="sendMessage"
+									:disabled="!newMessage.trim()"
+								>
+									<SendButtonIcon class="w-6 h-6" />
+								</button>
+							</div>
+						</div>
+					</div>
         </template>
 
         <!-- Уведомление -->
@@ -271,11 +282,11 @@ const closeModal = () => {
 
 const goBack = () => {
   document.getElementById('chat-body').classList.remove('active-section')
-  if (activeTab.value === 'messages') {
-    selectedChat.value = null
-  } else {
-    selectedNotification.value = null
-  }
+  // if (activeTab.value === 'messages') {
+  //   selectedChat.value = null
+  // } else {
+  //   selectedNotification.value = null
+  // }
 }
 
 watch(selectedChat, () => {
@@ -310,7 +321,7 @@ onMounted(() => {
 <style scoped>
 .chat-body  {
   @media (max-width: 768px) {
-    position: absolute;
+    position: fixed;
     inset: 0;
     transform: translateX(100%);
   }

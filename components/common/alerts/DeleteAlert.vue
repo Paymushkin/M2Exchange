@@ -6,10 +6,10 @@
     class="bg-[#FB7C61] rounded-sm max-w-[600px]"
   >
     <template #title>
-      <span class="text-lg font-medium">Объект удален</span>
+      <span class="sm:text-lg text-sm font-medium">Объект удален</span>
     </template>
     <template #description>
-      <span class="text-base font-normal">Объект успешно удален из системы</span>
+      <span class="sm:text-base text-xs font-normal">Объект успешно удален из системы</span>
     </template>
   </UAlert>
 </template>
