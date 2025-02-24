@@ -10,7 +10,11 @@
 			:transition="false"
 			:overlay-transition="false"
 		>
-			<ExchangeFormSliderModal :fromModal="true" :closeModal="modalStore.closeExchangeFormSliderModal" />
+			<ExchangeFormSliderModal
+				:fromModal="true"
+				:closeModal="modalStore.closeExchangeFormSliderModal"
+				:role="role"
+			/>
 		</UModal>
 
 		<UModal :fullscreen="isFullscreen" v-model="modalStore.isExchangeModalOpen"
@@ -43,6 +47,18 @@
 			<ObjectOptionModal @close="modalStore.closeObjectOptionModal" />
 		</UModal>
 
+		<UModal
+			v-model="modalStore.isLanguageModalOpen"
+			:fullscreen="isFullscreen"
+			:transition="false"
+			:overlay-transition="false"
+			:ui="{
+				container: 'sm:w-[350px] w-full mx-auto',
+      }"
+		>
+			<LanguageSwitchModal @close="modalStore.closeLanguageModal" />
+		</UModal>
+
 		<AlertContainer />
 	</div>
 </template>
@@ -56,21 +72,14 @@ import ExchangeFormSliderModal from '~/components/common/modals/ExchangeFormSlid
 import ObjectExchangeRequestModal from '@/components/common/modals/ObjectExchangeRequestModal.vue'
 import ObjectContactsRequestModal from '@/components/common/modals/ObjectContactsRequestModal.vue'
 import ObjectOptionModal from '@/components/common/modals/ObjectOptionModal.vue'
+import LanguageSwitchModal from '@/components/common/modals/LanguageSwitchModal.vue'
+import { useFullscreen } from '@/composables/useFullscreen'
+
+const { isFullscreen } = useFullscreen()
 
 const modalStore = useModalStore()
-const isFullscreen = ref(window.innerWidth < 1024)
 
-const updateFullscreen = () => {
-	isFullscreen.value = window.innerWidth < 1024
-}
-
-onMounted(() => {
-	window.addEventListener('resize', updateFullscreen)
-})
-
-onUnmounted(() => {
-	window.removeEventListener('resize', updateFullscreen)
-})
+const role = ref(1)
 </script>
 
 <style scoped>

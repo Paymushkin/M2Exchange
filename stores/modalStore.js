@@ -11,6 +11,7 @@ export const useModalStore = defineStore('modal', () => {
 		isVisible: false,
 		type: 'messages'
 	})
+ const isLanguageModalOpen = ref(false)
 
 	// Методы для MessagerAndNotificationModal
 	const openMessagerAndNotificationModal = (type) => {
@@ -58,6 +59,16 @@ export const useModalStore = defineStore('modal', () => {
 		isExchangeFormSliderModalOpen.value = false
 	}
 
+	const openLanguageModal = () => {
+		isLanguageModalOpen.value = true
+	}
+
+	const closeLanguageModal = () => {
+		isLanguageModalOpen.value = false
+	}
+
+
+
 	return {
 		// Состояния
 		isObjectOptionModalOpen,
@@ -65,6 +76,7 @@ export const useModalStore = defineStore('modal', () => {
 		isContactsModalOpen,
 		isExchangeFormSliderModalOpen,
 		messagerAndNotificationModal,
+		isLanguageModalOpen,
 		// Методы
 		openObjectOptionModal,
 		closeObjectOptionModal,
@@ -75,6 +87,8 @@ export const useModalStore = defineStore('modal', () => {
 		openExchangeFormSliderModal,
 		closeExchangeFormSliderModal,
 		openMessagerAndNotificationModal,
-		closeMessagerAndNotificationModal
+		closeMessagerAndNotificationModal,
+		openLanguageModal,
+		closeLanguageModal
 	}
 })

@@ -1,21 +1,33 @@
 <template>
-	<div class="flex flex-col items-center justify-center max-w-[970px] h-full">
-		<h2 class="slide-custom__title mb-6 text-center">Дополнительная информация об объекте</h2>
+	<div class="flex flex-col items-start justify-center max-w-[970px] h-full">
+		<h2 class="slide-custom__title sm:mb-10 mb-6 text-left">
+			<span v-if="role === 1">Дополнительная информация об объекте</span>
+			<span v-if="role === 2">Что для вас важно?</span>
+		</h2>
 
 		<div class="flex flex-col gap-8 w-full">
-			<div class="flex flex-col gap-4 max-w-[480px]">
+			<div class="flex flex-col gap-4 w-full"
+				:class="{
+					'max-w-[480px]': role === 1,
+					'max-w-[600px]': role === 2
+				}"
+			>
 				<CounterControl
 					v-model="bedrooms"
 					label="Спальни"
+					no-matter="Количество спален не важно"
 					:min="bedroomsConfig.min"
 					:max="bedroomsConfig.max"
+					:role="role"
 				/>
 
 				<CounterControl
 					v-model="bathrooms"
 					label="Ванны"
+					no-matter="Количество ванных не важно"
 					:min="bathroomsConfig.min"
 					:max="bathroomsConfig.max"
+					:role="role"
 				/>
 			</div>
 
@@ -39,6 +51,13 @@
 import { ref } from 'vue'
 import CheckboxButton from '@/components/ui/CheckboxButton.vue'
 import CounterControl from '@/components/ui/CounterControl.vue'
+
+const props = defineProps({
+	role: {
+		type: Number,
+		required: true
+	}
+})
 
 const bedroomsConfig = {
 	min: 0,

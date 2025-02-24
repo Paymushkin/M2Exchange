@@ -5,7 +5,7 @@
 			Поделитесь основными сведениями, например где оно находится, что окружает, какой ремонт и год
 			постройки.
 		</p>
-		<div class="flex flex-col w-full h-full">
+		<div class="flex flex-col w-full">
 			<h3 class="mb-3 text-left text-[#252B5C] font-semibold">Введите название</h3>
 			<input
 				type="text"

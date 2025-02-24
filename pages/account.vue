@@ -4,7 +4,7 @@
 			<section class="sm:py-12 py-4">
 			<div id="account-page" class="flex sm:gap-3 sm:min-h-[calc(100vh-180px)] min-h-[calc(100vh-120px)]">
 				<!-- Боковая навигация -->
-				<nav class="flex flex-col w-auto xl:w-[282px] md:w-[220px] shrink-0 bg-white lg:py-10 py-4 xl:px-7 sm:px-3 px-1 lg:rounded-lg rounded-sm sm:border-none border-r border-r-[#E9E8E8]">
+				<nav class="flex flex-col w-auto xl:w-[282px] md:w-[220px] shrink-0 bg-white lg:py-10 py-4 xl:px-7 md :px-3 px-1 lg:rounded-lg rounded-sm sm:border-none border-r border-r-[#E9E8E8]">
 				<!-- Секция Настройки -->
 				<div class="md:mb-8">
 					<h2 class="text-sm text-dark font-semibold mb-4 hidden md:block">Настройки</h2>
@@ -17,7 +17,7 @@
 							>
 								<component
 									:is="item.icon"
-									:class="['md:w-8 md:h-8 w-10 h-10 md:rounded-full rounded-sm p-2',
+									:class="['w-8 h-8 md:rounded-full rounded-sm p-2',
 										{ 'bg-[#F0F3FE]': activeSection === item.id }]"
 								/>
 								<span class="text-dark hover:text-primary transition-colors text-xs hidden md:block">
@@ -37,7 +37,7 @@
 								class="flex items-center gap-2"
 								@click="modalStore.openMessagerAndNotificationModal('messages')"
 							>
-								<MessagerIcon class='md:w-8 md:h-8 w-10 h-10 md:rounded-full rounded-sm p-2' />
+								<MessagerIcon class='w-8 h-8 md:rounded-full rounded-sm p-2' />
 								<span class="text-dark hover:text-primary transition-colors text-xs hidden md:block">
 									Сообщения
 								</span>
@@ -49,7 +49,7 @@
 								class="flex items-center gap-2"
 								@click="modalStore.openMessagerAndNotificationModal('notifications')"
 							>
-								<BellIcon class='md:w-8 md:h-8 w-10 h-10 md:rounded-full rounded-sm p-2' />
+								<BellIcon class='w-8 h-8 md:rounded-full rounded-sm p-2' />
 								<span class="text-dark hover:text-primary transition-colors text-xs hidden md:block">
 									Уведомления
 								</span>
@@ -61,7 +61,7 @@
 								class="flex items-center gap-2"
 								@click="modalStore.openExchangeFormSliderModal"
 							>
-								<AddObjectIcon class='md:w-8 md:h-8 w-10 h-10 md:rounded-full rounded-sm p-2' />
+								<AddObjectIcon class='w-8 h-8 md:rounded-full rounded-sm p-2' />
 								<span class="text-dark hover:text-primary transition-colors text-xs hidden md:block">
 									Разместить объект
 								</span>
@@ -76,7 +76,7 @@
 							>
 								<component
 									:is="item.icon"
-									:class="['md:w-8 md:h-8 w-10 h-10 md:rounded-full rounded-sm p-2',
+									:class="['w-8 h-8 md:rounded-full rounded-sm p-2',
 										{ 'bg-[#F0F3FE]': activeSection === item.id }]"
 								/>
 								<span class="text-dark hover:text-primary transition-colors text-xs hidden md:block">
@@ -100,7 +100,7 @@
 							>
 								<component
 									:is="item.icon"
-									:class="['md:w-8 md:h-8 w-10 h-10 md:rounded-full rounded-sm p-2',
+									:class="['w-8 h-8 md:rounded-full rounded-sm p-2',
 										{ 'bg-[#F0F3FE]': activeSection === item.id }]"
 								/>
 								<span class="text-dark hover:text-primary transition-colors text-xs hidden md:block">
@@ -113,7 +113,7 @@
 
 				<!-- Нижний блок -->
 				<div class="mt-auto">
-					<div class="flex flex-col md:flex-row items-center gap-4">
+					<div class="flex flex-col md:flex-row justify-between items-center md:gap-2">
 						<button @click="setActiveSection('logout')" class="flex items-center gap-2">
 							<div class="hidden md:flex items-center gap-2 rounded-full border border-[#E9E8E8] py-3 pr-5 pl-3 cursor-pointer hover:opacity-50 transition-opacity">
 								<div class="flex items-center gap-2">
@@ -122,7 +122,7 @@
 								</div>
 							</div>
 							<div class="md:hidden flex items-center gap-2">
-								<component :is="LogoutIcon" :class="['md:w-8 md:h-8 w-10 h-10 md:rounded-full rounded-sm p-2', { 'bg-[#F0F3FE]': activeSection === 'logout'}]" />
+								<component :is="LogoutIcon" :class="['w-8 h-8 md:rounded-full rounded-sm p-2', { 'bg-[#F0F3FE]': activeSection === 'logout'}]" />
 							</div>
 						</button>
 
@@ -132,7 +132,7 @@
 							</span>
 
 							<div class="md:hidden flex items-center gap-2">
-								<component :is="DeleteProfileIcon" :class="['md:w-8 md:h-8 w-10 h-10 md:rounded-full rounded-sm p-2', { 'bg-[#F0F3FE]': activeSection === 'delete-profile'}]" />
+								<component :is="DeleteProfileIcon" :class="['w-8 h-8 md:rounded-full rounded-sm p-2', { 'bg-[#F0F3FE]': activeSection === 'delete-profile'}]" />
 							</div>
 						</button>
 					</div>
@@ -141,7 +141,7 @@
 			</nav>
 
 			<!-- Основной контент -->
-			<main class="relative flex-grow bg-white lg:py-10 py-4 2xl:px-[100px] px-5 lg:rounded-lg rounded-sm max-w-full">
+			<main class="relative flex-grow bg-white lg:py-10 py-4 2xl:px-[100px] sm:px-5 px-3 lg:rounded-lg rounded-sm max-w-full">
 					<div class="bg-shape"></div>
 					<component :is="currentSection" class="relative z-10" />
 				</main>

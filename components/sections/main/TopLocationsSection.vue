@@ -50,7 +50,7 @@
 				<div class="cards-container">
 					<ul
 						ref="scrollContainer"
-						class="grid xl:grid-cols-5 lg:grid-cols-4 sm:grid-cols-3 grid-cols-2 xl:gap-7 gap-2 pb-10"
+						class="grid 2xl:grid-cols-5 xl:grid-cols-4 sm:grid-cols-3 grid-cols-2 xl:gap-7 gap-2 pb-10"
 					>
 						<ObjectCard v-for="card in cards" :key="card.id" :card="card" />
 					</ul>

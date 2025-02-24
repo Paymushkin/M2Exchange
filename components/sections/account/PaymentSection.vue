@@ -1,5 +1,5 @@
 <template>
-	<div id="payment" class="flex flex-col items-start xl:gap-7 gap-4 w-full">
+	<div id="payment" class="flex flex-col items-start xl:gap-7 sm:gap-4 gap-2 w-full">
 		<!-- Главный переключатель -->
 		<TabSwitcher
 			v-model="activeMainTab"
@@ -17,7 +17,7 @@
 			<!-- Существующие карты -->
 			<div class="flex flex-col gap-4">
 				<h3 class="xl:text-xl text-dark font-medium">Выберите с какой карты оплатить</h3>
-				<p class="text-dark xl:text-base text-sm max-w-[650px]">Это безопасно, вы всегда сможете удалить или изменить карту в вашем личном кабинете в разделе <NuxtLink to="/" class="underline hover:text-primary transition-colors">Оплата</NuxtLink></p>
+				<p class="text-dark xl:text-base sm:text-sm text-xs max-w-[650px]">Это безопасно, вы всегда сможете удалить или изменить карту в вашем личном кабинете в разделе <NuxtLink to="/" class="underline hover:text-primary transition-colors">Оплата</NuxtLink></p>
 
 				<div class="flex flex-wrap gap-3">
 					<ExistingCard
@@ -30,7 +30,7 @@
 
 					<!-- Добавить новую карту -->
 					<div v-if="!showNewCardForm" class="payment-card payment-card-new" @click="showNewCardForm = true">
-						<div class="flex justify-center items-center gap-2 border border-[#D9E3FF] rounded-sm px-4 py-2">
+						<div class="flex justify-center items-center gap-2 border border-[#D9E3FF] rounded-sm px-4 py-2 sm:text-base text-sm">
 							<PlusIcon class="w-5 h-5" />
 							<span>Добавить новую карту</span>
 						</div>

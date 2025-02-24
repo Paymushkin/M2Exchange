@@ -22,7 +22,7 @@
 		</header>
 
 		<div class="slider-content flex-grow flex items-center justify-center">
-			<component :is="currentSlide" />
+			<component :is="currentSlide" :role="userRole" />
 		</div>
 
 		<footer
@@ -44,7 +44,7 @@
 				<span class="ml-2 xl:inline hidden text-gray-600">Назад</span>
 			</button>
 
-			<div class="absolute top-4 left-0 right-0 lg:relative pagination flex gap-1 grow">
+			<div class="absolute top-5 md:top-0 left-0 right-0 md:relative pagination flex gap-1 grow">
 				<div
 					v-for="(slide, index) in slides"
 					:key="index"
@@ -64,7 +64,9 @@
 </template>
 
 <script setup>
-import { ref, markRaw, computed, defineProps } from 'vue'
+import { ref, markRaw, computed, watch } from 'vue'
+import { useSlider } from '@/composables/useSlider'
+
 import exchangeFormSlide1 from '@/components/common/exchangeFormSlides/exchangeFormSlide-1.vue'
 import exchangeFormSlide2 from '@/components/common/exchangeFormSlides/exchangeFormSlide-2.vue'
 import exchangeFormSlide3 from '@/components/common/exchangeFormSlides/exchangeFormSlide-3.vue'
@@ -74,49 +76,75 @@ import exchangeFormSlide6 from '@/components/common/exchangeFormSlides/exchangeF
 import exchangeFormSlide7 from '@/components/common/exchangeFormSlides/exchangeFormSlide-7.vue'
 import exchangeFormSlide8 from '@/components/common/exchangeFormSlides/exchangeFormSlide-8.vue'
 import exchangeFormSlide9 from '@/components/common/exchangeFormSlides/exchangeFormSlide-9.vue'
+import exchangeFormSlide10 from '@/components/common/exchangeFormSlides/exchangeFormSlide-10.vue'
+import exchangeFormSlide11 from '@/components/common/exchangeFormSlides/exchangeFormSlide-11.vue'
+import exchangeFormSlide12 from '@/components/common/exchangeFormSlides/exchangeFormSlide-12.vue'
 
 import { LogoIcon, ArrowIcon, CloseIcon } from '@/components/icons/icons.js'
 
-const props = defineProps(['fromModal', 'closeModal'])
-
-const slides = [
-	markRaw(exchangeFormSlide1),
-	markRaw(exchangeFormSlide2),
-	markRaw(exchangeFormSlide3),
-	markRaw(exchangeFormSlide4),
-	markRaw(exchangeFormSlide5),
-	markRaw(exchangeFormSlide6),
-	markRaw(exchangeFormSlide7),
-	markRaw(exchangeFormSlide8),
-	markRaw(exchangeFormSlide9)
-]
-
-const currentIndex = ref(0)
-const currentSlide = ref(slides[currentIndex.value])
-const currentSlideIndex = ref(0)
-
-const goToSlide = (index) => {
-	currentIndex.value = index
-	currentSlide.value = slides[currentIndex.value]
-}
-
-const nextSlide = () => {
-	if (currentIndex.value === slides.length - 1) {
-		console.log('Отправка данных...')
-	} else {
-		currentIndex.value++
-		currentSlide.value = slides[currentIndex.value]
+const props = defineProps({
+	fromModal: {
+		type: Boolean,
+		default: false
+	},
+	closeModal: {
+		type: Function,
+		default: () => {}
+	},
+	role: {
+		type: Number,
+		default: 1
 	}
+})
+
+const userRole = computed(() => props.role)
+// Создаем массивы слайдов для каждой роли
+const roleSlides = {
+	1: [
+			markRaw(exchangeFormSlide1),
+			markRaw(exchangeFormSlide2),
+			markRaw(exchangeFormSlide3),
+			markRaw(exchangeFormSlide4),
+			markRaw(exchangeFormSlide5),
+			markRaw(exchangeFormSlide6),
+			markRaw(exchangeFormSlide7),
+			markRaw(exchangeFormSlide8),
+			markRaw(exchangeFormSlide9)
+	],
+	2: [
+			markRaw(exchangeFormSlide1),
+			markRaw(exchangeFormSlide2),
+			markRaw(exchangeFormSlide3),
+			markRaw(exchangeFormSlide4),
+			markRaw(exchangeFormSlide5),
+			markRaw(exchangeFormSlide10),
+			markRaw(exchangeFormSlide9)
+	],
+	3: [
+			markRaw(exchangeFormSlide1),
+			markRaw(exchangeFormSlide2),
+			markRaw(exchangeFormSlide3),
+			markRaw(exchangeFormSlide11),
+			markRaw(exchangeFormSlide12),
+			markRaw(exchangeFormSlide9)
+	]
 }
 
-const goBack = () => {
-	if (currentIndex.value > 0) {
-		currentIndex.value -= 1
-		currentSlide.value = slides[currentIndex.value]
-	}
-}
+const slides = ref(roleSlides[userRole.value] || roleSlides[1])
 
-const isFirstSlide = computed(() => currentIndex.value === 0)
+// Следим за изменением роли
+watch(userRole, (newRole) => {
+	slides.value = roleSlides[newRole] || roleSlides[1]
+})
+
+const {
+	currentIndex,
+	currentSlide,
+	isFirstSlide,
+	goToSlide,
+	nextSlide,
+	goBack
+} = useSlider(slides)
 </script>
 
 <style scoped>

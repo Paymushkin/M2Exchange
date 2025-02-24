@@ -1,11 +1,11 @@
 <template>
   <div class="flex flex-col gap-6 w-full">
     <!-- Вкладки тарифов -->
-    <div class="flex items-center mb-3">
+    <div class="flex items-center sm:mb-3">
       <button
         @click="activeTariffTab = 'connect'"
         :class="[
-          'h-[50px] xl:px-6 px-2 xl:py-2 py-1 transition-colors border-b-4 xl:text-base text-sm',
+          'sm:h-[50px] h-8 xl:px-6 px-2 xl:py-2 py-1 transition-colors sm:border-b-4 border-b-2 xl:text-base sm:text-sm text-xs',
           activeTariffTab === 'connect' ? 'border-dark text-[#000B45] font-semibold' : 'border-[#F4F5F9]'
         ]"
       >
@@ -14,7 +14,7 @@
       <button
         @click="activeTariffTab = 'active'"
         :class="[
-          'h-[50px] xl:px-6 px-2 xl:py-2 py-1 transition-colors border-b-4 xl:text-base text-sm',
+          'sm:h-[50px] h-8 xl:px-6 px-2 xl:py-2 py-1 transition-colors sm:border-b-4 border-b-2 xl:text-base sm:text-sm text-xs',
           activeTariffTab === 'active' ? 'border-dark text-[#000B45] font-semibold' : 'border-[#F4F5F9]'
         ]"
       >

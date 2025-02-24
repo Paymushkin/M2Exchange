@@ -11,7 +11,7 @@
 		/>
 
 		<div v-if="activeMainTab === 'actual'">
-			<ul class="grid xl:grid-cols-3 grid-cols-2 gap-4">
+			<ul class="flex flex-wrap gap-4">
 				<ObjectCard v-for="card in actualCards" :key="card.id" :card="card" :type="'account'" :status="'actual'" />
 			</ul>
 			<div v-if="!actualCards.length" class="flex flex-col items-center gap-4">
@@ -23,7 +23,7 @@
 		</div>
 
 		<div v-if="activeMainTab === 'history'">
-			<ul class="grid xl:grid-cols-3 grid-cols-2 gap-4">
+			<ul class="grid xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
 				<ObjectCard v-for="card in historyCards" :key="card.id" :card="card" :type="'account'" :status="'history'" />
 			</ul>
 			<div v-if="!historyCards.length" class="flex flex-col items-center gap-4">

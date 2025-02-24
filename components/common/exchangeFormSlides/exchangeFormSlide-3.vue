@@ -1,8 +1,14 @@
 <template>
 	<div class="flex flex-col items-center justify-center max-w-[970px] h-full">
-		<h2 class="slide-custom__title mb-6 text-center">Тип объекта</h2>
+		<h2 class="slide-custom__title mb-6 text-center">
+			<span v-if="role === 1">Тип объекта</span>
+			<span v-if="role === 2">Тип объекта</span>
+			<span v-if="role === 3">На какой недвижимости вы специализируете?</span>
+		</h2>
 		<p class="slide-custom__description xl:text-base text-sm mb-[40px] text-center">
-			Выберите одну или несколько категорий интересующей вас недвижимости
+			<span v-if="role === 1">Выберите одну или несколько категорий интересующей вас недвижимости</span>
+			<span v-if="role === 2">Выберите одну или несколько категорий интересующей вас недвижимости</span>
+			<span v-if="role === 3">Выберите одну или несколько категорий</span>
 		</p>
 
 		<div class="flex flex-wrap justify-center xl:gap-4 gap-2">
@@ -21,6 +27,13 @@
 <script setup>
 import { ref } from 'vue'
 import RadioButton from '@/components/ui/RadioButton.vue'
+
+const props = defineProps({
+	role: {
+		type: Number,
+		required: true
+	}
+})
 
 const selectedType = ref('all')
 

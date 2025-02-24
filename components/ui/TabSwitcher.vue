@@ -5,7 +5,7 @@
       :key="tab.value"
       @click="$emit('update:modelValue', tab.value)"
       :class="[
-        'h-[50px] px-6 py-2 rounded-full transition-colors text-sm',
+        'sm:h-[50px] h-8 px-6 py-2 rounded-full transition-colors sm:text-sm text-xs',
         modelValue === tab.value
           ? 'bg-dark text-white'
           : tab.bgClass || 'bg-transparent text-dark-primary'

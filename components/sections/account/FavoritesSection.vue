@@ -9,7 +9,7 @@
 					:item="item"
 					@update-title="(newTitle) => updateFavoriteTitle(item.id, newTitle)"
 				/>
-				<li class="relative flex flex-col items-start justify-between px-4 pt-7 pb-4 border border-[#E9E8E8] rounded-sm w-[190px] min-h-[190px] bg-white cursor-pointer hover:border-primary hover:shadow-md transition-all duration-300">
+				<li class="relative flex flex-col items-start justify-between px-4 pt-7 pb-4 border border-[#E9E8E8] rounded-sm sm:max-w-[190px] grow min-h-[190px] bg-white cursor-pointer hover:border-primary hover:shadow-md transition-all duration-300">
 					<h4 class="mb-2 max-w-[123px]">Новая подборка</h4>
 					<button class="w-10 h-10 bg-[#D7E5FF] rounded-full cursor-pointer flex items-center justify-center">
 						<PlusIcon class="w-6 h-6" />

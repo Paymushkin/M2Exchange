@@ -23,14 +23,14 @@
 		</div>
 
 		<div v-if="isEditMode" class="flex flex-col justify-stretch items-start w-full h-full p-3">
-			<h4 class="text-dark text-sm font-semibold text-left">Изменить</h4>
+			<h4 class="text-dark text-sm font-semibold text-left mb-2">Изменить</h4>
 			<input
 				v-model="editedTitle"
 				type="text"
-				class="w-full border border-[#EBEBEB] rounded-sm text-sm p-2"
+				class="w-full border border-[#EBEBEB] rounded-sm mb-1 text-sm p-2"
 				placeholder="Название"
 			/>
-			<button @click="deleteFavorite" class="text-accent text-xs text-left">Удалить подборку</button>
+			<button @click="deleteFavorite" class="text-accent text-xs text-left mb-auto">Удалить подборку</button>
 			<button
 				@click="saveChanges"
 				class="rounded-full cursor-pointer flex items-center justify-center bg-secondary text-white px-4 py-2 h-10 w-full text-sm"

@@ -8,8 +8,26 @@
 			:transition="false"
 			:overlay-transition="false"
 		>
-			<ExchangeFormSliderModal :fromModal="true" :closeModal="modalStore.closeExchangeFormSliderModal" />
+			<ExchangeFormSliderModal
+				:fromModal="true"
+				:closeModal="modalStore.closeExchangeFormSliderModal"
+				:role="role"
+			/>
 		</UModal>
+
+		<UModal
+			v-model="modalStore.isLanguageModalOpen"
+			:fullscreen="isFullscreen"
+			:transition="false"
+			:overlay-transition="false"
+			:ui="{
+				container: 'sm:w-[350px] w-full mx-auto',
+      }"
+		>
+			<LanguageSwitchModal @close="modalStore.closeLanguageModal" />
+		</UModal>
+
+		<AlertContainer />
 	</div>
 </template>
 
@@ -18,24 +36,14 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import TheHeader from '@/components/layout/TheHeader.vue'
 import { useModalStore } from '@/stores/modalStore'
 import ExchangeFormSliderModal from '~/components/common/modals/ExchangeFormSliderModal.vue'
+import LanguageSwitchModal from '@/components/common/modals/LanguageSwitchModal.vue'
 import AlertContainer from '@/components/common/AlertContainer.vue'
+import { useFullscreen } from '@/composables/useFullscreen'
+
+const { isFullscreen } = useFullscreen()
 
 const modalStore = useModalStore()
-const isFullscreen = ref(window.innerWidth < 1024)
 
-const updateFullscreen = () => {
-	isFullscreen.value = window.innerWidth < 1024
-}
-
-onMounted(() => {
-	window.addEventListener('resize', updateFullscreen)
-})
-
-onUnmounted(() => {
-	window.removeEventListener('resize', updateFullscreen)
-})
+const role = ref(1)
 </script>
 
-<style scoped>
-/* Ваши стили */
-</style>

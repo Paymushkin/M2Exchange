@@ -36,7 +36,10 @@
 				<div
 					class="flex flex-col-reverse lg:flex-row xl:items-center items-end ml-auto xl:gap-9 gap-2"
 				>
-					<div class="flex items-center xl:gap-2 gap-1">
+					<div
+						class="flex items-center xl:gap-2 gap-1 cursor-pointer hover:opacity-40 transition-opacity"
+						@click="modalStore.openLanguageModal"
+					>
 						<GlobeIconMini class="xl:h-auto h-4" />
 						<span class="ml-1">Русский</span>
 					</div>
@@ -56,4 +59,7 @@ import InstagramIcon from '@/components/icons/InstagramIcon.vue'
 import FacebookIcon from '@/components/icons/FacebookIcon.vue'
 import GlobeIconMini from '@/components/icons/GlobeIconMini.vue'
 import ChevronDownIcon from '@/components/icons/ChevronDownIcon.vue'
+
+import { useModalStore } from '@/stores/modalStore'
+const modalStore = useModalStore()
 </script>

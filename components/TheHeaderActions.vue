@@ -16,9 +16,9 @@
 				>
 					<SearchIcon />
 				</button>
-				<NuxtLink to="/" class="text-gray-600 hover:text-gray-900">
-					<GlobeIcon />
-				</NuxtLink>
+				<button class="text-gray-600 hover:text-gray-900">
+					<GlobeIcon @click="modalStore.openLanguageModal" />
+				</button>
 			</div>
 			<!-- Кнопка входа с меню и аватаром -->
 			<div class="relative">

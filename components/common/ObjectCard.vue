@@ -1,8 +1,9 @@
 <template>
 	<li
-		class="shadow-card relative bg-white xl:rounded-2xl rounded-lg xl:p-6 p-3 hover:scale-105 transition-all duration-300"
+		class="shadow-card relative bg-white xl:rounded-2xl rounded-lg xl:p-6 p-3 hover:scale-105 transition-all duration-300 grow"
 		:class="[
 			{ 'favorite-object': favoriteStore.isFavorite(card.id) },
+			{ 'account-card': type === 'account' },
 			isWide ? 'object-item-wide' : 'object-item'
 		]"
 	>
@@ -17,15 +18,15 @@
 			class="absolute flex justify-center gap-2 card-top-info"
 			v-if="type !== 'account'"
 			:class="{ 'is-favorite': favoriteStore.isFavorite(card.id) }"
-			@click="handleFavoriteClick"
 		>
 			<div
 				v-if="isWide"
 				class="flex items-center justify-center card-label bg-white color-dark rounded-xl px-2 text-xs font-bold"
 				>{{ card.type }}
 			</div>
-			<div class="icon-heart rounded-full cursor-pointer flex items-center justify-center"
-				@click="handleFavoriteClick"
+			<div
+				class="icon-heart rounded-full cursor-pointer flex items-center justify-center"
+				@click.stop="handleFavoriteClick"
 			>
 				<HeartIcon :class="{ 'fill-[#FF7E56] stroke-[#FF7E56]': favoriteStore.isFavorite(card.id) }"/>
 			</div>
@@ -98,7 +99,9 @@ const props = defineProps({
 
 const favoriteStore = useFavoriteStore()
 
-const handleFavoriteClick = () => {
+const handleFavoriteClick = (event) => {
+	event.preventDefault()
+	event.stopPropagation()
 	favoriteStore.toggleFavorite(props.card.id)
 }
 </script>
@@ -111,7 +114,6 @@ const handleFavoriteClick = () => {
 .object-item {
 	flex: 0 0 auto;
 	max-width: 340px;
-
 	@media (max-width: 1280px) {
 		max-width: 280px;
 	}
@@ -123,6 +125,7 @@ const handleFavoriteClick = () => {
 	@media (max-width: 640px) {
 		max-width: 200px;
 	}
+
 }
 
 .object-item-wide {
@@ -151,6 +154,20 @@ const handleFavoriteClick = () => {
 	@media (max-width: 1280px) {
 		left: 30px;
 		top: 30px;
+	}
+}
+
+.account-card {
+	@media (max-width: 640px) {
+		max-width: 100%;
+		flex-grow: 1;
+	}
+}
+
+.account-card img {
+	@media (max-width: 640px) {
+		max-height: 200px;
+		object-fit: cover;
 	}
 }
 
